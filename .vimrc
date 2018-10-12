@@ -17,6 +17,8 @@ set noeb                    " 去掉输入错误的提示声音
 set confirm                 " 在处理未保存或只读文件的时候，弹出确认
 " set cmdheight=2             " 设置命令行高度
 set clipboard+=unnamed      " 共享剪贴板
+set modifiable
+
 set nocompatible            " 设置不使用 vi 键盘模式
 
 " 设置分屏间隔符
@@ -38,6 +40,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+" Plugin 'fholgado/minibufexpl.vim'
 
 Bundle 'scrooloose/nerdcommenter'
 
@@ -50,14 +53,19 @@ filetype plugin indent on
 
 " NERDTree
 map <F1> :NERDTreeToggle<CR>
-let g:NERDTreeSize = 30                  " 窗口大小
+let g:NERDTreeSize = 50                  " 窗口大小
 let g:NERDTreeHidden = 0                 " 不显示隐藏文件
+" let g:NERDTreeMinimalUI = 1              " 不现实提示
 let g:NERDTreeWinPos = 'left'            " 窗口位置
-let g:NERDTreeShowLineNumbers = 1        " 窗口是否显示行号
-let g:NERDTreeDirArrowExpandable = '+'   " 收起图表
-let g:NERDTreeDirArrowCollapsible = '-'  " 展开图表
+let g:NERDTreeShowLineNumbers = 1        " 窗口显示行号
+let g:NERDTreeAutoCenter = 1             " 窗口内容随鼠标居中
+let g:NERDTreeAutoCenterThreshold = 30   " 窗口内容居中的阈值
+let g:NERDTreeDirArrowExpandable = '+'   " 收起图标
+let g:NERDTreeDirArrowCollapsible = '-'  " 展开图标
 let g:NERDTreeHighlightCursorline  = 1   " 高亮当前行
-let g:NERDTreeIgnore=['\.pyc', '\.swp']  " 忽略指定格式的文件
+let g:NERDTreeIgnore = ['\.pyc', '\.swp'] " 忽略指定格式的文件
+" 自动启动 NERDTree
+autocmd vimenter * NERDTree
 " 只剩 NERDTree 窗口时直接退出
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -92,3 +100,8 @@ let g:NERDTrimTrailingWhitespace = 1
 " 快速注释
 nmap // <leader>c<Space>
 imap // <Esc><leader>c<Space>i
+
+" miniBufexplorer
+" let g:miniBufExplShowBufNumbers = 1
+" let g:miniBufExplSplitToEdge = 1
+" let g:miniBufExplBuffersNeeded = 1

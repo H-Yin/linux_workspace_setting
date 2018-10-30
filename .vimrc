@@ -43,7 +43,9 @@ map <Tab> <C-w>w
 
 "----------------------------------------------------------------------------------------------------------
 "                                                        user-defined function
+" add comment
 autocmd BufNewFile *.h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_comment()"
+autocmd BufWrite,FileWritePre *h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_update()"
 map <F4> :call F_auto_comment()<CR>
 
 let s:userAuthor = 'H.Yin'
@@ -55,8 +57,9 @@ func F_auto_comment_h()
     call append(2, "*  Author      : ". s:userAuthor)
     call append(3, "*  Email       : ". s:userEmail)
     call append(4, "*  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
-    call append(5, "*  Description : ")
-    call append(6, "*******************************************************************/")
+    call append(5, "*  Modified    : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
+    call append(6, "*  Description : ")
+    call append(7, "*******************************************************************/")
     call append(line("$"), "")
     call append(line("$"), "")
     call append(line("$"), "#pragma once")
@@ -64,7 +67,7 @@ func F_auto_comment_h()
     call append(line("$"), "#define ".toupper(expand("%:t:r"))."_H__")
     call append(line("$"), "")
     call append(line("$"), "#ifdef __cplusplus")
-    call append(line("$"), "extern \"C\" {")  
+    call append(line("$"), "extern \"C\" {")
     call append(line("$"), "#endif")
     call append(line("$"), "")
     call append(line("$"), "")
@@ -83,8 +86,9 @@ func F_auto_comment_cpp()
     call append(2, "*  Author      : ". s:userAuthor)
     call append(3, "*  Email       : ". s:userEmail)
     call append(4, "*  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
-    call append(5, "*  Description : ")
-    call append(6, "*******************************************************************/")
+    call append(5, "*  Modified    : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
+    call append(6, "*  Description : ")
+    call append(7, "*******************************************************************/")
     call append(line("$"), "")
     call append(line("$"), "")
 endfunc
@@ -97,10 +101,11 @@ func F_auto_comment_sh()
     call append(4, "#  Author      : ". s:userAuthor)
     call append(5, "#  Email       : ". s:userEmail)
     call append(6, "#  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
-    call append(7, "#  Description : ")
-    call append(8, "#################################################################")
-    call append(9, "")
+    call append(7, "#  Modified    : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
+    call append(8, "#  Description : ")
+    call append(9, "#################################################################")
     call append(10, "")
+    call append(11, "")
 endfunc
 
 func F_auto_comment_python()
@@ -112,14 +117,15 @@ func F_auto_comment_python()
     call append(5, "#  Author      : ". s:userAuthor)
     call append(6, "#  Email       : ". s:userEmail)
     call append(7, "#  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
-    call append(8, "#  Description : ")
-    call append(9, "#################################################################")
-    call append(10, "")
+    call append(8, "#  Modified    : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
+    call append(9, "#  Description : ")
+    call append(10, "#################################################################")
     call append(11, "")
+    call append(12, "")
 endfunc
 
 func F_auto_comment()
-    echo &filetype
+    " echo &filetype
     if &filetype == 'sh'
         call F_auto_comment_sh()
     elseif &filetype == 'python'
@@ -130,6 +136,22 @@ func F_auto_comment()
         if expand("%:e") == 'h'
             call F_auto_comment_h()
         endif
+    endif
+endfunc
+
+fun F_auto_update()
+    let a:lnum = search("^[*#]  Modified")
+    let a:line = "  Modified    : "
+    if a:lnum > 0
+        if &filetype == 'sh' || &filetype == 'python'
+            let a:line = '#'. a:line
+        elseif &filetype == 'cpp' || &filetype == 'c'
+            let a:line = '*'. a:line
+        else
+            let a:line = ''
+        endif
+        let a:line .= strftime("%Y-%m-%d %H:%M:%S(%z)")
+        call setline(a:lnum, a:line)
     endif
 endfunc
 

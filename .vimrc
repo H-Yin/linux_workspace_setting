@@ -1,3 +1,9 @@
+" Author: H.Yin
+" Date  : 2018-10-30 10:40:00
+" Email : csustyinhao@gmail.com
+
+"----------------------------------------------------------------------------------------------------------
+"                                                   basic settings
 set enc=utf-8               " 设置编码格式
 set syntax=on               " 开启语法
 set number                  " 设置行号
@@ -18,8 +24,12 @@ set confirm                 " 在处理未保存或只读文件的时候，弹�
 " set cmdheight=2             " 设置命令行高度
 set clipboard+=unnamed      " 共享剪贴板
 set modifiable
-
+set ignorecase              " 搜索忽略大小写
 set nocompatible            " 设置不使用 vi 键盘模式
+" set mouse=a                 " 设置鼠标点击可移动光标
+" 显示特殊字符
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set list
 
 " 设置分屏间隔符
 set fillchars=vert:\ ,stlnc:\ 
@@ -31,6 +41,100 @@ map <Tab> <C-w>w
 " vmap <C-s> <C-C>:update<CR>
 " imap <C-s> <Esc>:update<CR>i
 
+"----------------------------------------------------------------------------------------------------------
+"                                                        user-defined function
+autocmd BufNewFile *.h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_comment()"
+map <F4> :call F_auto_comment()<CR>
+
+let s:userAuthor = 'H.Yin'
+let s:userEmail  = 'csustyinhao@gmail.com'
+
+func F_auto_comment_h()
+    call append(0, "/*******************************************************************")
+    call append(1, "*  File        : ". expand("%:t"))
+    call append(2, "*  Author      : ". s:userAuthor)
+    call append(3, "*  Email       : ". s:userEmail)
+    call append(4, "*  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
+    call append(5, "*  Description : ")
+    call append(6, "*******************************************************************/")
+    call append(line("$"), "")
+    call append(line("$"), "")
+    call append(line("$"), "#pragma once")
+    call append(line("$"), "#ifndef __".toupper(expand("%:t:r"))."_H__")
+    call append(line("$"), "#define ".toupper(expand("%:t:r"))."_H__")
+    call append(line("$"), "")
+    call append(line("$"), "#ifdef __cplusplus")
+    call append(line("$"), "extern \"C\" {")  
+    call append(line("$"), "#endif")
+    call append(line("$"), "")
+    call append(line("$"), "")
+    call append(line("$"), "")
+    call append(line("$"), "#ifdef __cplusplus")
+    call append(line("$"), "}")
+    call append(line("$"), "#endif")
+    call append(line("$"), "#endif //".expand("%:t:r").".h")
+    call append(line("$"), "")
+    call append(line("$"), "")
+endfunc
+
+func F_auto_comment_cpp()
+    call append(0, "/*******************************************************************")
+    call append(1, "*  File        : ". expand("%:t"))
+    call append(2, "*  Author      : ". s:userAuthor)
+    call append(3, "*  Email       : ". s:userEmail)
+    call append(4, "*  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
+    call append(5, "*  Description : ")
+    call append(6, "*******************************************************************/")
+    call append(line("$"), "")
+    call append(line("$"), "")
+endfunc
+
+func F_auto_comment_sh()
+    call setline(1, "#!/bin/bash")
+    call setline(2, "")
+    call append(2, "##################################################################")
+    call append(3, "#  File        : ". expand("%:t"))
+    call append(4, "#  Author      : ". s:userAuthor)
+    call append(5, "#  Email       : ". s:userEmail)
+    call append(6, "#  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
+    call append(7, "#  Description : ")
+    call append(8, "#################################################################")
+    call append(9, "")
+    call append(10, "")
+endfunc
+
+func F_auto_comment_python()
+    call setline(1, "#!/usr/bin/python")
+    call setline(2, "#-*- coding=utf-8 -*-")
+    call setline(3, "")
+    call append(3, "##################################################################")
+    call append(4, "#  File        : ". expand("%:t"))
+    call append(5, "#  Author      : ". s:userAuthor)
+    call append(6, "#  Email       : ". s:userEmail)
+    call append(7, "#  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
+    call append(8, "#  Description : ")
+    call append(9, "#################################################################")
+    call append(10, "")
+    call append(11, "")
+endfunc
+
+func F_auto_comment()
+    echo &filetype
+    if &filetype == 'sh'
+        call F_auto_comment_sh()
+    elseif &filetype == 'python'
+        call F_auto_comment_python()
+    elseif &filetype == 'cpp' || &filetype =='c'
+        call F_auto_comment_cpp()
+    else
+        if expand("%:e") == 'h'
+            call F_auto_comment_h()
+        endif
+    endif
+endfunc
+
+"----------------------------------------------------------------------------------------------------------
+"                                                         plug-ins management
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -53,7 +157,7 @@ filetype plugin indent on
 
 " NERDTree
 map <F1> :NERDTreeToggle<CR>
-let g:NERDTreeSize = 50                  " 窗口大小
+let g:NERDTreeWinSize = 50               " 窗口大小
 let g:NERDTreeHidden = 0                 " 不显示隐藏文件
 " let g:NERDTreeMinimalUI = 1              " 不现实提示
 let g:NERDTreeWinPos = 'left'            " 窗口位置

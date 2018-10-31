@@ -95,8 +95,15 @@ func F_auto_comment_cpp()
     call append(line("$"), "")
 endfunc
 
+fun F_get_shabang(interpreter)
+    let a:cmd = ':0r !which '. a:interpreter
+    exec a:cmd
+    let a:line = '#!'. getline(1)
+    call setline(1, a:line)
+endfunc
+
 func F_auto_comment_sh()
-    call setline(1, "#!/usr/bin/bash")
+    call F_get_shabang('bash')
     call setline(2, "")
     call append(2, "##################################################################")
     call append(3, "#  File        : ". expand("%:t"))
@@ -112,7 +119,7 @@ func F_auto_comment_sh()
 endfunc
 
 func F_auto_comment_python()
-    call setline(1, "#!/usr/bin/python")
+    call F_get_shabang('python')
     call setline(2, "#-*- coding=utf-8 -*-")
     call setline(3, "")
     call append(3, "##################################################################")

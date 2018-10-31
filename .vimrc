@@ -1,6 +1,6 @@
 " Author: H.Yin
-" Date  : 2018-10-30 10:40:00
 " Email : csustyinhao@gmail.com
+" GitHub: https://github.com/H-Yin/linux_workspace_setting
 
 "----------------------------------------------------------------------------------------------------------
 "                                                   basic settings
@@ -58,8 +58,9 @@ func F_auto_comment_h()
     call append(3, "*  Email       : ". s:userEmail)
     call append(4, "*  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
     call append(5, "*  Modified    : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
-    call append(6, "*  Description : ")
-    call append(7, "*******************************************************************/")
+    call append(6, "*  GitHub      : https://github.com/H-Yin/")
+    call append(7, "*  Description : ")
+    call append(8, "*******************************************************************/")
     call append(line("$"), "")
     call append(line("$"), "")
     call append(line("$"), "#pragma once")
@@ -87,14 +88,15 @@ func F_auto_comment_cpp()
     call append(3, "*  Email       : ". s:userEmail)
     call append(4, "*  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
     call append(5, "*  Modified    : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
-    call append(6, "*  Description : ")
-    call append(7, "*******************************************************************/")
+    call append(6, "*  GitHub      : https://github.com/H-Yin/")
+    call append(7, "*  Description : ")
+    call append(8, "*******************************************************************/")
     call append(line("$"), "")
     call append(line("$"), "")
 endfunc
 
 func F_auto_comment_sh()
-    call setline(1, "#!/bin/bash")
+    call setline(1, "#!/usr/bin/bash")
     call setline(2, "")
     call append(2, "##################################################################")
     call append(3, "#  File        : ". expand("%:t"))
@@ -102,10 +104,11 @@ func F_auto_comment_sh()
     call append(5, "#  Email       : ". s:userEmail)
     call append(6, "#  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
     call append(7, "#  Modified    : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
-    call append(8, "#  Description : ")
-    call append(9, "#################################################################")
-    call append(10, "")
+    call append(8, "#  GitHub      : https://github.com/H-Yin/")
+    call append(9, "#  Description : ")
+    call append(10, "#################################################################")
     call append(11, "")
+    call append(12, "")
 endfunc
 
 func F_auto_comment_python()
@@ -118,10 +121,11 @@ func F_auto_comment_python()
     call append(6, "#  Email       : ". s:userEmail)
     call append(7, "#  Created     : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
     call append(8, "#  Modified    : ". strftime("%Y-%m-%d %H:%M:%S(%z)"))
-    call append(9, "#  Description : ")
-    call append(10, "#################################################################")
-    call append(11, "")
+    call append(9, "#  GitHub      : https://github.com/H-Yin/")
+    call append(10, "#  Description : ")
+    call append(11, "#################################################################")
     call append(12, "")
+    call append(13, "")
 endfunc
 
 func F_auto_comment()

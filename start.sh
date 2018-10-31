@@ -1,13 +1,15 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 ##################################################################
 #  File        : start.sh
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
-#  Created     : 2018-10-31 07:23:56(+0000)
-#  Modified    : 2018-10-31 08:10:11(+0000)
-#  Description : start a new workspace
+#  Created     : 2018-10-31 09:47:31(+0000)
+#  Modified    : 2018-10-31 09:48:12(+0000)
+#  GitHub      : https://github.com/H-Yin/linux_workspace_setting
+#  Description : 
 #################################################################
+
 
 # set -eu
 while :

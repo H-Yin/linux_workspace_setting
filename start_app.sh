@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 10:28:11(+0000)
-#  Modified    : 2018-11-02 10:35:40(+0000)
+#  Modified    : 2018-11-02 11:12:51(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install some useful app
 #################################################################
@@ -26,7 +26,7 @@ else
     fi
 fi
 # install dependences
-APPS="vim git ctags tree lrzsz"
+APPS="vim git ctags tree lrzsz wget"
 for app in $APPS; do
     $app --version >/dev/null 2>&1
     if [[ $? -ne 0 ]]; then

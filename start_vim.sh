@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 09:02:08(+0000)
-#  Modified    : 2018-11-02 09:04:04(+0000)
+#  Modified    : 2018-11-02 10:35:42(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and config VIM
 #################################################################

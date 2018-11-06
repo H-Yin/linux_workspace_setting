@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 10:28:11(+0000)
-#  Modified    : 2018-11-04 08:57:37(+0000)
+#  Modified    : 2018-11-06 11:09:12(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install some useful app
 #################################################################
@@ -25,8 +25,11 @@ else
         exit 127
     fi
 fi
-# install dependences
-APPS="vim git ctags tree lrzsz wget bzip2"
+# install dependences by checking version
+APPS="vim git ctags tree lrzsz wget"
+NET_APPS='nload '
+APPS+=NET_APPS
+
 for app in $APPS; do
     $app --version >/dev/null 2>&1
     if [[ $? -ne 0 ]]; then
@@ -38,3 +41,6 @@ for app in $APPS; do
     echo "Check $app : yes"
 done
 
+#---------------------------------------------------------------
+# 'bzip2 --verison >/dev/null 2>&1' command won't exit
+# 

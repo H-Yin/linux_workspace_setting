@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-04 10:16:21(+0000)
-#  Modified    : 2018-11-06 23:31:39(+0800)
+#  Modified    : 2018-11-07 00:02:06(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install Anaconda and Jupyter
 #################################################################
@@ -49,10 +49,16 @@ conda --version >/dev/null 2>&1
 exitcode=$?
 if [[ $exitcode -ne 0 ]];then
     echo "ERROR : Anaconda3 can't run properly."
+    exit $exitcode
 else
     echo "Install Anaconda3 successfully. "
 fi
 
 echo "Step-5: Config and run jupyter ..."
-cp -rf .jupyter ~/
-nohup jupyter notebook >~/jupyter.log 2>&1 &
+jupyter notebook --generated-config
+cp -rf .jupyter/* ~/.jupyter
+
+echo "change password."
+jupyter notebook password
+
+echo "nohup jupyter notebook >~/jupyter.log 2>&1 &"

@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-04 10:16:21(+0000)
-#  Modified    : 2018-11-06 15:00:15(+0000)
+#  Modified    : 2018-11-06 23:31:39(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install Anaconda and Jupyter
 #################################################################
@@ -23,7 +23,7 @@ if [[ $exitcode -ne 0 ]]; then
     exit $exitcode
 fi
 
-echo "Step-2:  Verify the data integrity of the Anaconda installer ..."
+echo "Step-2: Verify the data integrity of the Anaconda installer ..."
 LOCAL_SUM=`md5sum $ANACONDA_FILE | awk '{print $1}'`
 if [[ "$ANACONDA_SUM" != "$LOCAL_SUM" ]]; then
     echo "ERROR : Anaconda installer file was broken."
@@ -31,7 +31,8 @@ if [[ "$ANACONDA_SUM" != "$LOCAL_SUM" ]]; then
 fi
 
 echo "Step-3: Install Anaconda ..."
-bash ~/$ANACONDA_FILE -b -p -f $HOME/anaconda3
+rm -rf $HOME/anaconda3
+bash ~/$ANACONDA_FILE -b -p $HOME/anaconda3 -f
 exitcode=$?
 if [[ $exitcode -ne  0 ]]; then
     echo "ERROR : install anaconda dailed."
@@ -39,8 +40,8 @@ if [[ $exitcode -ne  0 ]]; then
 fi
 
 echo "Step-4: Add Anaconda to PATH ..."
-cat >> $HOME/.bashrc <<EOF
-export PATH="$HOME/miniconda/bin:$PATH"
+cat >> $HOME/.bashrc <<"EOF"
+export PATH="$HOME/anaconda3/bin:$PATH"
 EOF
 source $HOME/.bashrc
 
@@ -53,6 +54,5 @@ else
 fi
 
 echo "Step-5: Config and run jupyter ..."
-
-# cp -rf .jupyter ~/
-# nohup jupyter notebook >~/jupyter.log 2>&1 &
+cp -rf .jupyter ~/
+nohup jupyter notebook >~/jupyter.log 2>&1 &

@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-04 10:16:21(+0000)
-#  Modified    : 2018-11-06 15:00:15(+0000)
+#  Modified    : 2018-11-06 15:14:53(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install Anaconda and Jupyter
 #################################################################
@@ -31,6 +31,7 @@ if [[ "$ANACONDA_SUM" != "$LOCAL_SUM" ]]; then
 fi
 
 echo "Step-3: Install Anaconda ..."
+rm -rf $HOME/anaconda3
 bash ~/$ANACONDA_FILE -b -p -f $HOME/anaconda3
 exitcode=$?
 if [[ $exitcode -ne  0 ]]; then

@@ -5,12 +5,13 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-04 10:16:21(+0000)
-#  Modified    : 2018-11-07 00:02:06(+0800)
+#  Modified    : 2018-11-07 14:25:29(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install Anaconda and Jupyter
 #################################################################
 
 
+BASEPATH=$(cd `dirname $0`; pwd)
 ANACONDA_URL='https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh'
 ANACONDA_FILE=`echo $ANACONDA_URL | awk -F/ '{print $NF}'`
 ANACONDA_SUM='4321e9389b648b5a02824d4473cfdb5f'
@@ -55,10 +56,9 @@ else
 fi
 
 echo "Step-5: Config and run jupyter ..."
-jupyter notebook --generated-config
-cp -rf .jupyter/* ~/.jupyter
-
-echo "change password."
+jupyter notebook --generate-config
+cp -rf $BASEPATH/.jupyter/* $HOME/.jupyter
+# TODO auto-do
 jupyter notebook password
 
 echo "nohup jupyter notebook >~/jupyter.log 2>&1 &"

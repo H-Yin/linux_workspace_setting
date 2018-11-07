@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2018-11-03 18:24:23(+0800)
+#  Modified    : 2018-11-07 10:22:45(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
@@ -37,7 +37,6 @@ if [[ -f /etc/bash_completion.d/git ]]; then
 cat >> ~/.bashrc <<"EOF"
 if [[ -f /etc/bash_completion.d/git ]]; then
     source /etc/bash_completion.d/git
-    echo $?
 fi
 EOF
 #TODO: source dosen't work

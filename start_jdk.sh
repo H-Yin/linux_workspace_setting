@@ -5,15 +5,16 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:50:25(+0000)
-#  Modified    : 2018-11-02 19:32:59(+0000)
+#  Modified    : 2018-11-10 18:13:05(+0000)
 #  GitHub      : https://github.com/H-Yin/
 #  Description : install jdk and config JAVA environment variable
 #################################################################
 
-URL='http://download.oracle.com/otn-pub/java/jdk/8u192-b12/750e1c8617c5452694857ad95c3ee230/jdk-8u192-linux-x64.rpm'
-RPM_FILE=`echo $URL | awk -F/ '{print $NF}'`
-JDK_PATH=`echo $RPM_FILE | awk -F. '{print $1}'`
-MD5='b7811c8f43b2d1e392e113136f22953f'
+BASEDIR=$(cd `dirname $0`; pwd)
+. $BASEDIR/config/config.sh
+
+RPM_FILE=$(echo $URL | awk -F/ '{print $NF}')
+JDK_PATH=$(echo $RPM_FILE | awk -F. '{print $1}')
 
 PROFILE="/etc/profile"
 EXPORT_STR=$(cat <<EOF

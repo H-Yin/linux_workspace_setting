@@ -5,23 +5,16 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 10:28:11(+0000)
-#  Modified    : 2018-11-10 17:25:50(+0000)
+#  Modified    : 2018-11-10 18:27:34(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install some useful app
 #################################################################
 
 
-BASEDIR=`dirname $0`
+BASEDIR=$(cd `dirname $0`; pwd)
 . $BASEDIR/utils/detect_system.sh
 . $BASEDIR/config/config.sh
 
-
-# install dependences by checking version
-APPS="vim git ctags tree lrzsz wget "
-NET_APPS='nload '
-FILE_APPS='zip unzip rar unrar bzip2 '
-APPS+=$NET_APPS
-APPS+=$FILE_APPS
 
 BIT=$(get_arch)
 PM=$(get_pm)
@@ -32,6 +25,9 @@ function check()
     case $1 in
         lrzsz) 
             flag=`(sz --version && rz --version) > /dev/null 2>&1; echo $?`
+            ;;
+        graphviz)
+            flag=`graphml2gv -? > /dev/null 2>&1; echo $?`
             ;;
         *)
             # '$bzip2 / nload --verison' command won't exit.

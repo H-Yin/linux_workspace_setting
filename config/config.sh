@@ -5,12 +5,27 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-10 13:54:15(+0000)
-#  Modified    : 2018-11-10 15:08:45(+0000)
+#  Modified    : 2018-11-10 18:24:27(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : configuration of all script
 #################################################################
 
 
+APPS="vim git ctags tree lrzsz wget "
+NET_APPS='nload '
+FILE_APPS='zip unzip rar unrar bzip2 '
+MISC_APPS=' graphviz '
+
+APPS+=$NET_APPS
+APPS+=$FILE_APPS
+APPS+=$MISC_APPS
+
 # app 
 RAR_URL='https://www.rarlab.com/rar/rarlinux-5.6.1.tar.gz'
 RAR_X64_URL='https://www.rarlab.com/rar/rarlinux-x64-5.6.1.tar.gz'
+# Java
+JAVA_URL='http://download.oracle.com/otn-pub/java/jdk/8u192-b12/750e1c8617c5452694857ad95c3ee230/jdk-8u192-linux-x64.rpm'
+JAVA_MD5='b7811c8f43b2d1e392e113136f22953f'
+# Anaconda3
+ANACONDA_URL='https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh'
+ANACONDA_MD5='4321e9389b648b5a02824d4473cfdb5f'

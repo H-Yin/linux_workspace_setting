@@ -5,12 +5,12 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2018-11-10 17:34:26(+0000)
+#  Modified    : 2018-11-10 18:12:49(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
 
-BASEDIR=$(dirname $0)
+BASEDIR=$(cd `dirname $0`; pwd)
 . $BASEDIR/utils/detect_system.sh
 
 

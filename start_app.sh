@@ -1,11 +1,11 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 ##################################################################
 #  File        : start_app.sh
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 10:28:11(+0000)
-#  Modified    : 2018-11-10 15:08:46(+0000)
+#  Modified    : 2018-11-10 15:40:55(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install some useful app
 #################################################################
@@ -19,21 +19,27 @@ BASEDIR=`dirname $0`
 # install dependences by checking version
 APPS="vim git ctags tree lrzsz wget "
 NET_APPS='nload '
-FILE_APPS='zip unzip rar bzip2 '
-APPS+=NET_APPS
+FILE_APPS='zip unzip rar unrar bzip2 '
+APPS+=$NET_APPS
+APPS+=$FILE_APPS
 
+BIT=`get_arch`
+PM=`get_pm`
 
 function check()
 {
     local flag=''
     case $1 in
-        lrzsz) flag=`(sz --version && rz --version) > /dev/null 2>&1; echo $?` ;;
-        # 'bzip2 --verison >/dev/null 2>&1' command won't exit
-        bzip2) flag=`bzip2 --help > /dev/null 2>&1; echo $?` ;;
-        *)     flag=`($1 --version || $1 --help || $1) >/dev/null 2>&1; echo $?`;;
+        lrzsz) 
+            flag=`(sz --version && rz --version) > /dev/null 2>&1; echo $?`
+            ;;
+        *)
+            # '$bzip2 / nload --verison' command won't exit.
+            flag=`($1 --help || timeout 2 $1 --version || timeout 2 $1) >/dev/null 2>&1; echo $?`
+            ;;
     esac
     echo $flag
-    return $flag
+    return `[[ -n $flag ]]; echo $?`
 }
 
 function install_rar()
@@ -47,13 +53,13 @@ function install_rar()
     tar -zxvf $output >/dev/null 2>&1 && cd rar
     sudo make
     cd ..
-    rm -rf rar
+    rm -rf rar $output
 }
 
 for app in $APPS; do
     if [[ `check $app` -ne 0 ]]; then
         echo "Install $app ..."
-        sudo $RMP install -y $app >/dev/null 2>&1
+        sudo $PM install -y $app #>/dev/null 2>&1
         # install by UDF
         if [[ $? -ne 0 ]]; then
             func=intsall_$app
@@ -67,6 +73,7 @@ for app in $APPS; do
         else
             echo "Install $app failed."
         fi
+    else
+        echo "$app has been installed."
     fi
 done
-

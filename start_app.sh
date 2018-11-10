@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 10:28:11(+0000)
-#  Modified    : 2018-11-10 15:40:55(+0000)
+#  Modified    : 2018-11-10 17:25:50(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install some useful app
 #################################################################
@@ -23,8 +23,8 @@ FILE_APPS='zip unzip rar unrar bzip2 '
 APPS+=$NET_APPS
 APPS+=$FILE_APPS
 
-BIT=`get_arch`
-PM=`get_pm`
+BIT=$(get_arch)
+PM=$(get_pm)
 
 function check()
 {
@@ -39,13 +39,13 @@ function check()
             ;;
     esac
     echo $flag
-    return `[[ -n $flag ]]; echo $?`
+    return $([[ -n $flag ]]; echo $?)
 }
 
 function install_rar()
 {
     local output='rarlinux.tar.gz'
-    if [[ $BIT == '64' ]]; then
+    if [[ "$BIT" == "64" ]]; then
         wget $RAR_X64_URL -O $output
     else
         wget $RAR_URL -O $output
@@ -57,23 +57,26 @@ function install_rar()
 }
 
 for app in $APPS; do
-    if [[ `check $app` -ne 0 ]]; then
-        echo "Install $app ..."
-        sudo $PM install -y $app #>/dev/null 2>&1
+    if [[ $(check $app) -ne 0 ]]; then
+        echo -e "\tInstall \033[1m$app\033[0m ..."
+        sudo $PM install -y $app >/dev/null 2>&1
         # install by UDF
         if [[ $? -ne 0 ]]; then
-            func=intsall_$app
-            if [[ $(type -t $func) == 'function' ]];then
+            echo -e "\tError : No package \033[1m$app\033[0m available."
+            func=install_$app
+            if [[ $(type -t $func) == "function" ]];then
                 $func
+            else
+                echo -e "\tError : No UDF available for \033[1m$app\033[0m"
             fi
         fi
         # check again
-        if [[ `check $app` -eq 0 ]]; then
-            echo "Install $app successfully."
+        if [[ $(check $app) -eq 0 ]]; then
+            echo -e "\tInstall \033[1m$app\033[0m successfully."
         else
-            echo "Install $app failed."
+            echo -e "\tInstall \033[1m$app\033[0m failed."
         fi
     else
-        echo "$app has been installed."
+        echo -e "\033[1m$app\033[0m has been installed."
     fi
 done

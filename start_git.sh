@@ -5,31 +5,24 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2018-11-07 10:22:45(+0800)
+#  Modified    : 2018-11-10 17:34:26(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
 
-# get RMP cmd
-RMP=''
-yum --version >/dev/null 2>&1
-if [[ $? -eq 0 ]]; then 
-    RMP='yum'
-else
-    apt --version >/dev/null 2>&1
-    if [[ $? -eq 0 ]]; then
-        RMP='apt'
-    else
-        echo 'ERROR: No available package management software.'
-        exit 127
-    fi
-fi
-# install dependences
+BASEDIR=$(dirname $0)
+. $BASEDIR/utils/detect_system.sh
+
+
+PM=$(get_pm)
 echo "Step-1 : Check and install git ..."
 git --version >/dev/null 2>&1
 if [[ $? -ne 0 ]]; then
-    sudo $RMP install -y git >/dev/null 2>&1
+    sudo $PM install -y git >/dev/null 2>&1
     if [[ $? -ne 0 ]]; then echo "ERROR : Unable to install Git."; exit 127; fi
+else
+    echo -e "\033[1mGit\033[0m has been installed."
+    exit 0
 fi
 
 if [[ -f /etc/bash_completion.d/git ]]; then

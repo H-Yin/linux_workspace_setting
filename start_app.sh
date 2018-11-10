@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 10:28:11(+0000)
-#  Modified    : 2018-11-10 18:27:34(+0000)
+#  Modified    : 2018-11-10 22:13:41(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install some useful app
 #################################################################
@@ -29,6 +29,9 @@ function check()
         graphviz)
             flag=`graphml2gv -? > /dev/null 2>&1; echo $?`
             ;;
+        gcc-c++)
+            flag=`g++ --help >/dev/null 2>&1; echo $?`
+            ;;
         *)
             # '$bzip2 / nload --verison' command won't exit.
             flag=`($1 --help || timeout 2 $1 --version || timeout 2 $1) >/dev/null 2>&1; echo $?`
@@ -51,6 +54,18 @@ function install_rar()
     cd ..
     rm -rf rar $output
 }
+
+# p7Zip
+function install_7za()
+{
+    local output='p7Zip.tar.bz2'
+    wget $P7ZIP_URL -O $output
+    tar -jxf $output >/dev/null 2>&1 && cd p7Zip
+    sudo make && sudo make install
+    cd ..
+    rm -rf p7zip $output
+}
+
 
 for app in $APPS; do
     if [[ $(check $app) -ne 0 ]]; then

@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2018-11-11 10:02:05(+0000)
+#  Modified    : 2018-11-11 10:04:14(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
@@ -58,8 +58,6 @@ function dezip()
 
 function dogit()
 {
-    set -x
-    # check status
     git status
     if [[ $? -ne 0 ]]; then
         return 1
@@ -74,6 +72,5 @@ function dogit()
     else
         echo "nothing to commit, working directory clean"
     fi
-    set +x
 }
     

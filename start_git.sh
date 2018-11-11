@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2018-11-10 18:12:49(+0000)
+#  Modified    : 2018-11-11 15:52:55(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
@@ -27,13 +27,13 @@ fi
 
 if [[ -f /etc/bash_completion.d/git ]]; then
     echo "Add git-completion ..."
-cat >> ~/.bashrc <<"EOF"
+cat >> $HOME/.bashrc <<"EOF"
 if [[ -f /etc/bash_completion.d/git ]]; then
     source /etc/bash_completion.d/git
 fi
 EOF
 #TODO: source dosen't work
-    source ~/.bashrc
+    source $HOME/.bashrc
 fi
 
 echo "Step-2 : Config git options..."

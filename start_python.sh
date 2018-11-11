@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-04 10:16:21(+0000)
-#  Modified    : 2018-11-10 18:17:22(+0000)
+#  Modified    : 2018-11-11 08:20:40(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install Anaconda and Jupyter
 #################################################################
@@ -17,7 +17,7 @@ BASEDIR=$(cd `dirname $0`; pwd)
 ANACONDA_FILE=`echo $ANACONDA_URL | awk -F/ '{print $NF}'`
 
 echo "Step-1: Download Anaconda installer ..."
-wget --progress=bar $ANACONDA_URL
+wget -nc $ANACONDA_URL
 exitcode=$?
 if [[ $exitcode -ne 0 ]]; then
     echo "ERROR : download Anaconda installer failed."
@@ -33,7 +33,7 @@ fi
 
 echo "Step-3: Install Anaconda ..."
 rm -rf $HOME/anaconda3
-bash ~/$ANACONDA_FILE -b -p $HOME/anaconda3 -f
+bash $ANACONDA_FILE -b -p $HOME/anaconda3 -f
 exitcode=$?
 if [[ $exitcode -ne  0 ]]; then
     echo "ERROR : install anaconda dailed."

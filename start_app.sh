@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 10:28:11(+0000)
-#  Modified    : 2018-11-10 22:13:41(+0000)
+#  Modified    : 2018-11-11 08:21:03(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install some useful app
 #################################################################
@@ -45,27 +45,26 @@ function install_rar()
 {
     local output='rarlinux.tar.gz'
     if [[ "$BIT" == "64" ]]; then
-        wget $RAR_X64_URL -O $output
+        wget -nc $RAR_X64_URL -O $output
     else
-        wget $RAR_URL -O $output
+        wget -nc $RAR_URL -O $output
     fi
     tar -zxvf $output >/dev/null 2>&1 && cd rar
     sudo make
     cd ..
     rm -rf rar $output
 }
-
 # p7Zip
 function install_7za()
 {
-    local output='p7Zip.tar.bz2'
-    wget $P7ZIP_URL -O $output
-    tar -jxf $output >/dev/null 2>&1 && cd p7Zip
-    sudo make && sudo make install
+    local output='p7zip.tar.bz2'
+    local zipdir='p7zip*'
+    wget -nc $P7ZIP_URL -O $output
+    tar -jxf $output >/dev/null 2>&1 && cd $zipdir
+    (make && sudo make install) >$HOME/p7zip.log 2>&1 && rm $HOME/p7zip.log
     cd ..
-    rm -rf p7zip $output
+    rm -rf $zipdir
 }
-
 
 for app in $APPS; do
     if [[ $(check $app) -ne 0 ]]; then

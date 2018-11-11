@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2018-11-11 16:00:14(+0800)
+#  Modified    : 2018-11-11 09:50:14(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
@@ -55,3 +55,26 @@ function dezip()
     esac
     return $ret
 }
+
+function dogit()
+{
+    set -x
+    # check status
+    git status
+    if [[ $? -ne 0 ]]; then
+        return 1
+    fi
+
+    if [[ $(git status | grep '^no' | awk '{print $1}') == "no" ]]; then
+        git add -A
+        local comment=''
+        read -p "Enter your comment: " comment
+        git commit -am "$comment"
+        git pull origin master
+        git push origin master
+    else
+        echo "nothing to commit, working directory clean"
+    fi
+    set +x
+}
+    

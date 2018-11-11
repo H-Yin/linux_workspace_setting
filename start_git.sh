@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2018-11-11 09:13:38(+0000)
+#  Modified    : 2018-11-11 09:59:05(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
@@ -46,6 +46,7 @@ git config --global color.status always
 git config --global color.branch always
 git config --global color.showBranch always
 git config --global core.editer vim
+git config --global credential.helper cache --timeout 36000
 
 git config -l
 

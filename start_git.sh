@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2018-11-11 10:09:49(+0000)
+#  Modified    : 2018-11-11 10:11:05(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
@@ -36,7 +36,6 @@ else
     echo -e "\033[1mGit\033[0m has been installed."
 fi
 
-set -x
 echo "Step-2 : Config git options..."
 git config --global user.name "H.Yin"
 git config --global user.email "csustyinhao@gmail.com"
@@ -49,4 +48,3 @@ git config --global core.editer vim
 git config --global credential.helper 'cache --timeout 36000'
 
 git config -l
-set +x

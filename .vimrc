@@ -179,6 +179,16 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 " Plugin 'fholgado/minibufexpl.vim'
 
+" sql plug-ins
+Plugin 'vim-scripts/sqlcomplete.vim'
+Plugin 'vim-scripts/sql.vim'
+
+
+
+Plugin 'vim-scripts/sh.vim'
+Plugin 'vim-scripts/awk.vim'
+
+
 Bundle 'scrooloose/nerdcommenter'
 
 " scala highlight

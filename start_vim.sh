@@ -5,11 +5,13 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 09:02:08(+0000)
-#  Modified    : 2018-11-02 10:35:42(+0000)
+#  Modified    : 2018-11-12 10:22:32(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and config VIM
 #################################################################
 
+
+BASEDIR=$(cd `dirname $0`; pwd)
 
 # set -eu
 while :
@@ -64,5 +66,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim >
 
 echo 'Step-4: Install all plug-ins ...'
 vim +PluginInstall +qall
+
+# echo sqlutil
+cp -ri $BASEDIR/.vim $HOME/.vim
 
 echo 'All steps are done!'

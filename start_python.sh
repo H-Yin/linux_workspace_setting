@@ -5,19 +5,19 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-04 10:16:21(+0000)
-#  Modified    : 2018-11-07 14:25:29(+0800)
+#  Modified    : 2018-11-11 08:20:40(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install Anaconda and Jupyter
 #################################################################
 
 
-BASEPATH=$(cd `dirname $0`; pwd)
-ANACONDA_URL='https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh'
+BASEDIR=$(cd `dirname $0`; pwd)
+. $BASEDIR/config/config.sh
+
 ANACONDA_FILE=`echo $ANACONDA_URL | awk -F/ '{print $NF}'`
-ANACONDA_SUM='4321e9389b648b5a02824d4473cfdb5f'
 
 echo "Step-1: Download Anaconda installer ..."
-wget --progress=bar $ANACONDA_URL
+wget -nc $ANACONDA_URL
 exitcode=$?
 if [[ $exitcode -ne 0 ]]; then
     echo "ERROR : download Anaconda installer failed."
@@ -26,14 +26,14 @@ fi
 
 echo "Step-2: Verify the data integrity of the Anaconda installer ..."
 LOCAL_SUM=`md5sum $ANACONDA_FILE | awk '{print $1}'`
-if [[ "$ANACONDA_SUM" != "$LOCAL_SUM" ]]; then
+if [[ "$ANACONDA_MD5" != "$LOCAL_SUM" ]]; then
     echo "ERROR : Anaconda installer file was broken."
     exit 127
 fi
 
 echo "Step-3: Install Anaconda ..."
 rm -rf $HOME/anaconda3
-bash ~/$ANACONDA_FILE -b -p $HOME/anaconda3 -f
+bash $ANACONDA_FILE -b -p $HOME/anaconda3 -f
 exitcode=$?
 if [[ $exitcode -ne  0 ]]; then
     echo "ERROR : install anaconda dailed."
@@ -57,7 +57,7 @@ fi
 
 echo "Step-5: Config and run jupyter ..."
 jupyter notebook --generate-config
-cp -rf $BASEPATH/.jupyter/* $HOME/.jupyter
+cp -rf $BASEDIR/.jupyter/* $HOME/.jupyter
 # TODO auto-do
 jupyter notebook password
 

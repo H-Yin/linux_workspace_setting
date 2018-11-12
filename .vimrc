@@ -202,7 +202,7 @@ filetype plugin indent on
 map <F1> :NERDTreeToggle<CR>
 let g:NERDTreeWinSize = 50               " 窗口大小
 let g:NERDTreeHidden = 0                 " 不显示隐藏文件
-" let g:NERDTreeMinimalUI = 1              " 不现实提示
+let g:NERDTreeMinimalUI = 1              " 不现实提示
 let g:NERDTreeWinPos = 'left'            " 窗口位置
 let g:NERDTreeShowLineNumbers = 1        " 窗口显示行号
 let g:NERDTreeAutoCenter = 1             " 窗口内容随鼠标居中

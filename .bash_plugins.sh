@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2018-11-11 10:04:14(+0000)
+#  Modified    : 2018-11-12 10:27:55(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
@@ -69,8 +69,6 @@ function dogit()
         git add -A && git commit -am "$comment"
         git pull origin master
         git push origin master
-    else
-        echo "nothing to commit, working directory clean"
     fi
 }
     

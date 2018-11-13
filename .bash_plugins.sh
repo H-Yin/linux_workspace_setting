@@ -5,35 +5,56 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2018-11-13 17:47:39(+0000)
+#  Modified    : 2018-11-14 03:13:27(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
 
 
 TRASHDIR=$HOME/.trash
-
+TEASHHIS=$TRASHDIR/.trash_history
 
 
 function more_ls()
 {
     if [[ "$*" =~ "-l" ]];then
         if [[ "$*" =~ "-h" ]];then
-
+            echo ''
         fi
     fi
 }
 
+
+#------------------------------- build trash system--------------------------
+function undo()
+{
+    local num=1
+    if [[ -n $1 && $1 -gt 0 ]]; then num=$1; fi
+    local line=$(tail -$num $TRASHHIS | head -1)
+    mkdir "undo$(date -d now +%Y%m%d%H%M%S%N)"
+    local len=${#line[@]}
+    local dir_s=${line[@]:2:$len}
+    for d in dir_s; do
+        mv ${line:1}/${d##*/} $(dirname $d)
+    done
+}
+
 function more_rm()
 {
-    local day=$(date -d now +%Y-%m-%d)
-    local des_dir=$TRASHDIR/$day
-    local src_dir=''
+    local daydir=$(date -d now +%Y-%m-%d/%H%M%S%N)
+    local des_dir=$TRASHDIR/$daydir
+    local src_dir=""
     local args="$*"
-    if [[ ! -d "$des_dir" ]]; then mkdir -p $des_dir; fi
+    if [[ ! -d "$des_dir" ]]; then
+        mkdir -p $des_dir
+        touch $TRASHHIS
+    fi
+    if [[ ! -f $TRASHHIS ]]; then
+        touch $TRASHHIS
+    fi
 
     if [[ "$args" =~ "--" ]]; then
-        src__dir="${args##*--}"
+        src_dir="${args##*--}"
     else
         if [[ "${@:$#}" == "-*" ]]; then
             src_dir=$(pwd)
@@ -41,22 +62,30 @@ function more_rm()
             src_dir=${@:$#}
         fi
     fi
-        #if [[ ! -d "$src_dir" ]]; then
-        #    echo "ls: cannot access '$src_dir': No such file or directory"
-        #    exit 2
-        #fi
-
-    # process parameters
-    for arg in $args; do
-        case $arg in
-                --)
-                    src=
-                *)
-                    ;;
-            esac
-        done
-    fi
+    local temp_dir=''
+    for src in $src_dir; do
+        temp_dir+=$(readlink -f $src)' '
+    done
+    mv $temp_dir $des_dir
+    echo "$des_dir $temp_dir" >> $TRASHHIS
 }
+
+function empty()
+{
+    unalias rm
+    if [[ -n "$1" ]]; then
+        local day=$(date -d "now -$1 day" +%Y-%m-%d)
+        local dir_s=$(ls $TRASHDIR)
+        for d in $dir_s:
+            if [[ $d <= $day ]];
+                rm -rf $TRASHDIR/$d
+            fi
+    else
+        rm -rf $TRASHDIR/*
+    fi
+    alias rm='more_rm'
+}
+
 
 function dezip()
 {

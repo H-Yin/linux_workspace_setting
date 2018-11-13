@@ -5,11 +5,58 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2018-11-12 10:27:55(+0800)
+#  Modified    : 2018-11-13 17:47:39(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
 
+
+TRASHDIR=$HOME/.trash
+
+
+
+function more_ls()
+{
+    if [[ "$*" =~ "-l" ]];then
+        if [[ "$*" =~ "-h" ]];then
+
+        fi
+    fi
+}
+
+function more_rm()
+{
+    local day=$(date -d now +%Y-%m-%d)
+    local des_dir=$TRASHDIR/$day
+    local src_dir=''
+    local args="$*"
+    if [[ ! -d "$des_dir" ]]; then mkdir -p $des_dir; fi
+
+    if [[ "$args" =~ "--" ]]; then
+        src__dir="${args##*--}"
+    else
+        if [[ "${@:$#}" == "-*" ]]; then
+            src_dir=$(pwd)
+        else
+            src_dir=${@:$#}
+        fi
+    fi
+        #if [[ ! -d "$src_dir" ]]; then
+        #    echo "ls: cannot access '$src_dir': No such file or directory"
+        #    exit 2
+        #fi
+
+    # process parameters
+    for arg in $args; do
+        case $arg in
+                --)
+                    src=
+                *)
+                    ;;
+            esac
+        done
+    fi
+}
 
 function dezip()
 {
@@ -69,6 +116,8 @@ function dogit()
         git add -A && git commit -am "$comment"
         git pull origin master
         git push origin master
+    else
+        git pull origin master
     fi
 }
     

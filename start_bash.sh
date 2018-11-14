@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:01:42(+0000)
-#  Modified    : 2018-11-14 02:07:15(+0800)
+#  Modified    : 2018-11-14 18:05:41(+0800)
 #  GitHub      : https://github.com/H-Yin/
 #  Description : 
 #################################################################
@@ -13,6 +13,7 @@
 
 
 BASEDIR=$(cd `dirname $0`; pwd)
+echo $BASEDIR
 cp -rf $BASEDIR/.bash_plugins.sh $HOME/
 if [[ -f $HOME/.bash_plugins.sh ]]; then
 cat >> $HOME/.bashrc <<"EOF"

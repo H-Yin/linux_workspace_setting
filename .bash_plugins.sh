@@ -5,15 +5,14 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2018-11-14 03:13:27(+0800)
+#  Modified    : 2018-11-14 21:43:09(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
 
 
 TRASHDIR=$HOME/.trash
-TEASHHIS=$TRASHDIR/.trash_history
-
+TRASHHIS=$TRASHDIR/.trash_history
 
 function more_ls()
 {
@@ -24,63 +23,87 @@ function more_ls()
     fi
 }
 
-
 #------------------------------- build trash system--------------------------
 function undo()
 {
+    set -x
     local num=1
     if [[ -n $1 && $1 -gt 0 ]]; then num=$1; fi
     local line=$(tail -$num $TRASHHIS | head -1)
-    mkdir "undo$(date -d now +%Y%m%d%H%M%S%N)"
-    local len=${#line[@]}
-    local dir_s=${line[@]:2:$len}
-    for d in dir_s; do
-        mv ${line:1}/${d##*/} $(dirname $d)
+    if [[ -z $line ]];then
+        echo "No Undo operation can be performed."
+        exit 1
+    fi
+    local args=($line)
+    echo $args
+    local src_dir=${args[0]}
+    echo $src_dir
+    local dst_dir=("${args[@]:1}")
+    echo $dst_dir
+    for d in $dst_dir; do
+        mv $TRASHDIR/$src_dir/${d##*/} $(dirname $d)
     done
+    set +x
 }
 
 function more_rm()
 {
+    set -x
     local daydir=$(date -d now +%Y-%m-%d/%H%M%S%N)
     local des_dir=$TRASHDIR/$daydir
     local src_dir=""
     local args="$*"
+    # create new dir and file
     if [[ ! -d "$des_dir" ]]; then
         mkdir -p $des_dir
-        touch $TRASHHIS
     fi
     if [[ ! -f $TRASHHIS ]]; then
         touch $TRASHHIS
     fi
-
+    # get src dir
     if [[ "$args" =~ "--" ]]; then
-        src_dir="${args##*--}"
+        src_dir=("${args##*--}")
     else
         if [[ "${@:$#}" == "-*" ]]; then
-            src_dir=$(pwd)
+            src_dir=$(ls)
         else
-            src_dir=${@:$#}
+            echo $(type -t args)
+            echo $args
+            src_dir=$args
         fi
     fi
+
+    echo $src_dir
+    # prepare to record history
     local temp_dir=''
     for src in $src_dir; do
         temp_dir+=$(readlink -f $src)' '
     done
     mv $temp_dir $des_dir
-    echo "$des_dir $temp_dir" >> $TRASHHIS
+    echo "$daydir $temp_dir" >> $TRASHHIS
+    set +x
 }
-
+# empty the trash bin
 function empty()
 {
-    unalias rm
+    if [[ -n $(alias | grep 'more_rm') ]]; then
+        unalias rm 2>/dev/null
+    fi
     if [[ -n "$1" ]]; then
+        # delete data n days ago
         local day=$(date -d "now -$1 day" +%Y-%m-%d)
         local dir_s=$(ls $TRASHDIR)
-        for d in $dir_s:
-            if [[ $d <= $day ]];
+        for d in $dir_s; do
+            if [[ $d < $day || $d = $day ]]; then
                 rm -rf $TRASHDIR/$d
             fi
+        done
+        # update .trash_history
+        local tempfile=".trash_history.temp"
+        cat $TRASHHIS | awk -v d="$day" -F/ '$1>d{print $0}' > $tempfile
+        mv $tempfile $TRASHHIS
     else
+        # delete all data
         rm -rf $TRASHDIR/*
     fi
     alias rm='more_rm'
@@ -97,7 +120,7 @@ function dezip()
     local filename="$1"
     local dir=${filename%%.*}
     if [[ ! -d $dir ]]; then mkdir -p $dir; fi
-
+    # get extension of file
     local ext=''
     if [[ "$1" =~ ".tar." ]]; then
         ext=$(echo $1 | awk -F. '{N1=NF-1; print $N1"."$NF}')
@@ -149,4 +172,4 @@ function dogit()
         git pull origin master
     fi
 }
-    
+ 

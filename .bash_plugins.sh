@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2018-11-14 21:43:09(+0800)
+#  Modified    : 2018-11-15 00:17:48(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
@@ -23,10 +23,9 @@ function more_ls()
     fi
 }
 
-#------------------------------- build trash system--------------------------
+#------------------------------- build trash system----------------
 function undo()
 {
-    set -x
     local num=1
     if [[ -n $1 && $1 -gt 0 ]]; then num=$1; fi
     local line=$(tail -$num $TRASHHIS | head -1)
@@ -35,20 +34,15 @@ function undo()
         exit 1
     fi
     local args=($line)
-    echo $args
     local src_dir=${args[0]}
-    echo $src_dir
-    local dst_dir=("${args[@]:1}")
-    echo $dst_dir
+    local dst_dir=${args[@]:1}
     for d in $dst_dir; do
         mv $TRASHDIR/$src_dir/${d##*/} $(dirname $d)
     done
-    set +x
 }
 
 function more_rm()
 {
-    set -x
     local daydir=$(date -d now +%Y-%m-%d/%H%M%S%N)
     local des_dir=$TRASHDIR/$daydir
     local src_dir=""
@@ -67,13 +61,10 @@ function more_rm()
         if [[ "${@:$#}" == "-*" ]]; then
             src_dir=$(ls)
         else
-            echo $(type -t args)
-            echo $args
             src_dir=$args
         fi
     fi
 
-    echo $src_dir
     # prepare to record history
     local temp_dir=''
     for src in $src_dir; do
@@ -81,13 +72,12 @@ function more_rm()
     done
     mv $temp_dir $des_dir
     echo "$daydir $temp_dir" >> $TRASHHIS
-    set +x
 }
 # empty the trash bin
 function empty()
 {
-    if [[ -n $(alias | grep 'more_rm') ]]; then
-        unalias rm 2>/dev/null
+    if [[ -n "$(alias | grep more_rm)" ]]; then
+        unalias rm
     fi
     if [[ -n "$1" ]]; then
         # delete data n days ago
@@ -95,7 +85,7 @@ function empty()
         local dir_s=$(ls $TRASHDIR)
         for d in $dir_s; do
             if [[ $d < $day || $d = $day ]]; then
-                rm -rf $TRASHDIR/$d
+                $(which rm) -rf $TRASHDIR/$d
             fi
         done
         # update .trash_history
@@ -103,8 +93,9 @@ function empty()
         cat $TRASHHIS | awk -v d="$day" -F/ '$1>d{print $0}' > $tempfile
         mv $tempfile $TRASHHIS
     else
+
         # delete all data
-        rm -rf $TRASHDIR/*
+        $(which rm) -rf $TRASHDIR/*
     fi
     alias rm='more_rm'
 }

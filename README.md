@@ -30,4 +30,4 @@ portable linux workspace setting
 
 ### Python
 * Download and install Adaconda automatically;
-* self-Auto install jupyter
+* seim-Auto install jupyter

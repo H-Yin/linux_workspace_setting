@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-04 10:16:21(+0000)
-#  Modified    : 2018-11-11 08:20:40(+0000)
+#  Modified    : 2018-11-17 17:27:26(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install Anaconda and Jupyter
 #################################################################

@@ -28,8 +28,8 @@ set ignorecase              " 搜索忽略大小写
 set nocompatible            " 设置不使用 vi 键盘模式
 " set mouse=a                 " 设置鼠标点击可移动光标
 " 显示特殊字符
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set list
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+" set list
 
 " 设置分屏间隔符
 set fillchars=vert:\ ,stlnc:\ 
@@ -200,19 +200,19 @@ filetype plugin indent on
 
 " NERDTree
 map <F1> :NERDTreeToggle<CR>
-let g:NERDTreeWinSize = 50               " 窗口大小
-let g:NERDTreeHidden = 0                 " 不显示隐藏文件
+let g:NERDTreeWinSize = 45               " 窗口大小
+let g:NERDTreeHidden = 1                 " 不显示隐藏文件
 let g:NERDTreeMinimalUI = 1              " 不现实提示
 let g:NERDTreeWinPos = 'left'            " 窗口位置
 let g:NERDTreeShowLineNumbers = 1        " 窗口显示行号
-let g:NERDTreeAutoCenter = 1             " 窗口内容随鼠标居中
+" let g:NERDTreeAutoCenter = 1             " 窗口内容随鼠标居中
 let g:NERDTreeAutoCenterThreshold = 30   " 窗口内容居中的阈值
 let g:NERDTreeDirArrowExpandable = '+'   " 收起图标
 let g:NERDTreeDirArrowCollapsible = '-'  " 展开图标
 let g:NERDTreeHighlightCursorline  = 1   " 高亮当前行
 let g:NERDTreeIgnore = ['\.pyc', '\.swp'] " 忽略指定格式的文件
 " 自动启动 NERDTree
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 " 只剩 NERDTree 窗口时直接退出
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2018-11-11 10:11:05(+0000)
+#  Modified    : 2018-11-16 16:25:50(+0000)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
@@ -28,7 +28,6 @@ if [[ -f /etc/bash_completion.d/git ]]; then
     source /etc/bash_completion.d/git
 fi
 
-export EDITOR=vim
 EOF
         source $HOME/.bashrc
     fi

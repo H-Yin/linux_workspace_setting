@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2018-11-15 00:17:48(+0800)
+#  Modified    : 2018-11-17 19:49:28(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
@@ -152,9 +152,12 @@ function dogit()
     if [[ $? -ne 0 ]]; then
         return 1
     fi
+    
+    local comment=''
+    local lang=$LANG
+    export LANG=en_GB
 
     if [[ $(git status | grep '^no' | awk '{print $1}') != "nothing" ]]; then
-        local comment=''
         read -p "Enter your comment: " comment
         git add -A && git commit -am "$comment"
         git pull origin master
@@ -162,5 +165,6 @@ function dogit()
     else
         git pull origin master
     fi
+    export LANG=$lang
 }
  

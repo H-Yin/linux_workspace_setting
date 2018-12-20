@@ -103,7 +103,8 @@ fun F_get_shabang(interpreter)
 endfunc
 
 func F_auto_comment_sh()
-    call F_get_shabang('bash')
+    " call F_get_shabang('bash')
+    call setline(1, "#!/usr/bin/env bash")
     call setline(2, "")
     call append(2, "##################################################################")
     call append(3, "#  File        : ". expand("%:t"))

@@ -5,9 +5,9 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:01:42(+0000)
-#  Modified    : 2018-12-20 15:06:24(+0800)
-#  GitHub      : https://github.com/H-Yin/
-#  Description : 
+#  Modified    : 2019-05-15 17:21:27(+0800)
+#  GitHub      : https://github.com/H-Yin/linux_workspace_setting
+#  Description : add aliases or some settings for bash
 #################################################################
 
 
@@ -29,17 +29,11 @@ alias ...='cd ../..'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
 # grep pattern path
 alias grep='test(){ grep --color=always -nrITE $1; }; test'
-alias lsl='ls -lh'
-# Command history 
-set -o "history"
-HISTSIZE=1000
-HISTCONTROL="ignoreboth:erasedups"
-HISTIGNORE="clear"
-HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S  " # space in time and cmd
-export HISTSIZE HISTCONTROL HISTIGNORE HISTTIMEFORMAT
 
+alias lsl='ls -lh'
 alias bc='bc -l'
 alias mkdir='mkdir -pv'
 
@@ -48,6 +42,15 @@ alias fastping='ping -c 10 -s.2'
 
 alias df='df -HT'
 alias du='du -ch'
+
+# Command history 
+set -o "history"
+HISTSIZE=1000
+HISTCONTROL="ignoreboth:erasedups"
+HISTIGNORE="clear"
+HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S  " # space in time and cmd
+export HISTSIZE HISTCONTROL HISTIGNORE HISTTIMEFORMAT
+
 
 export EDITOR=vim
 

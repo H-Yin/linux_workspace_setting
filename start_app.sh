@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 10:28:11(+0000)
-#  Modified    : 2018-12-20 15:06:06(+0800)
+#  Modified    : 2019-05-15 17:17:21(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install some useful app
 #################################################################
@@ -16,8 +16,8 @@ BASEDIR=$(cd `dirname $0`; pwd)
 . $BASEDIR/config/config.sh
 
 
-BIT=$(get_arch)
-PM=$(get_pm)
+BIT=$(get_arch) # machine bytes
+PM=$(get_pm)    # package manager 
 
 function check()
 {

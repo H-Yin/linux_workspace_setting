@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2018-11-17 19:49:28(+0800)
+#  Modified    : 2019-05-16 10:35:01(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
@@ -108,9 +108,9 @@ function dezip()
         return 1
     fi
 
-    local filename="$1"
-    local dir=${filename%%.*}
-    if [[ ! -d $dir ]]; then mkdir -p $dir; fi
+    # local filename="$1"
+    # local dir=${filename%%.*}
+    # if [[ ! -d $dir ]]; then mkdir -p $dir; cd $dir; fi
     # get extension of file
     local ext=''
     if [[ "$1" =~ ".tar." ]]; then

@@ -244,7 +244,7 @@ c.NotebookApp.keyfile = os.environ['HOME'] + '/.jupyter/cert.key'
 #c.NotebookApp.nbserver_extensions = {}
 
 ## The directory to use for notebooks and kernels.
-c.NotebookApp.notebook_dir = '/home/ec2-user'
+c.NotebookApp.notebook_dir = '/home/yinhao'
 
 ## Whether to open in a browser after starting. The specific browser used is
 #  platform dependent and determined by the python standard library `webbrowser`

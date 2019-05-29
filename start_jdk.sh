@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:50:25(+0000)
-#  Modified    : 2018-11-11 08:17:46(+0000)
+#  Modified    : 2019-05-29 11:58:11(+0800)
 #  GitHub      : https://github.com/H-Yin/
 #  Description : install jdk and config JAVA environment variable
 #################################################################
@@ -14,7 +14,7 @@ BASEDIR=$(cd `dirname $0`; pwd)
 . $BASEDIR/config/config.sh
 
 RPM_FILE=$(echo $JAVA_URL | awk -F/ '{print $NF}')
-JDK_PATH=$(echo $RPM_FILE | awk -F. '{print $1}')
+JDK_PATH=$(echo $RPM_FILE | awk -F_ '{print $1}')
 
 PROFILE="/etc/profile"
 EXPORT_STR=$(cat <<EOF
@@ -36,7 +36,7 @@ if [ $? -ne 0 ]; then
         echo 'ERROR : Download rpm file failed.'
         exit 127
     fi
-    if [[ $JAVA_MD5 != `md5sum $RPM_FILE | awk '{print $1}'` ]]; then
+    if [[ $JAVA_MD5 != `sha256sum $RPM_FILE | awk '{print $1}'` ]]; then
         echo "ERROR : $RPM_FILE 's digist is wrong."
         exit 126
     fi

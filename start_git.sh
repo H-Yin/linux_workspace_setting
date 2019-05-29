@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2019-05-10 11:39:29(+0800)
+#  Modified    : 2019-05-29 10:18:06(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
@@ -19,10 +19,13 @@ echo "Step-1 : Check and install git ..."
 git --version >/dev/null 2>&1
 if [[ $? -ne 0 ]]; then
     sudo $PM install -y git >/dev/null 2>&1
-    if [[ $? -ne 0 ]]; then echo "ERROR : Unable to install Git."; exit 127; fi
+    if [[ $? -ne 0 ]]; then
+        echo "ERROR : Unable to install Git."; 
+        exit 127; 
+    fi
     if [[ -f /etc/bash_completion.d/git ]]; then
         echo "Add git-completion ..."
-cat >> $HOME/.bashrc <<-"EOF"        
+cat >> $HOME/.bashrc <<-"EOF" 
 
 if [[ -f /etc/bash_completion.d/git ]]; then
     source /etc/bash_completion.d/git
@@ -37,13 +40,13 @@ fi
 
 echo "Step-2 : Config git options..."
 git config --global user.name "yinhao"
-git config --global user.email "yinhao@inagora.com"
+git config --global user.email "yinhao@cnic.cn"
 git config --global color.advice always
 git config --global color.diff always
 git config --global color.status always
 git config --global color.branch always
 git config --global color.showBranch always
 git config --global core.editer vim
-git config --global credential.helper 'cache --timeout 36000'
+git config --global credential.helper 'cache --timeout 360000'
 
 git config -l

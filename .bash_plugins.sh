@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2019-05-16 10:35:01(+0800)
+#  Modified    : 2019-05-29 10:19:49(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
@@ -100,7 +100,7 @@ function empty()
     alias rm='more_rm'
 }
 
-
+#--------------------------------------zipped file-----------------------------------
 function dezip()
 {
     if [[ $# -lt 1 ]];then
@@ -146,6 +146,7 @@ function dezip()
     return $ret
 }
 
+#---------------------------------------------------------------------------------
 function dogit()
 {
     git status
@@ -167,4 +168,4 @@ function dogit()
     fi
     export LANG=$lang
 }
- 
+

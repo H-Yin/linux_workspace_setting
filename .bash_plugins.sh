@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2019-05-29 10:19:49(+0800)
+#  Modified    : 2019-06-01 19:22:48(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
@@ -109,7 +109,7 @@ function dezip()
     fi
 
     # local filename="$1"
-    # local dir=${filename%%.*}
+    local dir=${filename%%.*}
     # if [[ ! -d $dir ]]; then mkdir -p $dir; cd $dir; fi
     # get extension of file
     local ext=''

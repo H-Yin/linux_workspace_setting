@@ -15,11 +15,13 @@ APPS="vim git ctags tree lrzsz wget "
 CODE_APPS='gcc gcc-c++ '
 NET_APPS='nload '
 FILE_APPS='zip unzip rar unrar bzip2 7za '
+SYS_APPS=' htop '
 MISC_APPS=' graphviz '
 
 APPS+=$CODE_APPS
 APPS+=$NET_APPS
 APPS+=$FILE_APPS
+APPS+=$SYS_APPS
 APPS+=$MISC_APPS
 
 # app 

@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-11 13:37:38(+0800)
-#  Modified    : 2019-06-01 19:22:48(+0800)
+#  Modified    : 2019-07-15 19:30:15(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : 
 #################################################################
@@ -108,9 +108,9 @@ function dezip()
         return 1
     fi
 
-    # local filename="$1"
+    local filename="$1"
     local dir=${filename%%.*}
-    # if [[ ! -d $dir ]]; then mkdir -p $dir; cd $dir; fi
+    if [[ ! -d $dir ]]; then mkdir -p $dir; cd $dir; fi
     # get extension of file
     local ext=''
     if [[ "$1" =~ ".tar." ]]; then
@@ -145,7 +145,41 @@ function dezip()
     esac
     return $ret
 }
+#---------------------------------------------------------------------------------
+function dosplit()
+{
+    if [[ $# -lt 2 ]];then
+        echo "Usage : dosplit <file> <n> [prefix]\n\tsplit <file> into n subfiles, n>=2."
+        return 1
+    fi
 
+    local filename="$1"
+    # number of subfile
+    local nf="$2"
+    local prefix="$3"
+    if [[ $nf -lt 2 ]];then
+        echo "Error: [n >=2] is not satisfied"
+    fi
+
+    if [[ -z $prefix ]];then
+        prefix="$filename_"
+    fi
+    # number of lines
+    local nt=$(timeout 5 wc -l $filename | awk '{print $1}')
+    # number of lines per subfile
+    local len=$(echo "scale=0; ($nt + $nf -1) / $nf" | bc)
+    #echo "$filename $nf $nt $len"
+    # splited lines number
+    local ns=0
+    for i in $(seq 1 $nf); do
+        if [[ $(($ns+$len)) -lt $nt ]]; then
+            head -$(($i * $len)) $filename |tail -$len > "$prefix$i"
+            ns=$(($ns+$len))
+        else
+            tail -$(($nt-$ns)) $filename > "$prefix$i"
+        fi
+    done
+}
 #---------------------------------------------------------------------------------
 function dogit()
 {

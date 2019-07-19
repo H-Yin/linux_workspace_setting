@@ -41,6 +41,9 @@ map <Tab> <C-w>w
 " vmap <C-s> <C-C>:update<CR>
 " imap <C-s> <Esc>:update<CR>i
 
+" 设置主题颜色
+colorscheme koehler
+
 "----------------------------------------------------------------------------------------------------------
 "                                                        user-defined function
 " add comment

@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:01:42(+0000)
-#  Modified    : 2019-05-15 17:21:27(+0800)
+#  Modified    : 2019-08-01 18:36:31(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : add aliases or some settings for bash
 #################################################################
@@ -15,7 +15,18 @@
 BASEDIR=$(cd `dirname $0`; pwd)
 cp -rf $BASEDIR/.bash_plugins.sh $HOME/
 if [[ -f $HOME/.bash_plugins.sh ]]; then
+
+# backup
+cp $HOME/.bashrc $HOME/.bashrc.bak@$(date +%Y%m%d)
+# filter
+OLD=$(awk '{if($0 ~ /#yinhao.*start.*$/){start=1}; if($0 ~ /#yinhao.*end.*$/){end=1}; if ( start !=1 && end != 1){print $0}}' $HOME/.bashrc)
+# remove old config in ~/.bashrc
+if [[ ! -z "$OLD" ]]; then
+    echo "$OLD"> $HOME/.bashrc
+fi
+
 cat >> $HOME/.bashrc <<"EOF"
+#yinhao =================== start ================
 
 if [[ -f $HOME/.bash_plugins.sh ]]; then
     source $HOME/.bash_plugins.sh
@@ -31,9 +42,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # grep pattern path
-alias grep='test(){ grep --color=always -nrITE $1; }; test'
+# alias grep='test(){ grep --color=always -nrITE $1; }; test'
 
-alias lsl='ls -lh'
+alias ls='ls -lh'
 alias bc='bc -l'
 alias mkdir='mkdir -pv'
 
@@ -51,8 +62,10 @@ HISTIGNORE="clear"
 HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S  " # space in time and cmd
 export HISTSIZE HISTCONTROL HISTIGNORE HISTTIMEFORMAT
 
-
 export EDITOR=vim
+
+#yinhao =================== end ================
+history -c
 
 EOF
 

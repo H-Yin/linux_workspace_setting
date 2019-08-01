@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2019-05-29 10:18:06(+0800)
+#  Modified    : 2019-08-01 13:59:58(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
@@ -40,7 +40,7 @@ fi
 
 echo "Step-2 : Config git options..."
 git config --global user.name "yinhao"
-git config --global user.email "yinhao@cnic.cn"
+git config --global user.email "csustyinhao@gmail.com"
 git config --global color.advice always
 git config --global color.diff always
 git config --global color.status always

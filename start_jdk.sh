@@ -5,10 +5,25 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:50:25(+0000)
-#  Modified    : 2019-05-29 11:58:11(+0800)
+#  Modified    : 2019-08-01 18:51:06(+0800)
 #  GitHub      : https://github.com/H-Yin/
 #  Description : install jdk and config JAVA environment variable
 #################################################################
+
+yum -y install java
+
+java -version >/dev/null 2>&1
+if [[ $? -eq 0 ]]; then
+    echo "Install JDK successfully."
+    exit 0
+else
+    echo "ERROR : Install JDK failed."
+    exit 123
+fi
+
+#--------------------------------------------------------------
+# the following code is no use
+#--------------------------------------------------------------
 
 BASEDIR=$(cd `dirname $0`; pwd)
 . $BASEDIR/config/config.sh

@@ -225,6 +225,8 @@ let g:NERDTreeWinSize = 45               " 窗口大小
 let g:NERDTreeHidden = 1                 " 不显示隐藏文件
 let g:NERDTreeMinimalUI = 1              " 不现实提示
 let g:NERDTreeWinPos = 'left'            " 窗口位置
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeNaturalSort = 1
 let g:NERDTreeShowLineNumbers = 1        " 窗口显示行号
 " let g:NERDTreeAutoCenter = 1             " 窗口内容随鼠标居中
 let g:NERDTreeAutoCenterThreshold = 30   " 窗口内容居中的阈值
@@ -263,6 +265,7 @@ let g:Tlist_GainFocus_On_ToggleOpen = 1
 let g:Tlist_WinWidth = 32
 
 nmap <F1> :TlistToggle<CR>:NERDTreeToggle<CR><C-w>w
+autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 
 " DoxygenToolkit
 let g:DoxygenToolkit_blockHeader  = "--------------------------------------------------------------------------"

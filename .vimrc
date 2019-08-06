@@ -179,28 +179,45 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'xuyuanp/nerdtree-git-plugin'
+
 Plugin 'vim-scripts/taglist.vim'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'bling/vim-bufferline'
+
+Bundle 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'vim-syntastic/syntastic'
+
 " Plugin 'fholgado/minibufexpl.vim'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'ervandew/supertab'
+Plugin 'kien/ctrlp.vim'
+
 
 " sql plug-ins
 Plugin 'vim-scripts/sqlcomplete.vim'
 Plugin 'vim-scripts/sql.vim'
 
-
-
 Plugin 'vim-scripts/sh.vim'
 Plugin 'vim-scripts/awk.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'maksimr/vim-jsbeautify'
 
 
-Bundle 'scrooloose/nerdcommenter'
 
 " scala highlight
 Bundle 'derekwyatt/vim-scala'
 
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'benmills/vimux'
+Plugin 'roman/golden-ratio'
 
 call vundle#end()
 filetype plugin indent on
+
 
 " NERDTree
 map <F1> :NERDTreeToggle<CR>
@@ -215,20 +232,37 @@ let g:NERDTreeDirArrowExpandable = '+'   " 收起图标
 let g:NERDTreeDirArrowCollapsible = '-'  " 展开图标
 let g:NERDTreeHighlightCursorline  = 1   " 高亮当前行
 let g:NERDTreeIgnore = ['\.pyc', '\.swp'] " 忽略指定格式的文件
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"   : "*",
+    \ "Staged"     : "+",
+    \ "Untracked"  : ">",
+    \ "Renamed"    : "%",
+    \ "Unmerged"   : "=",
+    \ "Deleted"    : "!",
+    \ "Dirty"      : "-",
+    \ "Clean"      : "+",
+    \ "Ignored"    : "-",
+    \ "Unknown"    : "?"
+    \}
+
 " 自动启动 NERDTree
 " autocmd vimenter * NERDTree
 " 只剩 NERDTree 窗口时直接退出
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
 " taglist
-map <F2> :Tlist<CR>
-let Tlist_Show_Menu = 0         " 不显示菜单
-let Tlist_Show_One_File = 1     " 仅显示当前文件中的tags
-let Tlist_Exit_OnlyWindow = 1   " 如果taglist窗口是最后一个窗口，则退出vim
-let Tlist_Use_Right_Window = 1  " 使用右侧窗口
-let Tlist_GainFocus_On_ToggleOpen = 1
+map <F2> :TlistToggle<CR>
+let g:Tlist_Auto_Update = 1       " 
+let g:Tlist_Compact_Format = 1    "
+let g:Tlist_Show_Menu = 0         " 不显示菜单
+let g:Tlist_Show_One_File = 1     " 仅显示当前文件中的tags
+let g:Tlist_Enable_Fold_Column = 1 "
+let g:Tlist_Exit_OnlyWindow = 1   " 如果taglist窗口是最后一个窗口，则退出vim
+let g:Tlist_Use_Right_Window = 1  " 使用右侧窗口
+let g:Tlist_GainFocus_On_ToggleOpen = 1
+let g:Tlist_WinWidth = 32
 
+nmap <F1> :TlistToggle<CR>:NERDTreeToggle<CR><C-w>w
 
 " DoxygenToolkit
 let g:DoxygenToolkit_blockHeader  = "--------------------------------------------------------------------------"
@@ -256,3 +290,31 @@ imap // <Esc><leader>c<Space>i
 " let g:miniBufExplShowBufNumbers = 1
 " let g:miniBufExplSplitToEdge = 1
 " let g:miniBufExplBuffersNeeded = 1
+" let g:miniBufExplMapWindowNavVim = 1 
+" let g:miniBufExplMapWindowNavArrows = 1 
+" let g:miniBufExplMapCTabSwitchBufs = 1 
+" let g:miniBufExplModSelTarget = 1
+" let g:miniBufExplMoreThanOne=0
+
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 1
+let g:airline#extensions#tabline#left_sep = '»'
+let g:airline#extensions#tabline#right_sep = '«'
+" let g:airline#extensions#bufferline#enabled = 1
+" let g:airline#extensions#bufferline#overwrite_variables = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.linenr = '='
+let g:airline_symbols.maxlinenr = ''
+
+
+let g:bufferline_echo = 0
+
+let g:SuperTabDefaultCompletionType = "context"
+let g:loaded_golden_ratio = 1
+let g:golden_ratio_exclude_nonmodifiable = 1
+
+" emmet-vim
+let g:user_emmet_expandabbr_key = '<C-e>'

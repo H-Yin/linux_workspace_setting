@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 09:02:08(+0000)
-#  Modified    : 2019-05-16 10:36:32(+0800)
+#  Modified    : 2019-08-06 12:53:24(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and config VIM
 #################################################################
@@ -57,7 +57,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim >
 echo 'Step-4: Install all plug-ins ...'
 vim +PluginInstall +qall
 
-# echo sqlutil
-cp -ri $BASEDIR/.vim $HOME/.vim
+# mv sqlutil / taglist to workspace
+cp -ri $BASEDIR/vim $HOME/.vim
 
 echo 'All steps are done!'

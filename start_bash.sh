@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:01:42(+0000)
-#  Modified    : 2019-08-01 18:36:31(+0800)
+#  Modified    : 2019-08-06 10:52:28(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : add aliases or some settings for bash
 #################################################################
@@ -32,7 +32,7 @@ if [[ -f $HOME/.bash_plugins.sh ]]; then
     source $HOME/.bash_plugins.sh
 fi
 
-alias rm='more_rm'
+# alias rm='more_rm'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -47,6 +47,9 @@ alias mv='mv -i'
 alias ls='ls -lh'
 alias bc='bc -l'
 alias mkdir='mkdir -pv'
+
+alias hc='history -c'
+alias hl='history 20'
 
 alias ping='ping -c 4'
 alias fastping='ping -c 10 -s.2'

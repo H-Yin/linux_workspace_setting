@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:01:42(+0000)
-#  Modified    : 2019-08-06 10:52:28(+0800)
+#  Modified    : 2019-08-06 15:06:38(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : add aliases or some settings for bash
 #################################################################
@@ -66,6 +66,11 @@ HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S  " # space in time and cmd
 export HISTSIZE HISTCONTROL HISTIGNORE HISTTIMEFORMAT
 
 export EDITOR=vim
+
+# git completion
+if [[ -f /etc/bash_completion.d/git ]]; then
+    source /etc/bash_completion.d/git
+fi
 
 #yinhao =================== end ================
 history -c

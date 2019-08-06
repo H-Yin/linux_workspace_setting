@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 10:28:11(+0000)
-#  Modified    : 2019-05-15 17:17:21(+0800)
+#  Modified    : 2019-08-06 12:22:01(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install some useful app
 #################################################################

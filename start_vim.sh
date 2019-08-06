@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 09:02:08(+0000)
-#  Modified    : 2019-08-06 12:53:24(+0800)
+#  Modified    : 2019-08-06 15:03:25(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and config VIM
 #################################################################
@@ -21,13 +21,13 @@ BASEDIR=$(cd `dirname $0`; pwd)
 while :
 do
     read -r -p "Do you want to clear the old workspace? [y/N] " input
+    mv ~/.vimrc ~/.vimrc.bak
     case $input in
         [yY][eE][sS]|[yY])
             echo "Step-0: Remove bundle and backup .vimrc ..."
             rm -rf ~/.vim/bundle
             ;&
         [nN][oO]|[nN])
-            mv ~/.vimrc ~/.vimrc.bak
             break
             ;;
         *)

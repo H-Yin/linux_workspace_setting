@@ -32,7 +32,7 @@ set nocompatible            " 设置不使用 vi 键盘模式
 " set list
 
 " 设置分屏间隔符
-set fillchars=vert:\ ,stlnc:\ 
+set fillchars=stlnc:_,vert:\|,fold:+,diff:_
 
 " 切换窗口
 map <Tab> <C-w>w
@@ -179,16 +179,22 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'xuyuanp/nerdtree-git-plugin'
-
-Plugin 'vim-scripts/taglist.vim'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/taglist.vim'
+
+Plugin 'tmhedberg/SimpylFold'
+
 Plugin 'bling/vim-bufferline'
 
 Bundle 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+" Plugin 'dense-analysis/ale'
 Plugin 'vim-syntastic/syntastic'
 
 " Plugin 'fholgado/minibufexpl.vim'
@@ -215,17 +221,23 @@ Plugin 'Valloric/MatchTagAlways'
 Plugin 'benmills/vimux'
 Plugin 'roman/golden-ratio'
 
+set autochdir
+nnoremap . :NERDTree .<CR>
+nnoremap .. :NERDTree ..<CR>
+
 call vundle#end()
 filetype plugin indent on
 
 
 " NERDTree
-map <F1> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
 let g:NERDTreeWinSize = 45               " 窗口大小
 let g:NERDTreeHidden = 1                 " 不显示隐藏文件
-let g:NERDTreeMinimalUI = 1              " 不现实提示
+let g:NERDTreeMinimalUI = 0              " 不现实提示
 let g:NERDTreeWinPos = 'left'            " 窗口位置
+let g:NERDTreeChDirMode=2
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeNaturalSort = 1
 let g:NERDTreeShowLineNumbers = 1        " 窗口显示行号
 " let g:NERDTreeAutoCenter = 1             " 窗口内容随鼠标居中
@@ -253,7 +265,7 @@ let g:NERDTreeIndicatorMapCustom = {
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " taglist
-map <F2> :TlistToggle<CR>
+map <F3> :TlistToggle<CR>
 let g:Tlist_Auto_Update = 1       " 
 let g:Tlist_Compact_Format = 1    "
 let g:Tlist_Show_Menu = 0         " 不显示菜单
@@ -286,8 +298,8 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
 " 快速注释
-nmap // <leader>c<Space>
-imap // <Esc><leader>c<Space>i
+nmap \\ <leader>c<Space>
+imap \\ <Esc><leader>c<Space>i
 
 " miniBufexplorer
 " let g:miniBufExplShowBufNumbers = 1
@@ -299,7 +311,14 @@ imap // <Esc><leader>c<Space>i
 " let g:miniBufExplModSelTarget = 1
 " let g:miniBufExplMoreThanOne=0
 
+" syntastic
+let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 0
 
+"SimpyFold
+let g:SimpylFold_docstring_preview = 1
+
+" airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_splits = 1
 let g:airline#extensions#tabline#left_sep = '»'
@@ -318,9 +337,6 @@ let g:bufferline_echo = 0
 let g:SuperTabDefaultCompletionType = "context"
 let g:loaded_golden_ratio = 1
 let g:golden_ratio_exclude_nonmodifiable = 1
-
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
 
 " emmet-vim
 let g:user_emmet_expandabbr_key = '<C-e>'

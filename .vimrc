@@ -68,7 +68,7 @@ func F_auto_comment_h()
     call append(line("$"), "")
     call append(line("$"), "#pragma once")
     call append(line("$"), "#ifndef __".toupper(expand("%:t:r"))."_H__")
-    call append(line("$"), "#define ".toupper(expand("%:t:r"))."_H__")
+    call append(line("$"), "#define __".toupper(expand("%:t:r"))."_H__")
     call append(line("$"), "")
     call append(line("$"), "#ifdef __cplusplus")
     call append(line("$"), "extern \"C\" {")
@@ -318,6 +318,9 @@ let g:bufferline_echo = 0
 let g:SuperTabDefaultCompletionType = "context"
 let g:loaded_golden_ratio = 1
 let g:golden_ratio_exclude_nonmodifiable = 1
+
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
 " emmet-vim
 let g:user_emmet_expandabbr_key = '<C-e>'

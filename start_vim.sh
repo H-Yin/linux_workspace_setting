@@ -5,13 +5,13 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 09:02:08(+0000)
-#  Modified    : 2019-08-06 15:03:25(+0800)
+#  Modified    : 2019-10-16 17:20:44(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and config VIM
 #################################################################
 
 BASEDIR=$(cd `dirname $0`; pwd)
-. $BASEDIE/utils/detect_system.sh
+. $BASEDIR/utils/detect_system.sh
 
 DEPS="vim git ctags"
 

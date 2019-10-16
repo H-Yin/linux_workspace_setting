@@ -44,7 +44,7 @@ alias mv='mv -i'
 # grep pattern path
 # alias grep='test(){ grep --color=always -nrITE $1; }; test'
 
-alias ls='ls -lh'
+alias ls='ls -lh --color'
 alias bc='bc -l'
 alias mkdir='mkdir -pv'
 

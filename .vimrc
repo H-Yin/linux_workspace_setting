@@ -4,6 +4,7 @@
 
 "----------------------------------------------------------------------------------------------------------
 "                                                   basic settings
+set shell=sh
 set enc=utf-8               " 设置编码格式
 set syntax=on               " 开启语法
 set number                  " 设置行号
@@ -173,22 +174,20 @@ endfunc
 "----------------------------------------------------------------------------------------------------------
 "                                                         plug-ins management
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
 
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'xuyuanp/nerdtree-git-plugin'
+" Plugin 'xuyuanp/nerdtree-git-plugin'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/taglist.vim'
-
-Plugin 'tmhedberg/SimpylFold'
 
 Plugin 'bling/vim-bufferline'
 
@@ -197,11 +196,13 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 " Plugin 'dense-analysis/ale'
 Plugin 'vim-syntastic/syntastic'
 
-" Plugin 'fholgado/minibufexpl.vim'
-Plugin 'jlanzarotta/bufexplorer'
 Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 
+Plugin 'luochen1990/rainbow'            " 括号
+" Plugin 'speeddating.vim'
+
+Plugin 'bsdelf/bufferhint'              " 缓冲区管理
 
 " sql plug-ins
 Plugin 'vim-scripts/sqlcomplete.vim'
@@ -213,20 +214,40 @@ Plugin 'mattn/emmet-vim'
 Plugin 'maksimr/vim-jsbeautify'
 
 
-
 " scala highlight
 Bundle 'derekwyatt/vim-scala'
 
 Plugin 'Valloric/MatchTagAlways'
-Plugin 'benmills/vimux'
 Plugin 'roman/golden-ratio'
+
+call vundle#end()
+
+    set runtimepath+=~/.vim/neobundle/neobundle.vim/
+call neobundle#begin(expand('~/.vim/neobundle/'))
+
+NeoBundle 'Shougo/neobundle.vim'
+" https://github.com/Yggdroot/LeaderF
+NeoBundle 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" python-mode: PyLint, Rope, Pydoc, breakpoints from box.
+" " https://github.com/python-mode/python-mode
+NeoBundleLazy 'python-mode/python-mode', { 'on_ft': 'python' }
+
+NeoBundle 'skywind3000/asyncrun.vim'
+
+NeoBundle 'dense-analysis/ale'
+
+
+NeoBundle 'liuchengxu/vista.vim'
+
+call neobundle#end()
+
+NeoBundleCheck
+
+filetype plugin indent on
 
 set autochdir
 nnoremap . :NERDTree .<CR>
 nnoremap .. :NERDTree ..<CR>
-
-call vundle#end()
-filetype plugin indent on
 
 
 " NERDTree
@@ -246,7 +267,7 @@ let g:NERDTreeDirArrowExpandable = '+'   " 收起图标
 let g:NERDTreeDirArrowCollapsible = '-'  " 展开图标
 let g:NERDTreeHighlightCursorline  = 1   " 高亮当前行
 let g:NERDTreeIgnore = ['\.pyc', '\.swp'] " 忽略指定格式的文件
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"   : "*",
     \ "Staged"     : "+",
     \ "Untracked"  : ">",
@@ -331,6 +352,16 @@ endif
 let g:airline_symbols.linenr = '='
 let g:airline_symbols.maxlinenr = ''
 
+" rainbow
+let g:rainbow_active = 1
+
+
+" bufferhint
+nnoremap - :call bufferhint#Popup()
+nnoremap = :call bufferhint#LoadPrevious()
+
+" ALE
+let b:ale_linters = ['flake8']
 
 let g:bufferline_echo = 0
 

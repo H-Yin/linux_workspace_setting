@@ -54,8 +54,12 @@ done
 echo 'Step-3: Clone and install Vundle ...'
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim >/dev/null 2>&1
 
+mkdir ~/.virm/neobundle
+git clone https://github.com/Shougo/neobundle.vim ~/.vim/neobundle/neobundle.vim
+
+
 echo 'Step-4: Install all plug-ins ...'
-vim +PluginInstall +qall
+vim +PluginInstall +NeoBundleInstall +qall
 
 # mv sqlutil / taglist to workspace
 cp -ri $BASEDIR/vim $HOME/.vim

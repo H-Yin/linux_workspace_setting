@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2019-08-06 15:06:56(+0800)
+#  Modified    : 2021-08-02 10:22:59(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
@@ -28,8 +28,8 @@ else
 fi
 
 echo "Step-2 : Config git options..."
-git config --global user.name "yinhao"
-git config --global user.email "csustyinhao@gmail.com"
+#git config --global user.name "yinhao"
+#git config --global user.email "csustyinhao@gmail.com"
 git config --global color.advice always
 git config --global color.diff always
 git config --global color.status always
@@ -38,4 +38,25 @@ git config --global color.showBranch always
 git config --global core.editer vim
 git config --global credential.helper 'cache --timeout 360000'
 
+## alias
+git config --global alias.lg "log --pretty=format:'%C(yellow)%h %C(green)%><(20)%cn %C(blue)%><(25)[%cd] %C(reset)%m %s %C(red)%d' --date=local"
+
 git config -l
+
+echo "Step-3 : Set git completion / prompt ..."
+version="v$(git --version | awk '{print $3}')"
+wget https://raw.githubusercontent.com/git/git/$version/contrib/completion/git-completion.bash
+wget http://raw.githubusercontent.com/git/git/$version/contrib/completion/git-prompt.sh
+
+if [ -f git-completion.bash ]; then
+    cp git-completion.bash ~/.git-completion.bash
+else
+    cp git/git-completion.bash ~/.git-completion.bash
+fi
+
+if [ -f git-prompt.sh ]; then
+    cp git-prompt.sh ~/.git-prompt.sh
+else
+    cp git/git-prompt.sh ~/.git-prompt.sh
+fi
+

@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 08:52:11(+0000)
-#  Modified    : 2021-08-02 10:22:59(+0800)
+#  Modified    : 2021-09-06 14:08:39(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and Config GIT
 #################################################################
@@ -46,7 +46,7 @@ git config -l
 echo "Step-3 : Set git completion / prompt ..."
 version="v$(git --version | awk '{print $3}')"
 wget https://raw.githubusercontent.com/git/git/$version/contrib/completion/git-completion.bash
-wget http://raw.githubusercontent.com/git/git/$version/contrib/completion/git-prompt.sh
+wget https://raw.githubusercontent.com/git/git/$version/contrib/completion/git-prompt.sh
 
 if [ -f git-completion.bash ]; then
     cp git-completion.bash ~/.git-completion.bash

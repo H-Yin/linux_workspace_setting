@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:01:42(+0000)
-#  Modified    : 2021-07-30 16:52:45(+0800)
+#  Modified    : 2021-09-06 14:12:43(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : add aliases or some settings for bash
 #################################################################
@@ -99,7 +99,7 @@ if [[ -f ~/.git-prompt.sh ]]; then
     # <> : 表示当前分支与远程分支不是同一分支
     export GIT_PS1_SHOWUPSTREAM="auto"
     
-    export PS1='\[\e[1;31m\][\t] \[\e[1;32m\]\u\[\e[1;33m\]@\[\e[1;34m\]$(hostname -i | cut -f 1) \[\e[1;35m\]\W \[\e[1;36m\]$(__git_ps1 "(%s)") \[\e[1;33m\]<$(tty | sed -e "s/\///g"):\!>\[\e[0;31m\]☭\[\e[00m\] '
+    export PS1='\[\e[1;31m\][\t] \[\e[1;32m\]\u\[\e[1;33m\]@\[\e[1;34m\]$(hostname -I | cut -d" " -f 1) \[\e[1;35m\]\W \[\e[1;36m\]$(__git_ps1 "(%s)") \[\e[1;33m\]<$(tty | sed -e "s/\///g"):\!>\[\e[0;31m\]☭\[\e[00m\] '
 else
     export PS1='\e[1;32m\][\t] \[\e[1;35m\]\u\[\e[1;33m\]@\[\e[1;34m\]\h \[\e[1;31m\]\W \[\e[0;36m\]☭\[\e[00m\] '
 fi

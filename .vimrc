@@ -33,7 +33,68 @@ set nocompatible            " 设置不使用 vi 键盘模式
 " set list
 
 " 设置分屏间隔符
-set fillchars=stlnc:_,vert:\|,fold:+,diff:_
+set fillchars=stlnc:_,vert:\|,fold: ,diff:_
+
+" 设置折叠
+
+function PythonFoldText()
+    let line = getline(v:foldstart)
+    echo line
+    let sub = substitute(line, ':.*$', '', 'g')
+    return v:folddashes . '(' . v:foldstart. '~'. v:foldend . ') ' . sub
+endfunction
+
+function! GetPythonFold(lnum)
+    let line = getline(a:lnum - 1)
+
+    " Classes and functions get their own folds
+    if line =~ '^\s*\(class\|def\)\s'
+    " Verify if the next line is a class or function definition
+    " as well
+        let imm_nnum = a:lnum + 1
+        let nnum = nextnonblank(imm_nnum)
+        if nnum - imm_nnum < 2
+            let nind = indent(nnum)
+            let pind = indent(a:lnum - 1)
+            if pind >= nind
+                let nline = getline(nnum)
+                let w:nestinglevel = nind
+                return "<" . ((w:nestinglevel + &sw) / &sw)
+            endif
+        endif
+        let w:nestinglevel = indent(a:lnum - 1)
+        return ">" . ((w:nestinglevel + &sw) / &sw)
+    endif
+
+    " If next line has less or equal indentation than the first one,
+    " we end a fold.
+    let nind = indent(nextnonblank(a:lnum + 1))
+    if nind <= w:nestinglevel
+        let w:nestinglevel = nind
+        return "<" . ((w:nestinglevel + &sw) / &sw)
+    else
+        let ind = indent(a:lnum)
+        if ind == (w:nestinglevel + &sw)
+            if nind < ind
+                let w:nestinglevel = nind
+                return "<" . ((w:nestinglevel + &sw) / &sw)
+            endif
+        endif
+    endif
+
+    " If none of the above apply, keep the indentation
+    return "="
+endfunction
+
+func F_set_fold()
+    if &filetype == 'python'
+        set foldmethod=expr
+        set foldexpr=GetPythonFold(v:lnum)
+        set foldtext=PythonFoldText()
+    endif
+endfunc
+
+
 
 " 切换窗口
 map <Tab> <C-w>w
@@ -50,6 +111,7 @@ colorscheme koehler
 " add comment
 autocmd BufNewFile *.h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_comment()"
 autocmd BufWrite,FileWritePre *h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_update()"
+autocmd BufEnter *.py exec ":call F_set_fold()"
 map <F4> :call F_auto_comment()<CR>
 
 let s:userAuthor = 'H.Yin'
@@ -204,6 +266,10 @@ Plugin 'luochen1990/rainbow'            " 括号
 
 Plugin 'bsdelf/bufferhint'              " 缓冲区管理
 
+" for Bash
+Plugin 'bash-support.vim'
+
+
 " sql plug-ins
 Plugin 'vim-scripts/sqlcomplete.vim'
 Plugin 'vim-scripts/sql.vim'
@@ -220,9 +286,25 @@ Bundle 'derekwyatt/vim-scala'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'roman/golden-ratio'
 
+" Python
+" Plugin 'google/yapf'
+" Plugin 'sillybun/vim-repl'
+" Plugin 'tmhedberg/simpylfold'
+Plugin 'python_ifold'
+
+" Plugin 'kamykn/spelunker.vim'
+
+Plugin 'zivyangll/git-blame.vim'
+Plugin 'airblade/vim-gitgutter'
+
+Plugin 'Yggdroot/indentLine'
+
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'mbbill/undotree'
+
 call vundle#end()
 
-    set runtimepath+=~/.vim/neobundle/neobundle.vim/
+set runtimepath+=~/.vim/neobundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/neobundle/'))
 
 NeoBundle 'Shougo/neobundle.vim'
@@ -333,11 +415,15 @@ imap \\ <Esc><leader>c<Space>i
 " let g:miniBufExplMoreThanOne=0
 
 " syntastic
+let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": ["python"] }
 let g:syntastic_check_on_wq = 0
 let g:syntastic_check_on_open = 0
 
+
 "SimpyFold
 let g:SimpylFold_docstring_preview = 1
+
+let g:ifold_mode=2
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -361,7 +447,8 @@ nnoremap - :call bufferhint#Popup()
 nnoremap = :call bufferhint#LoadPrevious()
 
 " ALE
-let b:ale_linters = ['flake8']
+let g:ale_enabled = 0
+" let b:ale_linters = ['flake8']
 
 let g:bufferline_echo = 0
 
@@ -371,3 +458,52 @@ let g:golden_ratio_exclude_nonmodifiable = 1
 
 " emmet-vim
 let g:user_emmet_expandabbr_key = '<C-e>'
+
+" pymode
+let g:pymode_folding = 0
+let g:pymode_breakpoint = 0
+let g:pymode_indent = 1
+let g:pymode_motion = 1
+let g:pymode_run_bind = '<F10>'
+
+let g:pymode_options_max_line_length = 120
+
+let g:pymode_doc = 1
+let g:pymode_doc_bind = '<leader>p'
+let g:pymode_preview_position = 'topright'
+let g:pymode_quickfix_minheight = 8
+let g:pymode_quickfix_maxheight = 8
+let g:pymode_lint = 1
+let g:pymode_lint_on_fly = 0
+let g:pymode_lint_unmodified = 1
+let g:pymode_lint_cwindow = 1
+let g:pymode_lint_sort = ['E', 'W', 'I']
+let g:pymode_lint_checkers = ['pylint']
+let g:pymode_lint_options_pylint = {'max_line_length': g:pymode_options_max_line_length}
+let g:pymode_lint_signs = 1
+let g:pymode_lint_todo_symbol = 'W>'
+let g:pymode_lint_comment_symbol = 'C>'
+let g:pymode_lint_visual_symbol = 'R>'
+let g:pymode_lint_error_symbol = 'E>'
+let g:pymode_lint_info_symbol = 'I>'
+let g:pymode_lint_pyflakes_symbol = 'F>'
+
+
+" let g:pymode_rope = 1
+" let g:pymode_rope_lookup_project = 1
+" let g:pymode_rope_regenerate_on_write = 1
+" let g:pymode_rope_autoimport = 1
+" let g:pymode_rope_completion = 0
+" let g:pymode_rope_complete_on_dot = 1
+" 
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+" 高亮缩进错误
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+" 高亮空格错误
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+
+
+" indentLine
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']

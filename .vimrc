@@ -33,7 +33,7 @@ set nocompatible            " 设置不使用 vi 键盘模式
 " set list
 
 " 设置分屏间隔符
-set fillchars=stlnc:_,vert:\|,fold: ,diff:_
+set fillchars=stlnc:_,vert:\|,fold:~,diff:_
 
 " 设置折叠
 

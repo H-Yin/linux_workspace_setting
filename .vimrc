@@ -6,6 +6,7 @@
 "                                                   basic settings
 set shell=sh
 set enc=utf-8               " 设置编码格式
+set fileformat=unix         " 设置文件格式
 set syntax=on               " 开启语法
 set number                  " 设置行号
 set autoindent              " 自动缩进
@@ -113,6 +114,8 @@ autocmd BufNewFile *.h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_comment()"
 autocmd BufWrite,FileWritePre *h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_update()"
 autocmd BufEnter *.py exec ":call F_set_fold()"
 map <F4> :call F_auto_comment()<CR>
+
+map <F12> :call F_format_file()<CR>
 
 let s:userAuthor = 'H.Yin'
 let s:userEmail  = 'csustyinhao@gmail.com'
@@ -233,6 +236,32 @@ fun F_auto_update()
     endif
 endfunc
 
+
+let g:user_format_file_on = 0
+function! F_format_file()
+    if g:user_format_file_on == 0
+        if &filetype == 'csv'
+            exec ":RainbowAlign"
+        else
+            if &filetype == 'python' || &filetype == 'sh'
+                :set nonumber
+                :set paste
+            endif
+        endif
+        let g:user_format_file_on = 1
+    else
+        if &filetype == 'csv'
+            exec " :RainbowShrink"
+        else
+            if &filetype == 'python' || &filetype == 'sh'
+                :set number
+            endif 
+        endif
+        let g:user_format_file_on = 0
+    endif
+    exec ":IndentLinesToggle"
+    echo "Format " . &filetype ." success."
+endfunction
 "----------------------------------------------------------------------------------------------------------
 "                                                         plug-ins management
 filetype off
@@ -251,6 +280,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/taglist.vim'
 
+Plugin 'mbbill/undotree'                " undo / redo
+Plugin 'Yggdroot/indentLine'            " 上下对齐线
 Plugin 'bling/vim-bufferline'
 
 Bundle 'scrooloose/nerdcommenter'
@@ -272,7 +303,10 @@ Plugin 'bash-support.vim'
 
 " sql plug-ins
 Plugin 'vim-scripts/sqlcomplete.vim'
-Plugin 'vim-scripts/sql.vim'
+Plugin 'mpyatishev/vim-sqlformat'
+Plugin 'aliou/sql-heredoc.vim'
+
+Plugin 'autowitch/hive.vim'
 
 Plugin 'vim-scripts/sh.vim'
 Plugin 'vim-scripts/awk.vim'
@@ -294,13 +328,15 @@ Plugin 'python_ifold'
 
 " Plugin 'kamykn/spelunker.vim'
 
+" CSV
+Plugin 'mechatroner/rainbow_csv'
+
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'airblade/vim-gitgutter'
 
 Plugin 'Yggdroot/indentLine'
 
 Plugin 'skywind3000/asyncrun.vim'
-Plugin 'mbbill/undotree'
 
 call vundle#end()
 
@@ -379,6 +415,7 @@ let g:Tlist_Use_Right_Window = 1  " 使用右侧窗口
 let g:Tlist_GainFocus_On_ToggleOpen = 1
 let g:Tlist_WinWidth = 32
 
+
 nmap <F1> :TlistToggle<CR>:NERDTreeToggle<CR><C-w>w
 autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 
@@ -443,8 +480,11 @@ let g:rainbow_active = 1
 
 
 " bufferhint
-nnoremap - :call bufferhint#Popup()
-nnoremap = :call bufferhint#LoadPrevious()
+nnoremap - :call bufferhint#Popup()<CR>
+nnoremap = :call bufferhint#LoadPrevious()<CR>
+
+" UndoTree
+nnoremap <F9> :UndotreeToggle<CR>
 
 " ALE
 let g:ale_enabled = 0
@@ -504,6 +544,14 @@ let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 
-
 " indentLine
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+" for HiveSQL
+autocmd BufNewFile,BufRead *.hql set filetype=hive expandtab
+autocmd BufNewFile,BufRead *.q set filetype=hive expandtab
+
+" for undortree
+let g:undotree_WindowLayout = 4
+let g:undotree_ShortIndicators = 1
+let g:undotree_HelpLine = 0

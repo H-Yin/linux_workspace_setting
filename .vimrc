@@ -19,8 +19,7 @@ set autowrite               " 自动保存
 set autoread                " 文件修改时自动加载
 " set ruler                   " 打开状态栏标尺
 set cursorline              " 突出显示当前行
-" 高亮显示匹配的括号
-set showmatch               " 高亮括号
+set showmatch               " 高亮显示匹配的括号
 set noeb                    " 去掉输入错误的提示声音
 set confirm                 " 在处理未保存或只读文件的时候，弹出确认
 " set cmdheight=2             " 设置命令行高度
@@ -28,6 +27,8 @@ set clipboard+=unnamed      " 共享剪贴板
 set modifiable
 set ignorecase              " 搜索忽略大小写
 set nocompatible            " 设置不使用 vi 键盘模式
+set t_Co=256
+set autochdir
 " set mouse=a                 " 设置鼠标点击可移动光标
 " 显示特殊字符
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
@@ -112,7 +113,7 @@ colorscheme koehler
 " add comment
 autocmd BufNewFile *.h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_comment()"
 autocmd BufWrite,FileWritePre *h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_update()"
-autocmd BufEnter *.py exec ":call F_set_fold()"
+" autocmd BufEnter *.py exec ":call F_set_fold()"
 map <F4> :call F_auto_comment()<CR>
 
 map <F12> :call F_format_file()<CR>
@@ -237,24 +238,29 @@ fun F_auto_update()
 endfunc
 
 
-let g:user_format_file_on = 0
+let b:user_format_file_on = 1
 function! F_format_file()
-    if g:user_format_file_on == 0
+    if b:user_format_file_on == 1
         if &filetype == 'csv'
             exec ":RainbowAlign"
         else
             if &filetype == 'python' || &filetype == 'sh'
+                :GitGutterBufferDisable
+                :IndentLinesDisable
                 :set nonumber
                 :set paste
             endif
         endif
-        let g:user_format_file_on = 1
+        let b:user_format_file_on = 0
     else
         if &filetype == 'csv'
-            exec " :RainbowShrink"
+            exec ":RainbowShrink"
         else
             if &filetype == 'python' || &filetype == 'sh'
+                :GitGutterBufferEnable
+                :IndentLinesEnable
                 :set number
+                :set nopaste
             endif 
         endif
         let g:user_format_file_on = 0
@@ -270,21 +276,21 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'preservim/nerdtree'
+
+Plugin 'vim-airline/vim-airline'        " 状态栏管理
+Plugin 'vim-airline/vim-airline-themes' " 状态栏主题
+Plugin 'bling/vim-bufferline'           " 状态栏显示 buffer 信息
+Plugin 'tpope/vim-fugitive'             " 状态栏显示 git 信息 
+
+Plugin 'preservim/nerdtree'             " 目录管理
 Plugin 'jistr/vim-nerdtree-tabs'
-" Plugin 'xuyuanp/nerdtree-git-plugin'
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-Plugin 'tpope/vim-fugitive'
+Plugin 'bsdelf/bufferhint'              " 缓冲区管理
 Plugin 'vim-scripts/taglist.vim'
 
 Plugin 'mbbill/undotree'                " undo / redo
 Plugin 'Yggdroot/indentLine'            " 上下对齐线
-Plugin 'bling/vim-bufferline'
 
-Bundle 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 " Plugin 'dense-analysis/ale'
 Plugin 'vim-syntastic/syntastic'
@@ -295,16 +301,17 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'luochen1990/rainbow'            " 括号
 " Plugin 'speeddating.vim'
 
-Plugin 'bsdelf/bufferhint'              " 缓冲区管理
+" -------------------------------------- for Programming -----------------
 
 " for Bash
-Plugin 'bash-support.vim'
+" Plugin 'bash-support.vim'
 
+Plugin 'preservim/nerdcommenter'
 
 " sql plug-ins
 Plugin 'vim-scripts/sqlcomplete.vim'
 Plugin 'mpyatishev/vim-sqlformat'
-Plugin 'aliou/sql-heredoc.vim'
+" Plugin 'aliou/sql-heredoc.vim'
 
 Plugin 'autowitch/hive.vim'
 
@@ -324,7 +331,7 @@ Plugin 'roman/golden-ratio'
 " Plugin 'google/yapf'
 " Plugin 'sillybun/vim-repl'
 " Plugin 'tmhedberg/simpylfold'
-Plugin 'python_ifold'
+" Plugin 'python_ifold'
 
 " Plugin 'kamykn/spelunker.vim'
 
@@ -334,7 +341,7 @@ Plugin 'mechatroner/rainbow_csv'
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'airblade/vim-gitgutter'
 
-Plugin 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 
 Plugin 'skywind3000/asyncrun.vim'
 
@@ -350,6 +357,8 @@ NeoBundle 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 " " https://github.com/python-mode/python-mode
 NeoBundleLazy 'python-mode/python-mode', { 'on_ft': 'python' }
 
+NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 NeoBundle 'skywind3000/asyncrun.vim'
 
 NeoBundle 'dense-analysis/ale'
@@ -361,8 +370,41 @@ call neobundle#end()
 
 NeoBundleCheck
 
+call plug#begin('~/.vim/plugged')
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+call plug#end()
+
 filetype plugin indent on
 
+" airline
+let g:airline_detect_paste=1
+let g:airline_detect_modified=1
+let g:airline_detect_spell=1
+let g:airline_section_c_only_filename = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 1
+let g:airline#extensions#tabline#left_sep = '»'
+let g:airline#extensions#tabline#right_sep = '«'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#bufferline#enabled = 0
+let g:airline#extensions#bufferline#overwrite_variables = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.linenr = '='
+let g:airline_symbols.maxlinenr = ''
+let g:airline_theme='dark'
+" bufferline
+let g:bufferline_echo = 1
+let g:bufferline_active_buffer_left = '['
+let g:bufferline_active_buffer_right = ']'
+let g:bufferline_modified = '+' 
+let g:bufferline_show_bufnr = 1
+let g:bufferline_rotate = 1
+let g:bufferline_fixed_index = -1 "always last
+let g:bufferline_fname_mod = ':t'
 set autochdir
 nnoremap . :NERDTree .<CR>
 nnoremap .. :NERDTree ..<CR>
@@ -370,21 +412,26 @@ nnoremap .. :NERDTree ..<CR>
 
 " NERDTree
 map <F2> :NERDTreeToggle<CR>
-let g:NERDTreeWinSize = 45               " 窗口大小
+let g:NERDTreeWinSize = 32               " 窗口大小
 let g:NERDTreeHidden = 1                 " 不显示隐藏文件
-let g:NERDTreeMinimalUI = 0              " 不现实提示
+let g:NERDTreeMinimalUI = 1              " 不现实提示
 let g:NERDTreeWinPos = 'left'            " 窗口位置
 let g:NERDTreeChDirMode=2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeNaturalSort = 1
 let g:NERDTreeShowLineNumbers = 1        " 窗口显示行号
-" let g:NERDTreeAutoCenter = 1             " 窗口内容随鼠标居中
+let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeAutoCenterThreshold = 30   " 窗口内容居中的阈值
 let g:NERDTreeDirArrowExpandable = '+'   " 收起图标
 let g:NERDTreeDirArrowCollapsible = '-'  " 展开图标
 let g:NERDTreeHighlightCursorline  = 1   " 高亮当前行
-let g:NERDTreeIgnore = ['\.pyc', '\.swp'] " 忽略指定格式的文件
+let NERDTreeCreatePrefix='silent keepalt keepjumps'
+let g:NERDTreeIgnore = ['\.pyc', '\.swp', '__pycache__'] " 忽略指定格式的文件
+
+" NERDTree-Git
+let g:NERDTreeGitStatusShowClean = 1
+let g:NERDTreeGitStatusShowIgnored = 1
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"   : "*",
     \ "Staged"     : "+",
@@ -397,6 +444,12 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Ignored"    : "-",
     \ "Unknown"    : "?"
     \}
+" NerdTreeTab
+let g:nerdtree_tabs_open_on_console_startup = 0
+let g:nerdtree_tabs_autoclose = 1
+let g:nerdtree_tabs_synchronize_focus = 1
+let g:nerdtree_tabs_synchronize_view = 1
+let g:nerdtree_tabs_startup_cd = 1
 
 " 自动启动 NERDTree
 " autocmd vimenter * NERDTree
@@ -414,7 +467,6 @@ let g:Tlist_Exit_OnlyWindow = 1   " 如果taglist窗口是最后一个窗口，�
 let g:Tlist_Use_Right_Window = 1  " 使用右侧窗口
 let g:Tlist_GainFocus_On_ToggleOpen = 1
 let g:Tlist_WinWidth = 32
-
 
 nmap <F1> :TlistToggle<CR>:NERDTreeToggle<CR><C-w>w
 autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
@@ -437,9 +489,20 @@ let g:NERDCompactSexyComs = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
+let g:NERDCustomDelimiters = {
+    \ 'c'           : { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'cpp'         : { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'python'      : { 'left': '#', 'leftAlt': '#' },
+    \ 'sh'          : { 'left': '#'},
+    \ 'sql'         : { 'left': '-- ', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'dockerfile'  : { 'left': '#' },
+    \ 'lua'         : { 'left': '--', 'leftAlt': '--[[', 'rightAlt': ']]' },
+    \ 'vimperator'  : { 'left': '"' },
+    \ 'yaml'        : { 'left': '#' },
+    \ }
+
 " 快速注释
 nmap \\ <leader>c<Space>
-imap \\ <Esc><leader>c<Space>i
 
 " miniBufexplorer
 " let g:miniBufExplShowBufNumbers = 1
@@ -462,18 +525,6 @@ let g:SimpylFold_docstring_preview = 1
 
 let g:ifold_mode=2
 
-" airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_splits = 1
-let g:airline#extensions#tabline#left_sep = '»'
-let g:airline#extensions#tabline#right_sep = '«'
-" let g:airline#extensions#bufferline#enabled = 1
-" let g:airline#extensions#bufferline#overwrite_variables = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.linenr = '='
-let g:airline_symbols.maxlinenr = ''
 
 " rainbow
 let g:rainbow_active = 1
@@ -490,7 +541,6 @@ nnoremap <F9> :UndotreeToggle<CR>
 let g:ale_enabled = 0
 " let b:ale_linters = ['flake8']
 
-let g:bufferline_echo = 0
 
 let g:SuperTabDefaultCompletionType = "context"
 let g:loaded_golden_ratio = 1

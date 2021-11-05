@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:01:42(+0000)
-#  Modified    : 2021-09-06 14:12:43(+0800)
+#  Modified    : 2021-11-05 18:17:21(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : add aliases or some settings for bash
 #################################################################
@@ -56,14 +56,14 @@ alias df='df -HT'
 alias du='du -ch'
 
 # Command history 
-HISTFILE=~/.bash_history_$(date -d "now" +"%Y%m%d")_$(tty | sed -e "s/\///g")
+HISTFILE=~/.bash_history_$(date -d "now" +"%Y%m%d")
 if [ ! -f $HISTFILE ]; then
     touch $HISTFILE
 fi
 
 export HISTSIZE=100
 export HISTCONTROL="ignoreboth:erasedups"
-export HISTIGNORE="clear:history*:ls *:cd *" # ignore these commands
+export HISTIGNORE="clear:history*:" # ignore these commands
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S  "  # space in time and cmd
 export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 

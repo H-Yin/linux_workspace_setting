@@ -97,7 +97,6 @@ func F_set_fold()
 endfunc
 
 
-
 " 切换窗口
 map <Tab> <C-w>w
 " 保存文件
@@ -265,7 +264,6 @@ function! F_format_file()
         endif
         let g:user_format_file_on = 0
     endif
-    exec ":IndentLinesToggle"
     echo "Format " . &filetype ." success."
 endfunction
 "----------------------------------------------------------------------------------------------------------
@@ -291,8 +289,6 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'mbbill/undotree'                " undo / redo
 Plugin 'Yggdroot/indentLine'            " 上下对齐线
 
-Plugin 'vim-scripts/DoxygenToolkit.vim'
-" Plugin 'dense-analysis/ale'
 Plugin 'vim-syntastic/syntastic'
 
 Plugin 'ervandew/supertab'
@@ -300,6 +296,7 @@ Plugin 'kien/ctrlp.vim'
 
 Plugin 'luochen1990/rainbow'            " 括号
 " Plugin 'speeddating.vim'
+
 
 " -------------------------------------- for Programming -----------------
 

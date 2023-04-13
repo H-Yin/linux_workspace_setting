@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 11:01:42(+0000)
-#  Modified    : 2021-11-05 18:17:21(+0800)
+#  Modified    : 2023-04-13 16:48:18(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : add aliases or some settings for bash
 #################################################################
@@ -22,6 +22,7 @@ OLD=$(awk '{if($0 ~ /#yinhao.*start.*$/){start=1}; if($0 ~ /#yinhao.*end.*$/){en
 if [ ! -z "$OLD" ]; then
     echo "$OLD"> $HOME/.bashrc
 fi
+
 
 cat >> $HOME/.bashrc <<"EOF"
 #yinhao =================== start ================
@@ -109,5 +110,17 @@ fi
 history -c
 
 EOF
+
+conda -V
+if [[ $? == 0 ]]; then
+    CONDA_HOME=$(conda info | grep 'active env location' | tr -d ' ' | cut -d : -f 2)
+    OLD=$(awk 'BEGIN{start=0;end=0;}{if($0 ~ /^# >>> conda initialize >>>$/ && start == 0){start=1}; if(start == end){print $0} if($0 ~ /^# >>> conda initialize >>>$/ && end == 0){end=1;};}' $HOME/.bashrc)
+    # remove old config in ~/.bashrc
+    if [ ! -z "$OLD" ]; then
+        echo "$OLD"> $HOME/.bashrc
+    fi
+
+fi
+
 
 fi

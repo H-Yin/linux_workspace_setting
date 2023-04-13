@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-04 10:16:21(+0000)
-#  Modified    : 2023-04-13 15:29:35(+0800)
+#  Modified    : 2023-04-13 16:46:41(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install Anaconda and Jupyter
 #################################################################
@@ -15,7 +15,6 @@ BASEDIR=$(cd `dirname $0`; pwd)
 . $BASEDIR/config/config.sh
 
 ANACONDA_FILE=`echo $ANACONDA_URL | awk -F/ '{print $NF}'`
-
 
 conda --version >/dev/null 2>&1
 exitcode=$?
@@ -62,9 +61,6 @@ else
     echo "Anaconda3 has been installed. "
 fi
 
-
-
-
 #echo "Step-5: Config and run jupyter ..."
 #jupyter notebook --generate-config
 #cp -rf $BASEDIR/.jupyter/* $HOME/.jupyter
@@ -78,5 +74,3 @@ echo "Step-6: Config python's enviorment"
 cp -f python/tab.py $HOME/.tab.py
 echo 'export PYTHONSTARTUP="$HOME/.tab.py"' >> $HOME/.bashrc
 source $HOME/.bashrc
-
-

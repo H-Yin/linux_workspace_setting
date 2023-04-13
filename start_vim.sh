@@ -5,7 +5,7 @@
 #  Author      : H.Yin
 #  Email       : csustyinhao@gmail.com
 #  Created     : 2018-11-02 09:02:08(+0000)
-#  Modified    : 2019-10-16 17:20:44(+0800)
+#  Modified    : 2021-12-28 14:03:05(+0800)
 #  GitHub      : https://github.com/H-Yin/linux_workspace_setting
 #  Description : install and config VIM
 #################################################################
@@ -54,12 +54,13 @@ done
 echo 'Step-3: Clone and install Vundle ...'
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim >/dev/null 2>&1
 
-mkdir ~/.virm/neobundle
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+mkdir -p ~/.vim/neobundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/neobundle/neobundle.vim
 
-
 echo 'Step-4: Install all plug-ins ...'
-vim +PluginInstall +NeoBundleInstall +qall
+vim +PluginInstall +NeoBundleInstall +PlugInstall +qall
 
 # mv sqlutil / taglist to workspace
 cp -ri $BASEDIR/vim $HOME/.vim

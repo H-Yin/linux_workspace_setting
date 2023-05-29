@@ -1,44 +1,374 @@
-" Author: H.Yin
-" Email : csustyinhao@gmail.com
-" GitHub: https://github.com/H-Yin/linux_workspace_setting
+" Author : H.Yin
+" Email  : csustyinhao@gmail.com
+" GitHub : https://github.com/H-Yin/linux_workspace_setting
 
-"----------------------------------------------------------------------------------------------------------
-"                                                   basic settings
+" ======================================================================================================= settings
 set shell=sh
-set enc=utf-8               " 设置编码格式
-set fileformat=unix         " 设置文件格式
-set syntax=on               " 开启语法
-set number                  " 设置行号
-set autoindent              " 自动缩进
-set cindent                 " C语言格式的自动缩进
-set tabstop=4               " 设置 tab宽度
+set enc=utf-8                                                   " 设置编码格式
+set fileformat=unix                                             " 设置文件格式
+set syntax=on                                                   " 开启语法
+set signcolumn=yes                                              " 开启符号列
+set cmdheight=1                                                 " 设置命令行高度
+set updatetime=500                                              " 设置更新时间
+set number                                                      " 设置行号
+set cursorline                                                  " 突出显示当前行
+set showmatch                                                   " 高亮显示匹配的括号
+set hidden                                                      " 
+set nocompatible                                                " 设置不使用 vi 键盘模式
+set backspace=indent,eol,start
+set mouse-=a                                                    " 设置非鼠标模式
+set shortmess+=cAI                                              " 不展示 ins-completion-menu 信息
+set autoindent                                                  " 自动缩进
+set cindent                                                     " C语言格式的自动缩进
+set tabstop=4                                                   " 设置 tab宽度
 set softtabstop=4
 set shiftwidth=4
-set expandtab               " 自动扩展 TAB
-set autowrite               " 自动保存
-set autoread                " 文件修改时自动加载
-" set ruler                   " 打开状态栏标尺
-set cursorline              " 突出显示当前行
-set showmatch               " 高亮显示匹配的括号
-set noeb                    " 去掉输入错误的提示声音
-set confirm                 " 在处理未保存或只读文件的时候，弹出确认
-" set cmdheight=2             " 设置命令行高度
-set clipboard+=unnamed      " 共享剪贴板
+set expandtab                                                   " 自动扩展 TAB
+
+set autowrite                                                   " 自动保存
+set autoread                                                    " 文件修改时自动加载
+set noeb                                                        " 去掉输入错误的提示声音
+set confirm                                                     " 在处理未保存或只读文件的时候，弹出确认
+set clipboard+=unnamed                                          " 共享剪贴板
 set modifiable
-set ignorecase              " 搜索忽略大小写
-set nocompatible            " 设置不使用 vi 键盘模式
+set ignorecase                                                  " 搜索忽略大小写
 set t_Co=256
 set autochdir
-" set mouse=a                 " 设置鼠标点击可移动光标
 " 显示特殊字符
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set list
+set fillchars=stlnc:_,vert:\|,fold:~,diff:_             " 设置分屏间隔符
 
-" 设置分屏间隔符
-set fillchars=stlnc:_,vert:\|,fold:~,diff:_
+
+" 设置主题颜色
+colorscheme koehler
+
+
+" ======================================================================================================= plugins
+filetype off
+call plug#begin('~/.vim/plugged')
+
+Plug 'mhinz/vim-startify'                                       " 启动页管理
+Plug 'vim-airline/vim-airline'                                  " 状态栏管理
+Plug 'vim-airline/vim-airline-themes'                           " 状态栏主题
+Plug 'bling/vim-bufferline'                                     " 状态栏显示 buffer 信息
+Plug 'bsdelf/bufferhint'                                        " 缓冲区管理
+Plug 'mbbill/undotree'                                          " undo 管理
+Plug 'junegunn/vim-peekaboo'                                    " 寄存器管理
+Plug 'TaDaa/vimade'                                             " 窗口增强
+
+Plug 'preservim/nerdtree'                                       " 目录管理
+Plug 'jistr/vim-nerdtree-tabs'                                  " nerdtree 增强
+Plug 'Xuyuanp/nerdtree-git-plugin'                              " nerdtree 增强 git
+
+Plug 'tpope/vim-fugitive'                                       " git 插件
+Plug 'zivyangll/git-blame.vim'                                  " 状态栏显示 git blame
+Plug 'airblade/vim-gitgutter'                                   " sign 栏显示 git 信息
+Plug 'junegunn/gv.vim'                                          " buffer 显示 git 提交记录
+
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}             " 多行编辑
+Plug 'Yggdroot/indentLine'                                      " 上下对齐线
+Plug 'itchyny/vim-cursorword'                                   " 高亮当前单词
+Plug 'luochen1990/rainbow'                                      " 高亮括号
+
+Plug 'vim-syntastic/syntastic'                                  " 编程语法
+Plug 'preservim/nerdcommenter'                                  " 代码注释
+Plug 'preservim/tagbar'                                         " 标签
+Plug 'skywind3000/asyncrun.vim'                                 " 异步运行
+Plug 'sbdchd/neoformat'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+filetype plugin indent on
+
+" ======================================================================================================= vim-plug
+let g:plug_threads=1
+let g:plug_timeout=15
+let g:plug_retries=1
+let g:plug_url_format='https://github.com/%s.git'
+
+" ======================================================================================================= airline
+let g:airline_theme='dark'
+let g:airline_detect_paste = 1
+let g:airline_detect_modified = 1
+let g:airline_detect_spell = 1
+let g:airline_section_c_only_filename = 0                       " 显示完整文件名
+let g:airline_inactive_collapse = 1                             " 不活动窗口折叠显示
+let g:airline_statusline_ontop = 0                              " 显示在下方
+let g:airline_powerline_fonts = 1                               " 使用 unicode 字符
+let g:airline_skip_empty_sections = 1                           " 跳过空的 section
+
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'    " 自动隐藏默认的编码格式
+let g:airline#extensions#tabline#enabled = 1                    " 开启 tab 和 buffer
+let g:airline#extensions#tabline#left_sep = ' >'
+let g:airline#extensions#tabline#right_sep = '< '
+let g:airline#extensions#bufferline#enabled = 1                 " 集成 bufferline
+let g:airline#extensions#bufferline#overwrite_variables = 1     " 允许 bufferline 修改变量
+let g:airline#extensions#coc#enabled = 1                        " 集成 coc
+let g:airline#extensions#tagbar#enabled = 1                     " 集成 tagbar
+let g:airline#extensions#tagbar#flags = 's'                     " 显示函数签名
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.linenr = ' '
+let g:airline_symbols.maxlinenr = ' '
+let g:airline_symbols.colnr = ' col:'
+
+" ======================================================================================================= bufferline
+let g:bufferline_echo = 1                                       " 在命令栏自动显示
+let g:bufferline_active_buffer_left = '['                       " 激活 buffer 的左侧分隔符
+let g:bufferline_active_buffer_right = ']'                      " 活动 buffer 的右侧分隔符
+let g:bufferline_modified = '+'                                 " buffer 被修改的的标识符 
+let g:bufferline_show_bufnr = 1                                 " 显示 buffer 数字
+let g:bufferline_rotate = 0                                     " buffer 不循环不滚动
+let g:bufferline_fixed_index = -1                               " rotate 时固定 buffer 位置
+let g:bufferline_fname_mod = ':.'                               " 文件名显示为相对路径 
+let g:bufferline_pathshorten = 0                                " 显示 buffer name 中的完整路径
+
+" ======================================================================================================= bufferhint
+let g:bufferhint_SortMode = 0                                   " buffer 排序方式
+let g:bufferhint_MaxWidth = 48                                  " 窗口宽度
+let g:bufferhint_KeepWindow = 1                                 " buffer 删除后保存窗口
+
+" ======================================================================================================= vimade
+let g:vimade_running = 1                                        " 运行vimade
+let g:vimade = {"fadelevel": 0.5, 'groupdiff':1}
+
+" ======================================================================================================= NERDTree
+let g:NERDTreeWinPos = 'left'                                   " 窗口位置
+let g:NERDTreeWinSize = 32                                      " 窗口大小
+let g:NERDTreeMinimalUI = 1                                     " 不显示提示
+let g:NERDTreeShowBookmarks = 0                                 " 不显示书签
+let g:NERDTreeHijackNetrw = 1                                   " 使用 netrw
+let g:NERDTreeChDirMode = 2                                     " cd 模式
+let g:NERDTreeMinimalMenu = 1                                   " 启用最小功能菜单
+let g:NERDTreeCaseSensitiveSort = 1                             " 排序时区分大小写
+let g:NERDTreeNaturalSort = 1                                   " 自然排序而不是按照字符串排序
+let g:NERDTreeCascadeSingleChildDir = 1                         " 目录下只有一个子目录时折叠显示
+let g:NERDTreeCascadeOpenSingleChildDir = 1                     " 目录下只有一个子目录时递归打开
+let g:NERDTreeAutoDeleteBuffer = 1                              " 自动删除 buffer
+let g:NERDTreeAutoCenterThreshold = 10                          " 窗口内容居中的阈值
+let g:NERDTreeDirArrowExpandable = '+'                          " 收起图标
+let g:NERDTreeDirArrowCollapsible = '-'                         " 展开图标
+let g:NERDTreeShowHidden = 0                                    " 显示隐藏文件
+let g:NERDTreeIgnore = ['\~$', '\.pyc', '\.swp', '__pycache__'] " 忽略指定格式的文件
+let g:NERDTreeRespectWildIgnore = 0                             " 使用 vim 的 'wildignore' 忽略文件
+let g:NERDTreeShowLineNumbers = 1                               " 窗口显示行号
+let g:NERDTreeHighlightCursorline  = 1                          " 使用 vim 的 'cursorline' 选项高亮当前行
+let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
+
+" ======================================================================================================= NerdTreeTab
+let g:nerdtree_tabs_open_on_console_startup = 2                 " 当打开目录时启动 nerdtree
+let g:nerdtree_tabs_startup_cd = 1                              " 当命令行给的是目录名称，直接进入
+let g:nerdtree_tabs_synchronize_focus = 1                       " 同步焦点
+let g:nerdtree_tabs_synchronize_view = 0                        " 同步视图
+let g:nerdtree_tabs_autoclose = 1                               " 当仅剩 nerdtree 窗口时自动退出
+let g:nerdtree_tabs_autofind = 1                                " 在 nerdtree 中自动查找当前打开的文件
+
+" ======================================================================================================= NERDTree-Git
+let g:NERDTreeGitStatusShowClean = 0                            " clean 状态不显示
+let g:NERDTreeGitStatusShowIgnored = 0                          " 显示忽略的文件
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"   : "*",
+    \ "Staged"     : "+",
+    \ "Untracked"  : "!",
+    \ "Renamed"    : "%",
+    \ "Unmerged"   : "=",
+    \ "Deleted"    : "-",
+    \ "Dirty"      : "~",
+    \ "Clean"      : "",
+    \ "Ignored"    : "",
+    \ "Unknown"    : "?"
+    \}                                                          " 状态符号
+
+" =======================================================================================================  undortree
+let g:undotree_WindowLayout = 3                                 " 显示布局
+let g:undotree_SplitWidth = 48                                  " 宽度
+let g:undotree_DiffpanelHeight = 30                             " 高度
+let g:undotree_SetFocusWhenToggle = 1                           " 打开时聚焦
+let g:undotree_ShortIndicators = 1                              " 显示短格式的时间
+let g:undotree_CursorLine = 1                                   " 高亮显示
+let g:undotree_HelpLine = 0                                     " 不显示帮助信息
+
+" ======================================================================================================  tagbar
+let g:tagbar_case_insensitive = 1                               " 排序时遵循大小写
+let g:tagbar_autoshowtag = 1                                    " 展开折叠的标签
+let g:tagbar_show_data_type = 1                                 " 显示 tag 类型
+let g:tagbar_show_linenumbers = -1                              " 显示行号
+let g:tagbar_iconchars = ['+', '-']                             " 折叠符号
+
+
+" ======================================================================================================= indentLine
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']               " 对齐线用到的字符列表
+let g:indentLine_bufTypeExclude = ['help', 'terminal']          " 给定的缓冲区类型不用对齐线
+
+" ======================================================================================================= rainbow
+let g:rainbow_active = 1                                        " 启用括号彩色匹配
+
+" ======================================================================================================= syntastic
+let g:syntastic_check_on_open = 1                               " 文件打开时检查语法
+let g:syntastic_check_on_wq = 0                                 " 文件关闭时不检查语法
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1 
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": ["python"] }
+
+" ======================================================================================================= NERDCommenter
+let g:NERDCompactSexyComs = 0                                   " 多行注释更好的风格
+let g:NERDCommentEmptyLines = 1                                 " 空行也注释
+let g:NERDSpaceDelims = 1                                       " 注释时增加前后增加一个空格
+let g:NERDRemoveExtraSpaces = 1                                 " 移除注释时也移除多余空格
+let g:NERDTrimTrailingWhitespace = 1                            " 移除注释时，如果是空行则移除所有空白
+let g:NERDDefaultAlign = 'left'                                 " 注释对齐方式
+let g:NERDCustomDelimiters = {
+    \ 'c'           : { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'cpp'         : { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'java'        : { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'python'      : { 'left': '#', 'leftAlt': '#' },
+    \ 'sh'          : { 'left': '#'},
+    \ 'sql'         : { 'left': '-- ', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'dockerfile'  : { 'left': '#' },
+    \ 'lua'         : { 'left': '--', 'leftAlt': '--[[', 'rightAlt': ']]' },
+    \ 'vimperator'  : { 'left': '"' },
+    \ 'yaml'        : { 'left': '#' },
+    \ }                                                         " 不同文件注释方式
+
+" ======================================================================================================= asyncrun
+let g:asyncrun_open=10
+let g:asyncrun_save=1
+
+" ======================================================================================================= coc
+
+let g:coc_global_extensions =['coc-clangd', 'coc-jedi', 'coc-snippets','coc-markdownlint','coc-git','coc-cmake','coc-tabnine']
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+            \ coc#pum#visible() ? coc#pum#next(1):
+            \ CheckBackspace() ? "\<Tab>" :
+            \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+" ======================================================================================================= 按键映射
+nnoremap <silent><nowait> <C-q> :call F_auto_close()<CR>                        " 正常模式下保存操作
+inoremap <silent><nowait> <C-q> <ESC>:call F_auto_close<CR>                     " 插入模式下保存操作
+nnoremap <silent><nowait> <C-s> :update<CR>                                      " 正常模式下保存操作
+inoremap <silent><nowait> <C-s> <Esc>:update<CR>                                 " 插入模式下保存操作
+nnoremap <silent><nowait> <C-z> undo                                             " 所有模式下撤销操作                        
+inoremap <silent><nowait> <C-z> <Esc>:undo<CR>                                   " 所有模式下撤销操作                        
+
+nnoremap <silent><nowait> tn :tabnew untitled<CR>                                " 创建新的标签页
+nnoremap <silent><nowait> tc :w<CR>:tabclose<CR>                                 " 保存并关闭当前标签页                                
+nnoremap <silent><nowait> t<Left> :-tabnext<CR>                                  " 往左边切换标签页
+nnoremap <silent><nowait> t<Right> :+tabnext<CR>                                 " 往右边切换标签页
+
+nnoremap <silent><nowait> <Tab> <C-w>w                                           " 循环移动光标到下一个窗口 ???
+nnoremap <silent><nowait> w<Left> <C-w>h                                         " 光标移动到左边窗口
+nnoremap <silent><nowait> w<Right> <C-w>l                                        " 光标移动到右边窗口
+nnoremap <silent><nowait> w<Up> <C-w>k                                           " 光标移动到上边窗口
+nnoremap <silent><nowait> w<Down> <C-w>j                                         " 光标移动到下边窗口
+nnoremap <silent><nowait> w[ :res -3<CR>                                         " 垂直减小
+nnoremap <silent><nowait> w] :res +3<CR>                                         " 垂直加长
+nnoremap <silent><nowait> w= :vertical resize+8<CR>                              " 水平加宽
+nnoremap <silent><nowait> w- :vertical resize-8<CR>                              " 水平减宽
+
+noremap <silent><nowait> <F1> :NERDTreeToggle<CR>                                " NerdTree
+noremap <silent><nowait> <F2> :TagbarToggle<CR>                                  " Tagbar
+noremap <silent><nowait> <F5> :call F_auto_run()<CR>
+noremap <silent><nowait> <F6> :UndotreeToggle<CR>                                " UndoTree
+noremap <silent><nowait> <F9> :call F_auto_comment()<CR>
+noremap <silent><nowait> <F12> :call F_paste_toggle()<CR>
+
+set autochdir
+nnoremap . :NERDTree .<CR>
+nnoremap .. :NERDTree ..<CR>
+" BufferHint
+nnoremap b- :call bufferhint#Popup()<CR>
+nnoremap b= :call bufferhint#LoadPrevious()<CR>
+nmap \\ <leader>c<Space>                                        " 快速注释
+nnoremap gb :<C-u>call gitblame#echo()<CR>                      " git blame
+
+" ====================================================================================
+
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" 跳转到变量定义。normal 模式下在一个变量名上按一下 gd 即可跳转到定义位置，然后ctrl-o 可以快速返回原位置
+nmap <silent> gd <Plug>(coc-definition)
+" 跳转到值的类型定义，或者跳转到函数的返回值类型。在你想要快速查找一个类型的结构的时候非常有用
+nmap <silent> gy <Plug>(coc-type-definition)
+" 跳转到 interface 接口的对应实现。比如查看go里一个 interface 被哪些 struct 实现了
+nmap <silent> gi <Plug>(coc-implementation)
+" 打开当前变量、函数等被引用的列表。比如看一个 函数 在哪些地方使用了
+nmap <silent> gr <Plug>(coc-references)
+
+
+" ======================================================================================================= 自定义功能
+
+function! F_auto_close()
+    if &buftype == 'nofile' || &readonly 
+        :q!
+    else
+        :wq
+    endif
+endfunction
+
+
+" 切换粘贴模式
+let b:paste_toggle_on = 1
+function! F_paste_toggle()
+    if b:paste_toggle_on == 1
+        if &filetype == 'csv'
+            exec ":RainbowAlign"
+        else
+            :GitGutterBufferDisable
+            :IndentLinesDisable
+            :set nonumber
+            :set paste
+        endif
+        let b:paste_toggle_on = 0
+    else
+        if &filetype == 'csv'
+            exec ":RainbowShrink"
+        else
+            :GitGutterBufferEnable
+            :IndentLinesEnable
+            :set number
+            :set nopaste
+        endif
+        let b:paste_toggle_on = 1
+    endif
+    echo "Format " . &filetype ." success."
+endfunction
+
+" Your vimrc
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
+
+
+
 
 " 设置折叠
-
 function PythonFoldText()
     let line = getline(v:foldstart)
     echo line
@@ -97,28 +427,39 @@ func F_set_fold()
 endfunc
 
 
-" 切换窗口
-map <Tab> <C-w>w
-" 保存文件
-" nmap <C-s> :update<CR>
-" vmap <C-s> <C-C>:update<CR>
-" imap <C-s> <Esc>:update<CR>i
+highlight VertSplit ctermfg=green ctermbg=None term=None
 
-" 设置主题颜色
-colorscheme koehler
 
 "----------------------------------------------------------------------------------------------------------
 "                                                        user-defined function
 " add comment
-autocmd BufNewFile *.h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_comment()"
-autocmd BufWrite,FileWritePre *h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_update()"
+" # autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
+" autocmd BufEnter *.h,*.hpp,*.cpp,*.c,*.cc,*.cxx,*.py exec ":TagbarOpen"
+" autocmd BufNewFile *.h,*.hpp,*.cpp,*.c,*.py,*.sh exec ":call F_auto_comment()"
+" autocmd BufWrite,FileWritePre *h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_update()"
 " autocmd BufEnter *.py exec ":call F_set_fold()"
-map <F4> :call F_auto_comment()<CR>
-
-map <F12> :call F_format_file()<CR>
 
 let s:userAuthor = 'H.Yin'
 let s:userEmail  = 'csustyinhao@gmail.com'
+
+fun F_auto_update()
+    let a:lnum = search("^[*#]  Modified")
+    let a:line = "  Modified    : "
+    if a:lnum > 0
+        if &filetype == 'sh' || &filetype == 'python'
+            let a:line = '#'. a:line
+        elseif &filetype == 'cpp' || &filetype == 'c'
+            let a:line = '*'. a:line
+        else
+            let a:line = ''
+        endif
+        let a:line .= strftime("%Y-%m-%d %H:%M:%S(%z)")
+        call setline(a:lnum, a:line)
+    endif
+endfunc
+
+
+"----------------------------------------------------------------------------------------------------------
 
 func F_auto_comment_h()
     call append(0, "/*******************************************************************")
@@ -220,385 +561,24 @@ func F_auto_comment()
     endif
 endfunc
 
-fun F_auto_update()
-    let a:lnum = search("^[*#]  Modified")
-    let a:line = "  Modified    : "
-    if a:lnum > 0
-        if &filetype == 'sh' || &filetype == 'python'
-            let a:line = '#'. a:line
-        elseif &filetype == 'cpp' || &filetype == 'c'
-            let a:line = '*'. a:line
-        else
-            let a:line = ''
-        endif
-        let a:line .= strftime("%Y-%m-%d %H:%M:%S(%z)")
-        call setline(a:lnum, a:line)
+
+func! F_auto_run()
+    exec "w"
+    if &filetype == 'c'
+        exec ':AsyncRun -mode=term -pos=hide gcc "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
+        exec ":AsyncRun -mode=term -pos=bottom -rows=10 -focus=0 $(VIM_FILEDIR)/$(VIM_FILENOEXT)"
+    elseif &filetype == 'cpp'
+        exec ':AsyncRun -pos=hide g++ -O3 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" -lpthread'
+        exec ":AsyncRun -mode=term -pos=bottom -rows=10 -focus=0 $(VIM_FILEDIR)/$(VIM_FILENOEXT)"
+    elseif &filetype == 'python'
+        exec ":AsyncRun -mode=term -pos=bottom -rows=10 -focus=0 python3 $(VIM_FILEPATH)"
+    elseif &filetype == 'html'
+        exec ":AsyncRun -mode=term -pos=hide open $(VIM_FILEPATH)"
+    elseif &filetype == 'go'
+        exec ":AsyncRun -mode=term -pos=hid go build $(VIM_FILEDIR)/$(VIM_FILENOEXT)"
+        exec ":AsyncRun -mode=term -pos=bottom -rows=10 -focus=0 go run $(VIM_FILEPATH)"
+    elseif &filetype == 'javascript'
+        exec ":AsyncRun -mode=term -pos=bottom -rows=10 -focus=0 node $(VIM_FILEPATH)"
     endif
 endfunc
 
-
-let b:user_format_file_on = 1
-function! F_format_file()
-    if b:user_format_file_on == 1
-        if &filetype == 'csv'
-            exec ":RainbowAlign"
-        else
-            if &filetype == 'python' || &filetype == 'sh'
-                :GitGutterBufferDisable
-                :IndentLinesDisable
-                :set nonumber
-                :set paste
-            endif
-        endif
-        let b:user_format_file_on = 0
-    else
-        if &filetype == 'csv'
-            exec ":RainbowShrink"
-        else
-            if &filetype == 'python' || &filetype == 'sh'
-                :GitGutterBufferEnable
-                :IndentLinesEnable
-                :set number
-                :set nopaste
-            endif 
-        endif
-        let g:user_format_file_on = 0
-    endif
-    echo "Format " . &filetype ." success."
-endfunction
-"----------------------------------------------------------------------------------------------------------
-"                                                         plug-ins management
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'vim-airline/vim-airline'        " 状态栏管理
-Plugin 'vim-airline/vim-airline-themes' " 状态栏主题
-Plugin 'bling/vim-bufferline'           " 状态栏显示 buffer 信息
-Plugin 'tpope/vim-fugitive'             " 状态栏显示 git 信息 
-
-Plugin 'preservim/nerdtree'             " 目录管理
-Plugin 'jistr/vim-nerdtree-tabs'
-
-Plugin 'bsdelf/bufferhint'              " 缓冲区管理
-Plugin 'vim-scripts/taglist.vim'
-
-Plugin 'mbbill/undotree'                " undo / redo
-Plugin 'Yggdroot/indentLine'            " 上下对齐线
-
-Plugin 'vim-syntastic/syntastic'
-
-Plugin 'ervandew/supertab'
-Plugin 'kien/ctrlp.vim'
-
-Plugin 'luochen1990/rainbow'            " 括号
-" Plugin 'speeddating.vim'
-
-
-" -------------------------------------- for Programming -----------------
-
-" for Bash
-" Plugin 'bash-support.vim'
-
-Plugin 'preservim/nerdcommenter'
-
-" sql plug-ins
-Plugin 'vim-scripts/sqlcomplete.vim'
-Plugin 'mpyatishev/vim-sqlformat'
-" Plugin 'aliou/sql-heredoc.vim'
-
-Plugin 'autowitch/hive.vim'
-
-Plugin 'vim-scripts/sh.vim'
-Plugin 'vim-scripts/awk.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'maksimr/vim-jsbeautify'
-
-
-" scala highlight
-Bundle 'derekwyatt/vim-scala'
-
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'roman/golden-ratio'
-
-" Python
-" Plugin 'google/yapf'
-" Plugin 'sillybun/vim-repl'
-" Plugin 'tmhedberg/simpylfold'
-" Plugin 'python_ifold'
-
-" Plugin 'kamykn/spelunker.vim'
-
-" CSV
-Plugin 'mechatroner/rainbow_csv'
-
-Plugin 'zivyangll/git-blame.vim'
-Plugin 'airblade/vim-gitgutter'
-
-" Plugin 'Yggdroot/indentLine'
-
-Plugin 'skywind3000/asyncrun.vim'
-
-call vundle#end()
-
-set runtimepath+=~/.vim/neobundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/neobundle/'))
-
-NeoBundle 'Shougo/neobundle.vim'
-" https://github.com/Yggdroot/LeaderF
-NeoBundle 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-" python-mode: PyLint, Rope, Pydoc, breakpoints from box.
-" " https://github.com/python-mode/python-mode
-NeoBundleLazy 'python-mode/python-mode', { 'on_ft': 'python' }
-
-NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-NeoBundle 'skywind3000/asyncrun.vim'
-
-NeoBundle 'dense-analysis/ale'
-
-
-NeoBundle 'liuchengxu/vista.vim'
-
-call neobundle#end()
-
-NeoBundleCheck
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-call plug#end()
-
-filetype plugin indent on
-
-" airline
-let g:airline_detect_paste=1
-let g:airline_detect_modified=1
-let g:airline_detect_spell=1
-let g:airline_section_c_only_filename = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_splits = 1
-let g:airline#extensions#tabline#left_sep = '»'
-let g:airline#extensions#tabline#right_sep = '«'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#bufferline#enabled = 0
-let g:airline#extensions#bufferline#overwrite_variables = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.linenr = '='
-let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='dark'
-" bufferline
-let g:bufferline_echo = 1
-let g:bufferline_active_buffer_left = '['
-let g:bufferline_active_buffer_right = ']'
-let g:bufferline_modified = '+' 
-let g:bufferline_show_bufnr = 1
-let g:bufferline_rotate = 1
-let g:bufferline_fixed_index = -1 "always last
-let g:bufferline_fname_mod = ':t'
-set autochdir
-nnoremap . :NERDTree .<CR>
-nnoremap .. :NERDTree ..<CR>
-
-
-" NERDTree
-map <F2> :NERDTreeToggle<CR>
-let g:NERDTreeWinSize = 32               " 窗口大小
-let g:NERDTreeHidden = 1                 " 不显示隐藏文件
-let g:NERDTreeMinimalUI = 1              " 不现实提示
-let g:NERDTreeWinPos = 'left'            " 窗口位置
-let g:NERDTreeChDirMode=2
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeNaturalSort = 1
-let g:NERDTreeShowLineNumbers = 1        " 窗口显示行号
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeAutoCenterThreshold = 30   " 窗口内容居中的阈值
-let g:NERDTreeDirArrowExpandable = '+'   " 收起图标
-let g:NERDTreeDirArrowCollapsible = '-'  " 展开图标
-let g:NERDTreeHighlightCursorline  = 1   " 高亮当前行
-let NERDTreeCreatePrefix='silent keepalt keepjumps'
-let g:NERDTreeIgnore = ['\.pyc', '\.swp', '__pycache__'] " 忽略指定格式的文件
-
-" NERDTree-Git
-let g:NERDTreeGitStatusShowClean = 1
-let g:NERDTreeGitStatusShowIgnored = 1
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"   : "*",
-    \ "Staged"     : "+",
-    \ "Untracked"  : ">",
-    \ "Renamed"    : "%",
-    \ "Unmerged"   : "=",
-    \ "Deleted"    : "!",
-    \ "Dirty"      : "-",
-    \ "Clean"      : "+",
-    \ "Ignored"    : "-",
-    \ "Unknown"    : "?"
-    \}
-" NerdTreeTab
-let g:nerdtree_tabs_open_on_console_startup = 0
-let g:nerdtree_tabs_autoclose = 1
-let g:nerdtree_tabs_synchronize_focus = 1
-let g:nerdtree_tabs_synchronize_view = 1
-let g:nerdtree_tabs_startup_cd = 1
-
-" 自动启动 NERDTree
-" autocmd vimenter * NERDTree
-" 只剩 NERDTree 窗口时直接退出
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" taglist
-map <F3> :TlistToggle<CR>
-let g:Tlist_Auto_Update = 1       " 
-let g:Tlist_Compact_Format = 1    "
-let g:Tlist_Show_Menu = 0         " 不显示菜单
-let g:Tlist_Show_One_File = 1     " 仅显示当前文件中的tags
-let g:Tlist_Enable_Fold_Column = 1 "
-let g:Tlist_Exit_OnlyWindow = 1   " 如果taglist窗口是最后一个窗口，则退出vim
-let g:Tlist_Use_Right_Window = 1  " 使用右侧窗口
-let g:Tlist_GainFocus_On_ToggleOpen = 1
-let g:Tlist_WinWidth = 32
-
-nmap <F1> :TlistToggle<CR>:NERDTreeToggle<CR><C-w>w
-autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
-
-" DoxygenToolkit
-let g:DoxygenToolkit_blockHeader  = "--------------------------------------------------------------------------"
-let g:DoxygenToolkit_blockFooter  = "----------------------------------------------------------------------------"
-let g:DoxygenToolkit_dateTag      = "@Update  "
-let g:DoxygenToolkit_authorTag    = "@Author  "
-let g:DoxygenToolkit_briefTag_pre = "@Email   "
-let g:DoxygenToolkit_paramTag_pre = "@Param   "
-let g:DoxygenToolkit_returnTag    = "@Return  "
-let g:DoxygenToolkit_versionTag   = "@Version "
-let g:DoxygenToolkit_authorName   = "H.Yin"
-let g:DoxygenToolkit_briefTag_post = "csustyinhao@gmail.com"
-
-" 快速单行/多行注释: NERDCommenter
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDCommentEmptyLines = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDCustomDelimiters = {
-    \ 'c'           : { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
-    \ 'cpp'         : { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
-    \ 'python'      : { 'left': '#', 'leftAlt': '#' },
-    \ 'sh'          : { 'left': '#'},
-    \ 'sql'         : { 'left': '-- ', 'leftAlt': '/*', 'rightAlt': '*/' },
-    \ 'dockerfile'  : { 'left': '#' },
-    \ 'lua'         : { 'left': '--', 'leftAlt': '--[[', 'rightAlt': ']]' },
-    \ 'vimperator'  : { 'left': '"' },
-    \ 'yaml'        : { 'left': '#' },
-    \ }
-
-" 快速注释
-nmap \\ <leader>c<Space>
-
-" miniBufexplorer
-" let g:miniBufExplShowBufNumbers = 1
-" let g:miniBufExplSplitToEdge = 1
-" let g:miniBufExplBuffersNeeded = 1
-" let g:miniBufExplMapWindowNavVim = 1 
-" let g:miniBufExplMapWindowNavArrows = 1 
-" let g:miniBufExplMapCTabSwitchBufs = 1 
-" let g:miniBufExplModSelTarget = 1
-" let g:miniBufExplMoreThanOne=0
-
-" syntastic
-let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": ["python"] }
-let g:syntastic_check_on_wq = 0
-let g:syntastic_check_on_open = 0
-
-
-"SimpyFold
-let g:SimpylFold_docstring_preview = 1
-
-let g:ifold_mode=2
-
-
-" rainbow
-let g:rainbow_active = 1
-
-
-" bufferhint
-nnoremap - :call bufferhint#Popup()<CR>
-nnoremap = :call bufferhint#LoadPrevious()<CR>
-
-" UndoTree
-nnoremap <F9> :UndotreeToggle<CR>
-
-" ALE
-let g:ale_enabled = 0
-" let b:ale_linters = ['flake8']
-
-
-let g:SuperTabDefaultCompletionType = "context"
-let g:loaded_golden_ratio = 1
-let g:golden_ratio_exclude_nonmodifiable = 1
-
-" emmet-vim
-let g:user_emmet_expandabbr_key = '<C-e>'
-
-" pymode
-let g:pymode_folding = 0
-let g:pymode_breakpoint = 0
-let g:pymode_indent = 1
-let g:pymode_motion = 1
-let g:pymode_run_bind = '<F10>'
-
-let g:pymode_options_max_line_length = 120
-
-let g:pymode_doc = 1
-let g:pymode_doc_bind = '<leader>p'
-let g:pymode_preview_position = 'topright'
-let g:pymode_quickfix_minheight = 8
-let g:pymode_quickfix_maxheight = 8
-let g:pymode_lint = 1
-let g:pymode_lint_on_fly = 0
-let g:pymode_lint_unmodified = 1
-let g:pymode_lint_cwindow = 1
-let g:pymode_lint_sort = ['E', 'W', 'I']
-let g:pymode_lint_checkers = ['pylint']
-let g:pymode_lint_options_pylint = {'max_line_length': g:pymode_options_max_line_length}
-let g:pymode_lint_signs = 1
-let g:pymode_lint_todo_symbol = 'W>'
-let g:pymode_lint_comment_symbol = 'C>'
-let g:pymode_lint_visual_symbol = 'R>'
-let g:pymode_lint_error_symbol = 'E>'
-let g:pymode_lint_info_symbol = 'I>'
-let g:pymode_lint_pyflakes_symbol = 'F>'
-
-
-" let g:pymode_rope = 1
-" let g:pymode_rope_lookup_project = 1
-" let g:pymode_rope_regenerate_on_write = 1
-" let g:pymode_rope_autoimport = 1
-" let g:pymode_rope_completion = 0
-" let g:pymode_rope_complete_on_dot = 1
-" 
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-" 高亮缩进错误
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-" 高亮空格错误
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-
-" indentLine
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
-" for HiveSQL
-autocmd BufNewFile,BufRead *.hql set filetype=hive expandtab
-autocmd BufNewFile,BufRead *.q set filetype=hive expandtab
-
-" for undortree
-let g:undotree_WindowLayout = 4
-let g:undotree_ShortIndicators = 1
-let g:undotree_HelpLine = 0

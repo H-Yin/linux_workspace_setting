@@ -18,25 +18,9 @@ DEPS="vim git ctags"
 BASEDIR=$(cd `dirname $0`; pwd)
 
 # set -eu
-while :
-do
-    read -r -p "Do you want to clear the old workspace? [y/N] " input
-    mv ~/.vimrc ~/.vimrc.bak
-    case $input in
-        [yY][eE][sS]|[yY])
-            echo "Step-0: Remove bundle and backup .vimrc ..."
-            rm -rf ~/.vim/bundle
-            ;&
-        [nN][oO]|[nN])
-            break
-            ;;
-        *)
-            echo "Invalid input, please try again ..."
-            ;;
-    esac
-done
-
 echo 'Step-1: Copy .vimrc to home directory ...'
+mv ~/.vimrc ~/.vimrc.bak
+mv ~/.vim ~/.vim.bak
 cp .vimrc ~/
 
 echo 'Step-2: Check and install dependences ...'
@@ -51,20 +35,13 @@ for d in $DEPS; do
     echo "Check $d : yes"
 done
 
-echo 'Step-3: Clone and install Vundle ...'
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim >/dev/null 2>&1
+echo 'Step-3: Clone and install Vim-Plug ...'
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-mkdir -p ~/.vim/neobundle
-git clone https://github.com/Shougo/neobundle.vim ~/.vim/neobundle/neobundle.vim
 
 echo 'Step-4: Install all plug-ins ...'
-vim +PluginInstall +NeoBundleInstall +PlugInstall +qall
+vim +PlugInstall +qall
 
-# mv sqlutil / taglist to workspace
 cp -ri $BASEDIR/vim $HOME/.vim
 
 echo 'All steps are done!'

@@ -342,6 +342,7 @@ function! F_paste_toggle()
             :IndentLinesDisable
             :set nonumber
             :set paste
+            :set signcolumn=no
         endif
         let b:paste_toggle_on = 0
     else
@@ -352,6 +353,7 @@ function! F_paste_toggle()
             :IndentLinesEnable
             :set number
             :set nopaste
+            :set signcolumn=yes
         endif
         let b:paste_toggle_on = 1
     endif

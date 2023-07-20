@@ -41,6 +41,7 @@ function check()
     return $([[ -n $flag ]]; echo $?)
 }
 
+
 function install_rar()
 {
     local output='rarlinux.tar.gz'
@@ -64,6 +65,16 @@ function install_7za()
     (make && sudo make install) >$HOME/p7zip.log 2>&1 && rm $HOME/p7zip.log
     cd ..
     rm -rf $zipdir
+}
+
+function install_ntop()
+{
+	if [[ -d nvtop ]]; then
+		rm -rf nvtop
+	fi
+	sudo apt install -y libsystemd-dev libudev-dev libdrm-dev libncurses5-dev
+	git clone https://github.com/Syllo/nvtop.git && mkdir -p nvtop/build && cd nvtop/build
+	cmake .. -DNVIDIA_SUPPORT=ON && make -j 8 && sudo make install && rm -rf nvtop
 }
 
 for app in $APPS; do

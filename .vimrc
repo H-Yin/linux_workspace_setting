@@ -22,8 +22,8 @@ set autoindent                                                  " 自动缩进
 set cindent                                                     " C语言格式的自动缩进
 set tabstop=4                                                   " 设置 tab宽度
 set softtabstop=4
-set shiftwidth=4
-set expandtab                                                   " 自动扩展 TAB
+set shiftwidth=4                                                " 换行时自动缩进的宽度
+" set expandtab                                                   " 自动扩展 TAB
 
 set autowrite                                                   " 自动保存
 set autoread                                                    " 文件修改时自动加载
@@ -35,13 +35,10 @@ set ignorecase                                                  " 搜索忽略�
 set t_Co=256
 set autochdir
 " 显示特殊字符
-" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-" set list
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set list
+
 set fillchars=stlnc:_,vert:\|,fold:~,diff:_             " 设置分屏间隔符
-
-
-" 设置主题颜色
-colorscheme koehler
 
 
 " ======================================================================================================= plugins
@@ -342,6 +339,7 @@ function! F_paste_toggle()
             :IndentLinesDisable
             :set nonumber
             :set paste
+            :set nolist
             :set signcolumn=no
         endif
         let b:paste_toggle_on = 0
@@ -353,6 +351,7 @@ function! F_paste_toggle()
             :IndentLinesEnable
             :set number
             :set nopaste
+            :set list
             :set signcolumn=yes
         endif
         let b:paste_toggle_on = 1
@@ -429,16 +428,28 @@ func F_set_fold()
 endfunc
 
 
-highlight VertSplit ctermfg=green ctermbg=None term=None
+" 设置主题颜色
+colorscheme koehler
+
+highlight VertSplit ctermfg=green ctermbg=None term=None					" 设置垂直分隔符
+highlight NonText ctermfg=239												" 设置特殊不可见字符样式
+highlight SpecialKey ctermfg=239											" 设置特殊不可见字符样式
 
 
 "----------------------------------------------------------------------------------------------------------
 "                                                        user-defined function
+if has("autocmd")
+    " Restore the location of the cursor when the file was last opened
+    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|exe("norm '\"")|endif
+    autocmd BufEnter *.py,*.hql exec ":set expandtab"
+endif
+
 " add comment
 " # autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 " autocmd BufEnter *.h,*.hpp,*.cpp,*.c,*.cc,*.cxx,*.py exec ":TagbarOpen"
 " autocmd BufNewFile *.h,*.hpp,*.cpp,*.c,*.py,*.sh exec ":call F_auto_comment()"
 " autocmd BufWrite,FileWritePre *h,*.cpp,*.c,*.py,*.sh exec ":call F_auto_update()"
+" autocmd User visual_multi_mappings  imap <buffer><expr> <CR> pumvisible() ? "\<C-Y>" : "\<Plug>(VM-I-Return)"
 " autocmd BufEnter *.py exec ":call F_set_fold()"
 
 let s:userAuthor = 'H.Yin'

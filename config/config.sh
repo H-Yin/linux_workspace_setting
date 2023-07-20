@@ -11,11 +11,11 @@
 #################################################################
 
 
-APPS="vim git ctags tree lrzsz wget "
-CODE_APPS='gcc gcc-c++ '
-NET_APPS='nload '
+APPS="vim git tree lrzsz wget "
+CODE_APPS='gcc gcc-c++ cmake '
+NET_APPS='nload nethogs '
 FILE_APPS='zip unzip rar unrar bzip2 7za '
-SYS_APPS=' htop nethogs '
+SYS_APPS=' htop ntop '
 MISC_APPS=' graphviz '
 
 APPS+=$CODE_APPS

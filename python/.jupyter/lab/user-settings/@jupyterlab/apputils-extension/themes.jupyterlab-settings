@@ -1,0 +1,10 @@
+{
+    // 主题
+    // @jupyterlab/apputils-extension:themes
+    // 主题管理器设置。
+    // *************************************
+
+    // 选定的主题
+    // 应用程序级视觉样式主题
+    "theme": "JupyterLab Dark"
+}

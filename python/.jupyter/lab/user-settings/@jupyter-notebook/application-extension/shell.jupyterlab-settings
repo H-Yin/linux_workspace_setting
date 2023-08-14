@@ -1,0 +1,10 @@
+{
+    "layout": {
+        "Markdown Preview": {
+            "area": "right"
+        },
+        "[\\w-]+": {
+            "area": "left"
+        }
+    }
+}

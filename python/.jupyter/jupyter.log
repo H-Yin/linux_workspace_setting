@@ -1,0 +1,1272 @@
+[I 2023-08-08 16:00:47.368 ServerApp] Package notebook took 0.0000s to import
+[I 2023-08-08 16:00:47.377 ServerApp] Package jupyter_lsp took 0.0087s to import
+[W 2023-08-08 16:00:47.377 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-08-08 16:00:47.381 ServerApp] Package jupyter_server_terminals took 0.0039s to import
+[I 2023-08-08 16:00:47.381 ServerApp] Package jupyterlab took 0.0000s to import
+[I 2023-08-08 16:00:47.817 ServerApp] Package notebook_shim took 0.0000s to import
+[W 2023-08-08 16:00:47.818 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2023-08-08 16:00:47.818 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2023-08-08 16:00:47.824 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2023-08-08 16:00:47.831 ServerApp] jupyterlab | extension was successfully linked.
+[I 2023-08-08 16:00:47.839 ServerApp] notebook | extension was successfully linked.
+[W 2023-08-08 16:00:48.039 ServerApp] jupyter_nbextensions_configurator | error adding extension (enabled: True): The module 'jupyter_nbextensions_configurator' could not be found (No module named 'notebook.base'). Are you sure the extension is installed?
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/extension/manager.py", line 319, in add_extension
+        extpkg = ExtensionPackage(name=extension_name, enabled=enabled)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/extension/manager.py", line 183, in __init__
+        self._load_metadata()
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/extension/manager.py", line 198, in _load_metadata
+        raise ExtensionModuleNotFound(msg) from None
+    jupyter_server.extension.utils.ExtensionModuleNotFound: The module 'jupyter_nbextensions_configurator' could not be found (No module named 'notebook.base'). Are you sure the extension is installed?
+[I 2023-08-08 16:00:48.039 ServerApp] notebook_shim | extension was successfully linked.
+[I 2023-08-08 16:00:48.052 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2023-08-08 16:00:48.054 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2023-08-08 16:00:48.055 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2023-08-08 16:00:48.056 LabApp] JupyterLab extension loaded from /data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyterlab
+[I 2023-08-08 16:00:48.056 LabApp] JupyterLab application directory is /data/yinhao/Anaconda3/share/jupyter/lab
+[I 2023-08-08 16:00:48.056 LabApp] Extension Manager is 'pypi'.
+[I 2023-08-08 16:00:48.059 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2023-08-08 16:00:48.061 ServerApp] notebook | extension was successfully loaded.
+[I 2023-08-08 16:00:48.061 ServerApp] Serving notebooks from local directory: /data/yinhao
+[I 2023-08-08 16:00:48.061 ServerApp] Jupyter Server 2.7.0 is running at:
+[I 2023-08-08 16:00:48.061 ServerApp] https://localhost:8888/tree
+[I 2023-08-08 16:00:48.061 ServerApp]     https://127.0.0.1:8888/tree
+[I 2023-08-08 16:00:48.061 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 2023-08-08 16:00:48.381 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[W 2023-08-08 16:00:50.325 ServerApp] SSL Error on 8 ('10.0.100.148', 58220): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:00:50.326 ServerApp] SSL Error on 9 ('10.0.100.148', 58224): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:00:50.326 ServerApp] SSL Error on 10 ('10.0.100.148', 58230): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:00:50.326 ServerApp] SSL Error on 11 ('10.0.100.148', 58240): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:00:50.334 ServerApp] SSL Error on 12 ('10.0.100.148', 58254): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:00:51.722 ServerApp] SSL Error on 9 ('10.0.100.148', 58314): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:00:51.730 ServerApp] SSL Error on 10 ('10.0.100.148', 58318): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:00:51.762 ServerApp] SSL Error on 11 ('10.0.100.148', 58334): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:00:51.817 ServerApp] SSL Error on 10 ('10.0.100.148', 58348): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:00:53.623 ServerApp] SSL Error on 10 ('10.0.100.148', 58358): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:01:05.138 ServerApp] SSL Error on 10 ('10.0.100.148', 52916): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:04:52.278 ServerApp] Creating new notebook in /project/challenge/2023_XunFei_SubscriberAdditionPrediction
+[I 2023-08-08 16:04:52.380 ServerApp] Writing notebook-signing key to /data/yinhao/.local/share/jupyter/notebook_secret
+[E 2023-08-08 16:04:52.818 ServerApp] Uncaught exception GET /api/nbconvert?1691481855323 (10.0.100.148)
+    HTTPServerRequest(protocol='https', host='127.0.0.1:8888', method='GET', uri='/api/nbconvert?1691481855323', version='HTTP/1.1', remote_ip='10.0.100.148')
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[W 2023-08-08 16:04:52.825 ServerApp] wrote error: 'Unhandled error'
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[E 2023-08-08 16:04:52.826 ServerApp] {
+      "Host": "127.0.0.1:8888",
+      "Accept": "*/*",
+      "Referer": "https://127.0.0.1:8888/tree/project/challenge/2023_XunFei_SubscriberAdditionPrediction",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    }
+[E 2023-08-08 16:04:52.827 ServerApp] 500 GET /api/nbconvert?1691481855323 (1fb332d3f15b4004aa79c0c0a753e1d6@10.0.100.148) 394.41ms referer=https://127.0.0.1:8888/tree/project/challenge/2023_XunFei_SubscriberAdditionPrediction
+[W 2023-08-08 16:04:54.607 ServerApp] SSL Error on 17 ('10.0.100.148', 45532): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[E 2023-08-08 16:04:56.404 ServerApp] Uncaught exception GET /api/nbconvert?1691481858964 (10.0.100.148)
+    HTTPServerRequest(protocol='https', host='127.0.0.1:8888', method='GET', uri='/api/nbconvert?1691481858964', version='HTTP/1.1', remote_ip='10.0.100.148')
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[W 2023-08-08 16:04:56.405 ServerApp] wrote error: 'Unhandled error'
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[E 2023-08-08 16:04:56.406 ServerApp] {
+      "Host": "127.0.0.1:8888",
+      "Accept": "*/*",
+      "Referer": "https://127.0.0.1:8888/notebooks/project/challenge/2023_XunFei_SubscriberAdditionPrediction/Untitled.ipynb",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    }
+[E 2023-08-08 16:04:56.406 ServerApp] 500 GET /api/nbconvert?1691481858964 (1fb332d3f15b4004aa79c0c0a753e1d6@10.0.100.148) 332.33ms referer=https://127.0.0.1:8888/notebooks/project/challenge/2023_XunFei_SubscriberAdditionPrediction/Untitled.ipynb
+[I 2023-08-08 16:05:01.698 ServerApp] Kernel started: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[W 2023-08-08 16:05:01.765 ServerApp] SSL Error on 25 ('10.0.100.148', 60842): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:05:02.209 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-08 16:06:56.360 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 16:08:56.412 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 16:09:32.645 ServerApp] Kernel restarted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-08 16:09:32.661 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:119a18a7-0d31-4137-bc63-ad5b7e83f560
+[W 2023-08-08 16:09:32.677 ServerApp] SSL Error on 25 ('10.0.100.148', 37920): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:09:32.702 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-08 16:09:32.703 ServerApp] Restoring connection for 7db1b66b-8383-4422-82c7-b84bc7e95207:119a18a7-0d31-4137-bc63-ad5b7e83f560
+[I 2023-08-08 16:10:56.761 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 16:12:23.526 ServerApp] SSL Error on 8 ('10.0.100.148', 35900): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:12:23.528 ServerApp] SSL Error on 13 ('10.0.100.148', 35904): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:12:34.176 ServerApp] SSL Error on 8 ('10.0.100.148', 49380): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:12:34.184 ServerApp] SSL Error on 13 ('10.0.100.148', 49390): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:12:34.198 ServerApp] SSL Error on 14 ('10.0.100.148', 49402): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:12:57.153 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 16:14:05.171 ServerApp] SSL Error on 8 ('10.0.100.148', 58248): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:14:58.152 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 16:28:07.700 ServerApp] SSL Error on 8 ('10.0.100.148', 33402): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:28:07.734 ServerApp] SSL Error on 9 ('10.0.100.148', 33410): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:28:07.734 ServerApp] SSL Error on 13 ('10.0.100.148', 33420): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:28:07.735 ServerApp] SSL Error on 14 ('10.0.100.148', 33424): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:28:07.740 ServerApp] SSL Error on 15 ('10.0.100.148', 33430): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:28:07.744 ServerApp] SSL Error on 29 ('10.0.100.148', 33436): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:28:07.764 ServerApp] SSL Error on 8 ('10.0.100.148', 33438): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:31:13.218 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 16:33:13.763 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 16:37:15.175 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 16:39:16.155 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 16:39:50.330 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 16:39:52.190 ServerApp] SSL Error on 8 ('10.0.100.148', 38344): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:40:23.200 ServerApp] SSL Error on 8 ('10.0.100.148', 49862): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:40:55.200 ServerApp] SSL Error on 8 ('10.0.100.148', 56300): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:41:39.321 ServerApp] SSL Error on 8 ('10.0.100.148', 37990): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:41:46.179 ServerApp] SSL Error on 8 ('10.0.100.148', 37992): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:41:50.173 ServerApp] SSL Error on 8 ('10.0.100.148', 58144): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:41:51.173 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 16:46:39.483 ServerApp] SSL Error on 8 ('10.0.100.148', 43244): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:46:39.485 ServerApp] SSL Error on 13 ('10.0.100.148', 43254): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:46:46.531 ServerApp] SSL Error on 8 ('10.0.100.148', 43268): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:46:57.172 ServerApp] SSL Error on 8 ('10.0.100.148', 56194): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:47:49.598 ServerApp] Kernel restarted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-08 16:47:49.618 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:119a18a7-0d31-4137-bc63-ad5b7e83f560
+[W 2023-08-08 16:47:49.658 ServerApp] SSL Error on 14 ('10.0.100.148', 41700): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:47:49.702 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-08 16:47:49.702 ServerApp] Restoring connection for 7db1b66b-8383-4422-82c7-b84bc7e95207:119a18a7-0d31-4137-bc63-ad5b7e83f560
+[I 2023-08-08 16:47:54.169 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 16:48:43.173 ServerApp] SSL Error on 13 ('10.0.100.148', 34738): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 16:49:02.570 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 16:52:23.202 ServerApp] SSL Error on 13 ('10.0.100.148', 43732): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:54:04.184 ServerApp] SSL Error on 13 ('10.0.100.148', 50148): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:55:28.047 ServerApp] SSL Error on 13 ('10.0.100.148', 41672): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:55:28.055 ServerApp] SSL Error on 15 ('10.0.100.148', 41678): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 16:58:23.515 ServerApp] SSL Error on 13 ('10.0.100.148', 37464): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:07:22.828 ServerApp] SSL Error on 9 ('10.0.100.148', 52038): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:07:23.218 ServerApp] SSL Error on 9 ('10.0.100.148', 52060): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:07:23.228 ServerApp] SSL Error on 13 ('10.0.100.148', 52064): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:07:23.228 ServerApp] SSL Error on 15 ('10.0.100.148', 52078): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:07:25.188 ServerApp] SSL Error on 13 ('10.0.100.148', 52112): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:07:25.193 ServerApp] SSL Error on 15 ('10.0.100.148', 52120): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:08:36.221 ServerApp] SSL Error on 13 ('10.0.100.148', 40570): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 17:15:17.738 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 17:15:17.813 ServerApp] SSL Error on 11 ('10.0.100.148', 51512): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:15:23.200 ServerApp] SSL Error on 11 ('10.0.100.148', 55182): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:15:23.201 ServerApp] SSL Error on 13 ('10.0.100.148', 55190): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:15:23.204 ServerApp] SSL Error on 15 ('10.0.100.148', 55206): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 17:16:25.028 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 17:16:25.089 ServerApp] SSL Error on 13 ('10.0.100.148', 56468): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:16:33.371 ServerApp] SSL Error on 13 ('10.0.100.148', 45440): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:17:53.569 ServerApp] SSL Error on 13 ('10.0.100.148', 46758): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 17:18:25.128 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 17:19:52.890 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 17:19:52.945 ServerApp] SSL Error on 13 ('10.0.100.148', 45514): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 17:21:53.000 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 17:22:24.182 ServerApp] SSL Error on 15 ('10.0.100.148', 47690): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 17:23:53.069 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 17:25:53.156 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 17:27:53.227 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 17:29:53.306 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 17:31:54.184 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 17:32:20.159 ServerApp] SSL Error on 15 ('10.0.100.148', 39500): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 17:33:54.240 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 17:35:54.300 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 17:37:54.307 ServerApp] SSL Error on 15 ('10.0.100.148', 51960): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:37:54.314 ServerApp] SSL Error on 23 ('10.0.100.148', 51968): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:39:55.193 ServerApp] SSL Error on 15 ('10.0.100.148', 52178): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 17:39:55.208 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 17:57:34.473 ServerApp] SSL Error on 15 ('10.0.100.148', 56844): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:57:34.482 ServerApp] SSL Error on 9 ('10.0.100.148', 56854): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:57:34.483 ServerApp] SSL Error on 11 ('10.0.100.148', 56870): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:57:34.483 ServerApp] SSL Error on 13 ('10.0.100.148', 56872): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:57:34.509 ServerApp] SSL Error on 23 ('10.0.100.148', 56874): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:57:34.510 ServerApp] SSL Error on 33 ('10.0.100.148', 56888): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:57:34.510 ServerApp] SSL Error on 36 ('10.0.100.148', 56892): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:57:34.512 ServerApp] SSL Error on 15 ('10.0.100.148', 56904): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:57:34.516 ServerApp] SSL Error on 37 ('10.0.100.148', 56910): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 17:57:34.529 ServerApp] SSL Error on 9 ('10.0.100.148', 56940): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 17:59:34.443 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 18:01:34.960 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 18:03:35.035 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 18:04:34.844 ServerApp] SSL Error on 9 ('10.0.100.148', 44688): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 18:04:34.848 ServerApp] SSL Error on 11 ('10.0.100.148', 44692): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 18:05:35.152 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 18:24:12.300 ServerApp] SSL Error on 9 ('10.0.100.148', 59168): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 18:24:12.306 ServerApp] SSL Error on 11 ('10.0.100.148', 59182): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 18:24:12.312 ServerApp] SSL Error on 13 ('10.0.100.148', 59186): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 18:24:12.313 ServerApp] SSL Error on 15 ('10.0.100.148', 59202): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 18:24:12.953 ServerApp] SSL Error on 13 ('10.0.100.148', 59234): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 18:25:14.213 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 19:00:24.577 ServerApp] SSL Error on 13 ('10.0.100.148', 56552): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.588 ServerApp] SSL Error on 15 ('10.0.100.148', 56558): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.589 ServerApp] SSL Error on 33 ('10.0.100.148', 56566): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.590 ServerApp] SSL Error on 36 ('10.0.100.148', 56580): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.590 ServerApp] SSL Error on 37 ('10.0.100.148', 56590): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.590 ServerApp] SSL Error on 38 ('10.0.100.148', 56594): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.610 ServerApp] SSL Error on 9 ('10.0.100.148', 56600): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.624 ServerApp] SSL Error on 11 ('10.0.100.148', 56610): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.624 ServerApp] SSL Error on 13 ('10.0.100.148', 56612): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.625 ServerApp] SSL Error on 23 ('10.0.100.148', 56626): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:00:24.625 ServerApp] SSL Error on 39 ('10.0.100.148', 56636): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 19:01:13.275 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 19:03:13.362 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 19:05:13.447 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 19:06:25.395 ServerApp] SSL Error on 11 ('10.0.100.148', 42608): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:06:55.490 ServerApp] SSL Error on 11 ('10.0.100.148', 46576): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 19:07:13.525 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 19:07:15.539 ServerApp] SSL Error on 11 ('10.0.100.148', 50162): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:07:36.259 ServerApp] SSL Error on 11 ('10.0.100.148', 48344): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:12:58.512 ServerApp] SSL Error on 11 ('10.0.100.148', 45330): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:12:58.529 ServerApp] SSL Error on 13 ('10.0.100.148', 45338): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:12:58.531 ServerApp] SSL Error on 15 ('10.0.100.148', 45348): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 19:12:58.533 ServerApp] SSL Error on 23 ('10.0.100.148', 45356): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 19:19:14.905 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:119a18a7-0d31-4137-bc63-ad5b7e83f560
+[W 2023-08-08 23:30:43.044 ServerApp] SSL Error on 9 ('10.0.100.148', 46488): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 23:30:43.080 ServerApp] 302 GET / (@10.0.100.148) 2.07ms
+[W 2023-08-08 23:30:43.348 ServerApp] SSL Error on 10 ('10.0.100.148', 46498): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:30:43.512 ServerApp] SSL Error on 10 ('10.0.100.148', 46506): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:30:43.526 ServerApp] SSL Error on 11 ('10.0.100.148', 46522): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:30:43.593 ServerApp] SSL Error on 13 ('10.0.100.148', 46528): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:30:43.600 ServerApp] SSL Error on 14 ('10.0.100.148', 46544): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:30:43.613 ServerApp] SSL Error on 15 ('10.0.100.148', 46554): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:30:47.117 ServerApp] SSL Error on 15 ('10.0.100.148', 46628): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[E 2023-08-08 23:30:53.687 ServerApp] Uncaught exception GET /api/nbconvert?1691508615977 (10.0.100.148)
+    HTTPServerRequest(protocol='https', host='127.0.0.1:8888', method='GET', uri='/api/nbconvert?1691508615977', version='HTTP/1.1', remote_ip='10.0.100.148')
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[W 2023-08-08 23:30:53.691 ServerApp] wrote error: 'Unhandled error'
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[E 2023-08-08 23:30:53.692 ServerApp] {
+      "Host": "127.0.0.1:8888",
+      "Accept": "*/*",
+      "Referer": "https://127.0.0.1:8888/tree?",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    }
+[E 2023-08-08 23:30:53.692 ServerApp] 500 GET /api/nbconvert?1691508615977 (1fb332d3f15b4004aa79c0c0a753e1d6@10.0.100.148) 115.55ms referer=https://127.0.0.1:8888/tree?
+[W 2023-08-08 23:30:57.908 ServerApp] SSL Error on 23 ('10.0.100.148', 42668): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[E 2023-08-08 23:30:59.591 ServerApp] Uncaught exception GET /api/nbconvert?1691508621896 (10.0.100.148)
+    HTTPServerRequest(protocol='https', host='127.0.0.1:8888', method='GET', uri='/api/nbconvert?1691508621896', version='HTTP/1.1', remote_ip='10.0.100.148')
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[W 2023-08-08 23:30:59.593 ServerApp] wrote error: 'Unhandled error'
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[E 2023-08-08 23:30:59.594 ServerApp] {
+      "Host": "127.0.0.1:8888",
+      "Accept": "*/*",
+      "Referer": "https://127.0.0.1:8888/notebooks/project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    }
+[E 2023-08-08 23:30:59.594 ServerApp] 500 GET /api/nbconvert?1691508621896 (1fb332d3f15b4004aa79c0c0a753e1d6@10.0.100.148) 99.87ms referer=https://127.0.0.1:8888/notebooks/project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 23:31:01.211 ServerApp] SSL Error on 33 ('10.0.100.148', 59120): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 23:31:01.259 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-08 23:35:07.392 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 23:37:11.086 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 23:39:19.462 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 23:41:21.854 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-08 23:47:16.174 ServerApp] Kernel interrupted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-08 23:47:27.939 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 23:47:28.711 ServerApp] SSL Error on 9 ('10.0.100.148', 46798): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:47:28.712 ServerApp] SSL Error on 17 ('10.0.100.148', 46814): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:47:49.512 ServerApp] SSL Error on 9 ('10.0.100.148', 39004): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 23:49:35.153 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 23:49:35.242 ServerApp] SSL Error on 17 ('10.0.100.148', 59188): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:49:35.265 ServerApp] SSL Error on 36 ('10.0.100.148', 59194): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:50:48.110 ServerApp] SSL Error on 9 ('10.0.100.148', 44362): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:50:48.349 ServerApp] SSL Error on 17 ('10.0.100.148', 44376): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-08 23:51:42.032 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-08 23:51:42.892 ServerApp] SSL Error on 9 ('10.0.100.148', 55964): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:51:42.892 ServerApp] SSL Error on 17 ('10.0.100.148', 55972): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:56:33.159 ServerApp] SSL Error on 9 ('10.0.100.148', 42444): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-08 23:56:33.183 ServerApp] SSL Error on 17 ('10.0.100.148', 42456): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:01:33.167 ServerApp] SSL Error on 9 ('10.0.100.148', 39590): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:01:33.173 ServerApp] SSL Error on 17 ('10.0.100.148', 39592): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:14:44.903 ServerApp] SSL Error on 9 ('10.0.100.148', 60308): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:14:44.953 ServerApp] SSL Error on 10 ('10.0.100.148', 60322): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:14:44.953 ServerApp] SSL Error on 11 ('10.0.100.148', 60326): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:14:44.953 ServerApp] SSL Error on 13 ('10.0.100.148', 60332): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:14:44.997 ServerApp] SSL Error on 14 ('10.0.100.148', 60334): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:14:56.163 ServerApp] SSL Error on 10 ('10.0.100.148', 35020): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:18:31.017 ServerApp] SSL Error on 10 ('10.0.100.148', 35836): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:22:37.632 ServerApp] SSL Error on 10 ('10.0.100.148', 36846): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:22:44.373 ServerApp] SSL Error on 10 ('10.0.100.148', 38712): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 00:25:19.205 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 00:32:30.701 ServerApp] SSL Error on 9 ('10.0.100.148', 44390): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:32:30.731 ServerApp] SSL Error on 10 ('10.0.100.148', 44394): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:32:30.731 ServerApp] SSL Error on 11 ('10.0.100.148', 44398): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:32:30.736 ServerApp] SSL Error on 13 ('10.0.100.148', 44400): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 00:32:30.772 ServerApp] SSL Error on 14 ('10.0.100.148', 44408): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 00:33:28.806 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 00:33:29.584 ServerApp] SSL Error on 13 ('10.0.100.148', 58738): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 00:35:37.961 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 00:35:39.140 ServerApp] SSL Error on 13 ('10.0.100.148', 56296): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 00:37:44.662 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 00:39:52.778 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 00:45:57.470 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 00:45:58.117 ServerApp] SSL Error on 13 ('10.0.100.148', 39130): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 00:48:00.842 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 00:48:00.916 ServerApp] SSL Error on 14 ('10.0.100.148', 54964): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 00:50:06.652 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 00:50:08.115 ServerApp] SSL Error on 13 ('10.0.100.148', 55052): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 00:51:51.150 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 00:51:52.553 ServerApp] SSL Error on 13 ('10.0.100.148', 41986): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 00:52:32.447 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 00:52:33.508 ServerApp] SSL Error on 13 ('10.0.100.148', 60380): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 00:54:39.456 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 00:54:39.586 ServerApp] SSL Error on 13 ('10.0.100.148', 50516): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 01:05:29.084 ServerApp] SSL Error on 13 ('10.0.100.148', 44140): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 01:08:58.663 ServerApp] SSL Error on 38 ('10.0.100.148', 52450): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 01:10:04.219 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:b007948e-bbf4-4e05-a918-af4da74bf9d0
+[W 2023-08-09 09:57:52.891 ServerApp] SSL Error on 9 ('10.0.100.148', 56452): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 09:57:53.897 ServerApp] SSL Error on 10 ('10.0.100.148', 56474): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 09:57:53.937 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-09 09:57:53.937 ServerApp] Restoring connection for 7db1b66b-8383-4422-82c7-b84bc7e95207:b007948e-bbf4-4e05-a918-af4da74bf9d0
+[I 2023-08-09 09:57:53.961 ServerApp] Replaying 7 buffered messages
+[W 2023-08-09 09:57:54.051 ServerApp] SSL Error on 11 ('10.0.100.148', 56478): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 09:59:33.884 ServerApp] SSL Error on 11 ('10.0.100.148', 52048): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 09:59:33.893 ServerApp] SSL Error on 13 ('10.0.100.148', 52064): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 09:59:33.944 ServerApp] SSL Error on 14 ('10.0.100.148', 52090): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 09:59:33.955 ServerApp] SSL Error on 15 ('10.0.100.148', 52098): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 09:59:33.991 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 09:59:44.888 ServerApp] SSL Error on 15 ('10.0.100.148', 39626): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:06:57.406 ServerApp] SSL Error on 15 ('10.0.100.148', 37108): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:06:57.406 ServerApp] SSL Error on 17 ('10.0.100.148', 37118): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:06:57.412 ServerApp] SSL Error on 23 ('10.0.100.148', 37134): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:06:57.431 ServerApp] SSL Error on 33 ('10.0.100.148', 37148): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:06:57.431 ServerApp] SSL Error on 36 ('10.0.100.148', 37150): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:06:57.432 ServerApp] SSL Error on 37 ('10.0.100.148', 37164): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:22:34.115 ServerApp] SSL Error on 33 ('10.0.100.148', 43738): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:22:34.117 ServerApp] SSL Error on 9 ('10.0.100.148', 43742): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:22:34.121 ServerApp] SSL Error on 11 ('10.0.100.148', 43744): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:22:34.141 ServerApp] SSL Error on 14 ('10.0.100.148', 43756): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:22:34.145 ServerApp] SSL Error on 15 ('10.0.100.148', 43758): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:22:34.581 ServerApp] SSL Error on 14 ('10.0.100.148', 43808): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:22:34.587 ServerApp] SSL Error on 15 ('10.0.100.148', 43824): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 10:23:08.913 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 10:25:09.029 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 10:27:09.296 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 10:29:09.390 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 10:39:12.686 ServerApp] SSL Error on 11 ('10.0.100.148', 44438): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:39:12.688 ServerApp] SSL Error on 14 ('10.0.100.148', 44452): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:39:12.699 ServerApp] SSL Error on 15 ('10.0.100.148', 44464): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:39:44.031 ServerApp] SSL Error on 15 ('10.0.100.148', 37174): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:39:54.907 ServerApp] SSL Error on 15 ('10.0.100.148', 39640): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:40:02.899 ServerApp] SSL Error on 15 ('10.0.100.148', 52412): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 10:40:43.918 ServerApp] SSL Error on 15 ('10.0.100.148', 35164): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 10:41:14.916 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 11:03:56.515 ServerApp] SSL Error on 11 ('10.0.100.148', 56126): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:03:56.515 ServerApp] SSL Error on 14 ('10.0.100.148', 56134): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:03:56.527 ServerApp] SSL Error on 15 ('10.0.100.148', 56136): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:03:56.528 ServerApp] SSL Error on 17 ('10.0.100.148', 56140): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:03:56.531 ServerApp] SSL Error on 23 ('10.0.100.148', 56156): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:08:57.397 ServerApp] SSL Error on 11 ('10.0.100.148', 47272): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:09:07.949 ServerApp] SSL Error on 11 ('10.0.100.148', 45740): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:11:59.451 ServerApp] SSL Error on 11 ('10.0.100.148', 43668): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:16:44.379 ServerApp] SSL Error on 11 ('10.0.100.148', 50056): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:16:44.380 ServerApp] SSL Error on 14 ('10.0.100.148', 50068): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:16:44.414 ServerApp] SSL Error on 17 ('10.0.100.148', 50084): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:26:11.665 ServerApp] SSL Error on 11 ('10.0.100.148', 53982): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:26:21.700 ServerApp] SSL Error on 11 ('10.0.100.148', 38670): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:28:32.948 ServerApp] SSL Error on 11 ('10.0.100.148', 59014): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:30:39.358 ServerApp] SSL Error on 17 ('10.0.100.148', 43564): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:30:39.377 ServerApp] SSL Error on 11 ('10.0.100.148', 43548): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:30:39.378 ServerApp] SSL Error on 14 ('10.0.100.148', 43554): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:30:39.401 ServerApp] SSL Error on 23 ('10.0.100.148', 43570): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:40:33.825 ServerApp] SSL Error on 23 ('10.0.100.148', 46496): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:40:33.826 ServerApp] SSL Error on 37 ('10.0.100.148', 46510): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:40:33.827 ServerApp] SSL Error on 38 ('10.0.100.148', 46514): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:40:33.842 ServerApp] SSL Error on 39 ('10.0.100.148', 46518): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 11:40:33.842 ServerApp] SSL Error on 40 ('10.0.100.148', 46526): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 11:41:08.969 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 11:43:09.092 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 11:49:09.961 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 12:52:33.402 ServerApp] SSL Error on 11 ('10.0.100.148', 42442): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 12:52:33.403 ServerApp] SSL Error on 14 ('10.0.100.148', 42450): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 12:52:33.407 ServerApp] SSL Error on 15 ('10.0.100.148', 42456): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 12:52:33.424 ServerApp] SSL Error on 17 ('10.0.100.148', 42458): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 12:52:33.425 ServerApp] SSL Error on 23 ('10.0.100.148', 42462): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 12:53:09.040 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 13:26:20.166 ServerApp] SSL Error on 37 ('10.0.100.148', 52776): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.167 ServerApp] SSL Error on 17 ('10.0.100.148', 52752): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.172 ServerApp] SSL Error on 23 ('10.0.100.148', 52764): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.177 ServerApp] SSL Error on 38 ('10.0.100.148', 52784): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.177 ServerApp] SSL Error on 39 ('10.0.100.148', 52798): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.192 ServerApp] SSL Error on 11 ('10.0.100.148', 52822): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.192 ServerApp] SSL Error on 14 ('10.0.100.148', 52828): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.192 ServerApp] SSL Error on 40 ('10.0.100.148', 52806): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.205 ServerApp] SSL Error on 15 ('10.0.100.148', 52830): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.205 ServerApp] SSL Error on 17 ('10.0.100.148', 52844): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.206 ServerApp] SSL Error on 33 ('10.0.100.148', 52858): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:26:20.215 ServerApp] SSL Error on 11 ('10.0.100.148', 52866): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:33:30.237 ServerApp] SSL Error on 11 ('10.0.100.148', 40614): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:33:30.249 ServerApp] SSL Error on 17 ('10.0.100.148', 40618): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:33:30.250 ServerApp] SSL Error on 33 ('10.0.100.148', 40624): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:33:30.251 ServerApp] SSL Error on 36 ('10.0.100.148', 40636): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:33:30.264 ServerApp] SSL Error on 39 ('10.0.100.148', 40648): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:36:00.161 ServerApp] SSL Error on 33 ('10.0.100.148', 53028): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 13:36:00.176 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 13:38:01.023 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 13:39:11.246 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 13:41:11.439 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 13:46:56.090 ServerApp] SSL Error on 11 ('10.0.100.148', 34836): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:47:46.694 ServerApp] SSL Error on 11 ('10.0.100.148', 50238): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:47:57.486 ServerApp] SSL Error on 11 ('10.0.100.148', 56386): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:48:39.224 ServerApp] SSL Error on 11 ('10.0.100.148', 42496): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:48:39.226 ServerApp] SSL Error on 17 ('10.0.100.148', 42512): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:48:39.241 ServerApp] SSL Error on 33 ('10.0.100.148', 42520): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:48:50.050 ServerApp] SSL Error on 11 ('10.0.100.148', 57012): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 13:57:14.574 ServerApp] SSL Error on 11 ('10.0.100.148', 45782): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 13:59:09.208 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 13:59:09.309 ServerApp] SSL Error on 14 ('10.0.100.148', 52208): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 14:02:10.019 ServerApp] SSL Error on 14 ('10.0.100.148', 37476): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 14:02:19.021 ServerApp] SSL Error on 14 ('10.0.100.148', 37490): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 14:02:19.035 ServerApp] SSL Error on 15 ('10.0.100.148', 37502): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 14:02:19.035 ServerApp] SSL Error on 17 ('10.0.100.148', 37512): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 14:02:25.286 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 14:04:25.386 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 14:05:39.489 ServerApp] SSL Error on 15 ('10.0.100.148', 47756): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:53:20.996 ServerApp] SSL Error on 11 ('10.0.100.148', 56714): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:53:20.999 ServerApp] SSL Error on 14 ('10.0.100.148', 56720): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:53:21.001 ServerApp] SSL Error on 15 ('10.0.100.148', 56728): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:53:21.017 ServerApp] SSL Error on 17 ('10.0.100.148', 56736): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:53:21.017 ServerApp] SSL Error on 23 ('10.0.100.148', 56740): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 15:54:09.105 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 15:59:33.148 ServerApp] SSL Error on 17 ('10.0.100.148', 57920): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.148 ServerApp] SSL Error on 23 ('10.0.100.148', 57928): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.164 ServerApp] SSL Error on 37 ('10.0.100.148', 57934): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.165 ServerApp] SSL Error on 38 ('10.0.100.148', 57944): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.168 ServerApp] SSL Error on 39 ('10.0.100.148', 57954): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.169 ServerApp] SSL Error on 40 ('10.0.100.148', 57970): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.182 ServerApp] SSL Error on 15 ('10.0.100.148', 57982): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.183 ServerApp] SSL Error on 11 ('10.0.100.148', 57972): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.189 ServerApp] SSL Error on 17 ('10.0.100.148', 57990): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.189 ServerApp] SSL Error on 23 ('10.0.100.148', 58000): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 15:59:33.200 ServerApp] SSL Error on 33 ('10.0.100.148', 58016): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 16:00:11.196 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:01:08.351 ServerApp] Kernel interrupted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-09 16:01:19.434 ServerApp] Kernel restarted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-09 16:01:19.448 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:b007948e-bbf4-4e05-a918-af4da74bf9d0
+[W 2023-08-09 16:01:19.474 ServerApp] SSL Error on 10 ('10.0.100.148', 53152): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 16:01:19.499 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-09 16:01:19.500 ServerApp] Restoring connection for 7db1b66b-8383-4422-82c7-b84bc7e95207:b007948e-bbf4-4e05-a918-af4da74bf9d0
+[I 2023-08-09 16:02:12.083 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:06:16.089 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:08:17.088 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 16:13:19.101 ServerApp] SSL Error on 23 ('10.0.100.148', 37742): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:13:19.146 ServerApp] SSL Error on 14 ('10.0.100.148', 37772): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:13:19.160 ServerApp] SSL Error on 15 ('10.0.100.148', 37778): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:13:19.161 ServerApp] SSL Error on 17 ('10.0.100.148', 37782): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:13:19.162 ServerApp] SSL Error on 23 ('10.0.100.148', 37792): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 16:14:20.119 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 16:17:32.303 ServerApp] SSL Error on 15 ('10.0.100.148', 56848): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:17:32.305 ServerApp] SSL Error on 17 ('10.0.100.148', 56862): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 16:18:22.104 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:19:07.887 ServerApp] Kernel interrupted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-09 16:19:11.373 ServerApp] Kernel restarted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-09 16:19:11.385 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:b007948e-bbf4-4e05-a918-af4da74bf9d0
+[W 2023-08-09 16:19:11.418 ServerApp] SSL Error on 10 ('10.0.100.148', 33600): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 16:19:11.446 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-09 16:19:11.446 ServerApp] Restoring connection for 7db1b66b-8383-4422-82c7-b84bc7e95207:b007948e-bbf4-4e05-a918-af4da74bf9d0
+[I 2023-08-09 16:19:13.431 ServerApp] Kernel interrupted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-09 16:20:23.103 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 16:22:00.413 ServerApp] SSL Error on 17 ('10.0.100.148', 33654): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 16:22:23.166 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:24:24.111 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:26:24.178 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:28:25.107 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 16:28:53.005 ServerApp] SSL Error on 17 ('10.0.100.148', 48266): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 16:28:54.287 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:28:58.764 ServerApp] Kernel restarted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-09 16:28:58.790 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:b007948e-bbf4-4e05-a918-af4da74bf9d0
+[W 2023-08-09 16:28:58.819 ServerApp] SSL Error on 10 ('10.0.100.148', 48274): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 16:28:58.844 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-09 16:28:58.844 ServerApp] Restoring connection for 7db1b66b-8383-4422-82c7-b84bc7e95207:b007948e-bbf4-4e05-a918-af4da74bf9d0
+[I 2023-08-09 16:30:55.119 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:32:55.199 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-09 16:34:55.258 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 16:52:13.777 ServerApp] SSL Error on 11 ('10.0.100.148', 34648): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:52:13.786 ServerApp] SSL Error on 15 ('10.0.100.148', 34662): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:52:13.786 ServerApp] SSL Error on 27 ('10.0.100.148', 34664): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:52:19.133 ServerApp] SSL Error on 15 ('10.0.100.148', 34702): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:53:19.501 ServerApp] SSL Error on 15 ('10.0.100.148', 44770): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:53:19.504 ServerApp] SSL Error on 27 ('10.0.100.148', 44784): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:53:19.512 ServerApp] SSL Error on 33 ('10.0.100.148', 44792): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 16:53:30.115 ServerApp] SSL Error on 15 ('10.0.100.148', 52672): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:01:38.482 ServerApp] SSL Error on 15 ('10.0.100.148', 38466): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:01:38.486 ServerApp] SSL Error on 27 ('10.0.100.148', 38480): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:01:38.493 ServerApp] SSL Error on 33 ('10.0.100.148', 38482): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:09:42.083 ServerApp] SSL Error on 14 ('10.0.100.148', 38886): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:09:42.084 ServerApp] SSL Error on 15 ('10.0.100.148', 38894): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:09:42.084 ServerApp] SSL Error on 11 ('10.0.100.148', 38870): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:09:42.103 ServerApp] SSL Error on 27 ('10.0.100.148', 38902): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:09:42.104 ServerApp] SSL Error on 31 ('10.0.100.148', 38906): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:11:20.992 ServerApp] SSL Error on 31 ('10.0.100.148', 57166): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:11:21.462 ServerApp] SSL Error on 31 ('10.0.100.148', 57182): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 17:12:11.108 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 17:20:44.468 ServerApp] SSL Error on 11 ('10.0.100.148', 42760): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.471 ServerApp] SSL Error on 14 ('10.0.100.148', 42764): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.482 ServerApp] SSL Error on 15 ('10.0.100.148', 42768): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.483 ServerApp] SSL Error on 27 ('10.0.100.148', 42772): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.484 ServerApp] SSL Error on 31 ('10.0.100.148', 42776): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.498 ServerApp] SSL Error on 33 ('10.0.100.148', 42780): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.498 ServerApp] SSL Error on 11 ('10.0.100.148', 42782): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.498 ServerApp] SSL Error on 36 ('10.0.100.148', 42784): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.508 ServerApp] SSL Error on 14 ('10.0.100.148', 42790): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.511 ServerApp] SSL Error on 38 ('10.0.100.148', 42808): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:20:44.514 ServerApp] SSL Error on 15 ('10.0.100.148', 42810): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 17:23:09.160 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-09 17:28:04.333 ServerApp] SSL Error on 11 ('10.0.100.148', 44736): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:28:04.339 ServerApp] SSL Error on 15 ('10.0.100.148', 44738): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:28:25.162 ServerApp] SSL Error on 11 ('10.0.100.148', 37150): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 17:28:25.177 ServerApp] SSL Error on 15 ('10.0.100.148', 37152): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:05:14.903 ServerApp] SSL Error on 11 ('10.0.100.148', 34094): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:16:23.490 ServerApp] SSL Error on 11 ('10.0.100.148', 38920): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:16:23.496 ServerApp] SSL Error on 14 ('10.0.100.148', 38926): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:16:23.501 ServerApp] SSL Error on 15 ('10.0.100.148', 38934): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:16:23.511 ServerApp] SSL Error on 27 ('10.0.100.148', 38936): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:16:23.512 ServerApp] SSL Error on 31 ('10.0.100.148', 38948): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:47:55.911 ServerApp] SSL Error on 11 ('10.0.100.148', 53420): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:47:55.917 ServerApp] SSL Error on 14 ('10.0.100.148', 53426): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:47:55.923 ServerApp] SSL Error on 27 ('10.0.100.148', 53442): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:47:55.924 ServerApp] SSL Error on 31 ('10.0.100.148', 53444): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:47:57.664 ServerApp] SSL Error on 27 ('10.0.100.148', 53482): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 18:48:06.180 ServerApp] SSL Error on 27 ('10.0.100.148', 38402): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.028 ServerApp] SSL Error on 11 ('10.0.100.148', 49796): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.029 ServerApp] SSL Error on 27 ('10.0.100.148', 49810): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.029 ServerApp] SSL Error on 31 ('10.0.100.148', 49822): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.035 ServerApp] SSL Error on 14 ('10.0.100.148', 49824): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.045 ServerApp] SSL Error on 15 ('10.0.100.148', 49834): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.050 ServerApp] SSL Error on 36 ('10.0.100.148', 49852): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.050 ServerApp] SSL Error on 37 ('10.0.100.148', 49868): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.051 ServerApp] SSL Error on 33 ('10.0.100.148', 49848): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.061 ServerApp] SSL Error on 38 ('10.0.100.148', 49882): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.062 ServerApp] SSL Error on 39 ('10.0.100.148', 49896): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.070 ServerApp] SSL Error on 40 ('10.0.100.148', 49908): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:43:20.070 ServerApp] SSL Error on 11 ('10.0.100.148', 49914): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:55:04.681 ServerApp] SSL Error on 11 ('10.0.100.148', 58828): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:55:15.204 ServerApp] SSL Error on 11 ('10.0.100.148', 38012): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:57:40.768 ServerApp] SSL Error on 11 ('10.0.100.148', 45852): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:57:40.768 ServerApp] SSL Error on 15 ('10.0.100.148', 45868): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:57:40.774 ServerApp] SSL Error on 27 ('10.0.100.148', 45880): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-09 19:57:51.250 ServerApp] SSL Error on 11 ('10.0.100.148', 46910): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-09 20:47:01.587 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:b007948e-bbf4-4e05-a918-af4da74bf9d0
+[W 2023-08-10 19:01:31.744 ServerApp] SSL Error on 9 ('10.0.100.148', 43224): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-10 19:01:31.758 ServerApp] 302 GET / (@10.0.100.148) 1.47ms
+[W 2023-08-10 19:01:31.831 ServerApp] SSL Error on 10 ('10.0.100.148', 43240): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-10 19:01:31.897 ServerApp] SSL Error on 10 ('10.0.100.148', 43242): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-10 19:01:31.907 ServerApp] SSL Error on 11 ('10.0.100.148', 43258): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-10 19:01:31.935 ServerApp] SSL Error on 13 ('10.0.100.148', 43266): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-10 19:01:31.938 ServerApp] SSL Error on 14 ('10.0.100.148', 43268): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-10 19:01:31.938 ServerApp] SSL Error on 15 ('10.0.100.148', 43270): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-10 19:01:33.631 ServerApp] SSL Error on 13 ('10.0.100.148', 43334): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[E 2023-08-10 19:01:39.672 ServerApp] Uncaught exception GET /api/nbconvert?1691665262093 (10.0.100.148)
+    HTTPServerRequest(protocol='https', host='127.0.0.1:8888', method='GET', uri='/api/nbconvert?1691665262093', version='HTTP/1.1', remote_ip='10.0.100.148')
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[W 2023-08-10 19:01:39.674 ServerApp] wrote error: 'Unhandled error'
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[E 2023-08-10 19:01:39.675 ServerApp] {
+      "Host": "127.0.0.1:8888",
+      "Accept": "*/*",
+      "Referer": "https://127.0.0.1:8888/tree?",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    }
+[E 2023-08-10 19:01:39.675 ServerApp] 500 GET /api/nbconvert?1691665262093 (1fb332d3f15b4004aa79c0c0a753e1d6@10.0.100.148) 148.17ms referer=https://127.0.0.1:8888/tree?
+[W 2023-08-10 19:01:41.083 ServerApp] SSL Error on 14 ('10.0.100.148', 55290): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[E 2023-08-10 19:01:42.857 ServerApp] Uncaught exception GET /api/nbconvert?1691665265064 (10.0.100.148)
+    HTTPServerRequest(protocol='https', host='127.0.0.1:8888', method='GET', uri='/api/nbconvert?1691665265064', version='HTTP/1.1', remote_ip='10.0.100.148')
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[W 2023-08-10 19:01:42.859 ServerApp] wrote error: 'Unhandled error'
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[E 2023-08-10 19:01:42.860 ServerApp] {
+      "Host": "127.0.0.1:8888",
+      "Accept": "*/*",
+      "Referer": "https://127.0.0.1:8888/notebooks/project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    }
+[E 2023-08-10 19:01:42.860 ServerApp] 500 GET /api/nbconvert?1691665265064 (1fb332d3f15b4004aa79c0c0a753e1d6@10.0.100.148) 369.02ms referer=https://127.0.0.1:8888/notebooks/project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-10 19:01:42.966 ServerApp] SSL Error on 15 ('10.0.100.148', 55310): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-10 19:01:42.993 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-10 19:03:42.876 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:04:19.920 ServerApp] Kernel restarted: 7db1b66b-8383-4422-82c7-b84bc7e95207
+[I 2023-08-10 19:04:19.933 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:d238cfcc-72f6-4053-9ebb-ff0dbb60a441
+[W 2023-08-10 19:04:19.952 ServerApp] SSL Error on 15 ('10.0.100.148', 46254): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-10 19:04:19.982 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-10 19:04:19.982 ServerApp] Restoring connection for 7db1b66b-8383-4422-82c7-b84bc7e95207:d238cfcc-72f6-4053-9ebb-ff0dbb60a441
+[I 2023-08-10 19:05:42.951 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:07:43.028 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:09:43.112 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:11:43.178 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:13:43.235 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:15:43.395 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-10 19:18:15.622 ServerApp] SSL Error on 9 ('10.0.100.148', 53324): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-10 19:18:15.627 ServerApp] SSL Error on 10 ('10.0.100.148', 53326): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-10 19:18:15.637 ServerApp] SSL Error on 25 ('10.0.100.148', 53328): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-10 19:18:26.395 ServerApp] SSL Error on 25 ('10.0.100.148', 59894): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-10 19:19:44.403 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:21:45.476 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:23:45.842 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:25:45.915 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:30:10.217 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-10 19:30:12.717 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:d238cfcc-72f6-4053-9ebb-ff0dbb60a441
+[W 2023-08-12 22:31:30.940 ServerApp] SSL Error on 9 ('10.0.100.148', 52950): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-12 22:31:30.981 ServerApp] 302 GET / (@10.0.100.148) 1.41ms
+[W 2023-08-12 22:31:31.574 ServerApp] SSL Error on 10 ('10.0.100.148', 52968): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:31:31.582 ServerApp] SSL Error on 11 ('10.0.100.148', 52982): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:31:31.642 ServerApp] SSL Error on 13 ('10.0.100.148', 52988): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:31:31.655 ServerApp] SSL Error on 14 ('10.0.100.148', 53000): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:31:31.656 ServerApp] SSL Error on 15 ('10.0.100.148', 53002): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:31:34.557 ServerApp] SSL Error on 14 ('10.0.100.148', 53054): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[E 2023-08-12 22:32:15.894 ServerApp] Uncaught exception GET /api/nbconvert?1691850699347 (10.0.100.148)
+    HTTPServerRequest(protocol='https', host='127.0.0.1:8888', method='GET', uri='/api/nbconvert?1691850699347', version='HTTP/1.1', remote_ip='10.0.100.148')
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[W 2023-08-12 22:32:15.896 ServerApp] wrote error: 'Unhandled error'
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[E 2023-08-12 22:32:15.896 ServerApp] {
+      "Host": "127.0.0.1:8888",
+      "Accept": "*/*",
+      "Referer": "https://127.0.0.1:8888/tree/project",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    }
+[E 2023-08-12 22:32:15.896 ServerApp] 500 GET /api/nbconvert?1691850699347 (1fb332d3f15b4004aa79c0c0a753e1d6@10.0.100.148) 100.01ms referer=https://127.0.0.1:8888/tree/project
+[W 2023-08-12 22:32:19.493 ServerApp] SSL Error on 14 ('10.0.100.148', 49088): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[E 2023-08-12 22:32:21.205 ServerApp] Uncaught exception GET /api/nbconvert?1691850704676 (10.0.100.148)
+    HTTPServerRequest(protocol='https', host='127.0.0.1:8888', method='GET', uri='/api/nbconvert?1691850704676', version='HTTP/1.1', remote_ip='10.0.100.148')
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[W 2023-08-12 22:32:21.206 ServerApp] wrote error: 'Unhandled error'
+    Traceback (most recent call last):
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/tornado/web.py", line 1786, in _execute
+        result = await result
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_server/services/nbconvert/handlers.py", line 40, in get
+        exporters = await run_sync(base.get_export_names)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+        return await get_asynclib().run_sync_in_worker_thread(
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+        return await future
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+        result = context.run(func, *args)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 150, in get_export_names
+        e = get_exporter(exporter_name)(config=config)
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/nbconvert/exporters/base.py", line 109, in get_exporter
+        exporter = [e for e in exporters if e.name == name or e.name == name.lower()][0].load()
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+        module = import_module(match.group('module'))
+      File "/data/yinhao/Anaconda3/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+      File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_contrib_nbextensions/__init__.py", line 5, in <module>
+        import jupyter_nbextensions_configurator
+      File "/data/yinhao/Anaconda3/lib/python3.10/site-packages/jupyter_nbextensions_configurator/__init__.py", line 18, in <module>
+        from notebook.base.handlers import APIHandler, IPythonHandler
+    ModuleNotFoundError: No module named 'notebook.base'
+[E 2023-08-12 22:32:21.207 ServerApp] {
+      "Host": "127.0.0.1:8888",
+      "Accept": "*/*",
+      "Referer": "https://127.0.0.1:8888/notebooks/project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    }
+[E 2023-08-12 22:32:21.207 ServerApp] 500 GET /api/nbconvert?1691850704676 (1fb332d3f15b4004aa79c0c0a753e1d6@10.0.100.148) 86.14ms referer=https://127.0.0.1:8888/notebooks/project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-12 22:32:23.059 ServerApp] SSL Error on 15 ('10.0.100.148', 56786): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-12 22:32:23.342 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-12 22:34:25.088 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-12 22:36:28.017 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-12 22:38:32.935 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-12 22:42:53.345 ServerApp] WebSocket ping timeout after 119979 ms.
+[I 2023-08-12 22:42:58.359 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:3d1d2558-e792-4bbc-91ce-af83dd86cdde
+[W 2023-08-12 22:47:02.988 ServerApp] SSL Error on 15 ('10.0.100.148', 44102): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:47:04.001 ServerApp] SSL Error on 33 ('10.0.100.148', 44126): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-12 22:47:04.049 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-12 22:47:04.049 ServerApp] Restoring connection for 7db1b66b-8383-4422-82c7-b84bc7e95207:3d1d2558-e792-4bbc-91ce-af83dd86cdde
+[W 2023-08-12 22:47:04.145 ServerApp] SSL Error on 34 ('10.0.100.148', 44136): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:47:04.458 ServerApp] SSL Error on 34 ('10.0.100.148', 44146): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-12 22:48:25.401 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:3d1d2558-e792-4bbc-91ce-af83dd86cdde
+[W 2023-08-12 22:48:48.968 ServerApp] SSL Error on 9 ('10.0.100.148', 54712): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:48:49.964 ServerApp] SSL Error on 9 ('10.0.100.148', 44766): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-12 22:48:50.248 ServerApp] Connecting to kernel 7db1b66b-8383-4422-82c7-b84bc7e95207.
+[I 2023-08-12 22:48:50.249 ServerApp] Restoring connection for 7db1b66b-8383-4422-82c7-b84bc7e95207:3d1d2558-e792-4bbc-91ce-af83dd86cdde
+[W 2023-08-12 22:48:50.409 ServerApp] SSL Error on 11 ('10.0.100.148', 44784): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:50:06.766 ServerApp] SSL Error on 11 ('10.0.100.148', 60314): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:50:06.784 ServerApp] SSL Error on 13 ('10.0.100.148', 60328): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:50:06.784 ServerApp] SSL Error on 14 ('10.0.100.148', 60342): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:50:06.784 ServerApp] SSL Error on 15 ('10.0.100.148', 60356): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:50:06.784 ServerApp] SSL Error on 25 ('10.0.100.148', 60358): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 22:50:06.784 ServerApp] SSL Error on 27 ('10.0.100.148', 60360): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.536 ServerApp] SSL Error on 10 ('10.0.100.148', 40818): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.537 ServerApp] SSL Error on 11 ('10.0.100.148', 40834): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.541 ServerApp] SSL Error on 13 ('10.0.100.148', 40836): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.555 ServerApp] SSL Error on 14 ('10.0.100.148', 40842): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.560 ServerApp] SSL Error on 15 ('10.0.100.148', 40846): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.560 ServerApp] SSL Error on 25 ('10.0.100.148', 40858): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.577 ServerApp] SSL Error on 10 ('10.0.100.148', 40860): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.578 ServerApp] SSL Error on 11 ('10.0.100.148', 40868): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.584 ServerApp] SSL Error on 13 ('10.0.100.148', 40874): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.587 ServerApp] SSL Error on 27 ('10.0.100.148', 40880): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.612 ServerApp] SSL Error on 34 ('10.0.100.148', 40886): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-12 23:04:34.612 ServerApp] SSL Error on 36 ('10.0.100.148', 40892): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-12 23:04:51.232 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-12 23:08:58.833 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-12 23:09:05.840 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-12 23:11:10.629 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-12 23:13:16.332 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[I 2023-08-12 23:17:24.696 ServerApp] Saving file at /project/challenge/2023_XunFei_SubscriberAdditionPrediction/0_data_mining.ipynb
+[W 2023-08-13 01:24:04.809 ServerApp] SSL Error on 10 ('10.0.100.148', 47406): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.811 ServerApp] SSL Error on 11 ('10.0.100.148', 47412): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.812 ServerApp] SSL Error on 13 ('10.0.100.148', 47426): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.827 ServerApp] SSL Error on 14 ('10.0.100.148', 47438): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.828 ServerApp] SSL Error on 15 ('10.0.100.148', 47448): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.832 ServerApp] SSL Error on 25 ('10.0.100.148', 47450): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.849 ServerApp] SSL Error on 10 ('10.0.100.148', 47466): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.850 ServerApp] SSL Error on 27 ('10.0.100.148', 47472): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.876 ServerApp] SSL Error on 11 ('10.0.100.148', 47486): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.877 ServerApp] SSL Error on 13 ('10.0.100.148', 47498): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.877 ServerApp] SSL Error on 34 ('10.0.100.148', 47506): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[W 2023-08-13 01:24:04.882 ServerApp] SSL Error on 14 ('10.0.100.148', 47512): [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] sslv3 alert certificate unknown (_ssl.c:1007)
+[I 2023-08-13 03:10:57.140 ServerApp] Starting buffering for 7db1b66b-8383-4422-82c7-b84bc7e95207:3d1d2558-e792-4bbc-91ce-af83dd86cdde

@@ -1,0 +1,110 @@
+{
+	"diagnostic-languageserver.enable": true,
+	"diagnostic-languageserver.debug": true,
+	"diagnostic-languageserver.trace.server": "verbose",
+	"diagnostic-languageserver.filetypes": {
+		"python": ["flake8"],
+		"sh": "shellcheck"
+	},
+	"diagnostic-languageserver.linters": {
+		"flake8": {
+			"sourceName": "flake8",
+			"command": "flake8",
+			"debounce": 100,
+			"rootPatterns": [".git", "pyproject.toml", "setup.py"],
+			"args": [
+				"--max-line-length=120",
+				"--ignore=E252,W291",
+				"--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s",
+				"-"
+			],
+			"offsetLine": 0,
+			"offsetColumn": 0,
+			"formatLines": 1,
+			"formatPattern": [
+				"(\\d+),(\\d+),([A-Z]),(.*)(\\r|\\n)*$",
+				{
+					"line": 1,
+					"column": 2,
+					"security": 3,
+					"message": 4
+				}
+			],
+			"securities": {
+				"F": "error",
+				"E": "error",
+				"W": "warning",
+				"C": "warning",
+				"N": "info"
+			}
+		},
+		"pylint": {
+			"command": "pylint",
+			"args": [
+				"--output-format","text",
+				"--score","no",
+				"--msg-template", "'{line}:{column}:{category}:{msg} ({msg_id}:{symbol})'",
+				"%file"
+			],
+			"sourceName": "pylint",
+			"formatPattern": [
+				"^(\\d+?):(\\d+?):([a-z]+?):(.*)$",
+				{
+					"line": 1,
+					"column": 2,
+					"security": 3,
+					"message": 4
+				}
+			],
+			"rootPatterns": [".git", "pyproject.toml", "setup.py"],
+			"securities": {
+				"informational": "hint",
+				"refactor": "info",
+				"convention": "info",
+				"warning": "warning",
+				"error": "error",
+				"fatal": "error"
+			},
+			"offsetColumn": 1,
+			"formatLines": 1
+		},
+		"shellcheck": {
+			"command": "shellcheck",
+			"args": ["--format", "json1", "-"],
+			"debounce": 100,
+			"sourceName": "shellcheck",
+			"parseJson": {
+				"errorsRoot": "comments",
+				"line": "line",
+				"column": "column",
+				"endLine": "endLine",
+				"endColumn": "endColumn",
+				"message": "[${code}] ${message}",
+				"security": "level"
+			},
+			"securities": {
+				"error": "error",
+				"warning": "warning",
+				"info": "info",
+				"style": "hint"
+			}
+		}
+	},
+	"diagnostic-languageserver.formatFiletypes": {
+		"python": ["black", "isort", "docformatter"]
+	},
+	"diagnostic-languageserver.formatters": {
+		"black": {
+			"command": "black",
+			"args": ["-q", "-"]
+		},
+		"isort": {
+			"command": "isort",
+			"args": ["-q", "-"]
+		},
+		"docformatter": {
+			"command": "docformatter",
+		"args": ["-"]
+		}
+	}
+}

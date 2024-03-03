@@ -28,8 +28,8 @@ else
 fi
 
 echo "Step-2 : Config git options..."
-#git config --global user.name "yinhao"
-#git config --global user.email "csustyinhao@gmail.com"
+git config --global user.name "HaoYin"
+git config --global user.email "csustyinhao@gmail.com"
 git config --global color.advice always
 git config --global color.diff always
 git config --global color.status always
@@ -45,18 +45,26 @@ git config -l
 
 echo "Step-3 : Set git completion / prompt ..."
 version="v$(git --version | awk '{print $3}')"
-wget https://raw.githubusercontent.com/git/git/$version/contrib/completion/git-completion.bash
-wget https://raw.githubusercontent.com/git/git/$version/contrib/completion/git-prompt.sh
 
 if [ -f git-completion.bash ]; then
     cp git-completion.bash ~/.git-completion.bash
 else
-    cp git/git-completion.bash ~/.git-completion.bash
+    wget -T 10 https://raw.githubusercontent.com/git/git/$version/contrib/completion/git-completion.bash
+    if [ -f git-completion.bash ]; then
+        cp git-completion.bash ~/.git-completion.bash
+    else
+        cp git/git-completion.bash ~/.git-completion.bash
+    fi
 fi
 
 if [ -f git-prompt.sh ]; then
     cp git-prompt.sh ~/.git-prompt.sh
 else
-    cp git/git-prompt.sh ~/.git-prompt.sh
+    wget -T 10 https://raw.githubusercontent.com/git/git/$version/contrib/completion/git-prompt.sh
+    if [ -f git-prompt.sh ]; then
+        cp git-prompt.sh ~/.git-prompt.sh
+    else
+        cp git/git-prompt.sh ~/.git-prompt.sh
+    fi
 fi
 

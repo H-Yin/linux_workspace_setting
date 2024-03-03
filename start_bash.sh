@@ -23,7 +23,6 @@ if [ ! -z "$OLD" ]; then
     echo "$OLD"> $HOME/.bashrc
 fi
 
-
 cat >> $HOME/.bashrc <<"EOF"
 #yinhao =================== start ================
 
@@ -111,7 +110,7 @@ history -c
 
 EOF
 
-conda -V
+which conda && conda -V
 if [[ $? == 0 ]]; then
     CONDA_HOME=$(conda info | grep 'active env location' | tr -d ' ' | cut -d : -f 2)
     OLD=$(awk 'BEGIN{start=0;end=0;}{if($0 ~ /^# >>> conda initialize >>>$/ && start == 0){start=1}; if(start == end){print $0} if($0 ~ /^# >>> conda initialize >>>$/ && end == 0){end=1;};}' $HOME/.bashrc)
@@ -119,7 +118,6 @@ if [[ $? == 0 ]]; then
     if [ ! -z "$OLD" ]; then
         echo "$OLD"> $HOME/.bashrc
     fi
-
 fi
 
 

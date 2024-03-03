@@ -20,7 +20,7 @@ BASEDIR=$(cd `dirname $0`; pwd)
 # set -eu
 echo 'Step-1: Copy .vimrc to home directory ...'
 mv ~/.vimrc ~/.vimrc.bak
-mv ~/.vim ~/.vim.bak
+rm -rf ~/.vim.bak && mv ~/.vim ~/.vim.bak
 cp .vimrc ~/
 
 echo 'Step-2: Check and install dependences ...'
@@ -35,9 +35,25 @@ for d in $DEPS; do
     echo "Check $d : yes"
 done
 
+# install nodejs/yarn for coc
+# -- Ubuntu
+if [[ $(head -n1 /etc/issue) == Ubuntu* ]]; then
+	# remove old nodejs
+	sudo apt purge -y nodejs
+	sudo rm -rf /etc/apt/sources.list.d/nodesource.list /etc/apt/keyrings/nodesource.gpg
+	# install LTS nodejs
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt install -y nodejs
+    yarn --version || sudo npm install -g yarn
+else
+	echo "Unable to install nodejs"
+fi
+
 echo 'Step-3: Clone and install Vim-Plug ...'
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fsSLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ $? != 0 ]; then
+	cp -f vim/plug.vim ~/.vim/autoload/plug.vim
+fi
 
 echo 'Step-4: Install all plug-ins ...'
 vim +PlugInstall +qall

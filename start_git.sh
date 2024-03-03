@@ -38,6 +38,8 @@ git config --global color.showBranch always
 git config --global core.editer vim
 git config --global credential.helper 'cache --timeout 360000'
 
+git config --global pull.rebase true
+
 ## alias
 git config --global alias.lg "log --pretty=format:'%C(yellow)%h %C(green)%><(20)%cn %C(blue)%><(25)[%cd] %C(reset)%m %s %C(red)%d' --date=local"
 

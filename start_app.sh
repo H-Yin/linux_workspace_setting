@@ -15,9 +15,16 @@ BASEDIR=$(cd `dirname $0`; pwd)
 . $BASEDIR/utils/detect_system.sh
 . $BASEDIR/config/config.sh
 
-
 BIT=$(get_arch) # machine bytes
 PM=$(get_pm)    # package manager 
+
+sudo apt update
+
+# installing the dependencies for development
+if [[ $(head -n1 /etc/issue) == Ubuntu* ]]; then
+	# gcc/g++/make for C/C++
+	sudo apt install -y build-essential
+fi
 
 function check()
 {

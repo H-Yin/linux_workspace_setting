@@ -11,7 +11,7 @@ set signcolumn=yes                                              " 开启符号�
 set cmdheight=1                                                 " 设置命令行高度
 set updatetime=100                                              " 设置更新时间
 set number                                                      " 设置行号
-" set signcolumn=number											" 设置符号和行号共用
+" set signcolumn=number                                         " 设置符号和行号共用
 set cursorline                                                  " 突出显示当前行
 set showmatch                                                   " 高亮显示匹配的括号
 set hidden                                                      " 
@@ -24,7 +24,7 @@ set cindent                                                     " C语言格式�
 set tabstop=4                                                   " 设置 tab宽度
 set softtabstop=4
 set shiftwidth=4                                                " 换行时自动缩进的宽度
-" set expandtab                                                   " 自动扩展 TAB
+set expandtab                                                   " 自动扩展 TAB
 
 set autowrite                                                   " 自动保存
 set autoread                                                    " 文件修改时自动加载
@@ -70,7 +70,7 @@ Plug 'itchyny/vim-cursorword'                                   " 高亮当前�
 Plug 'luochen1990/rainbow'                                      " 高亮括号
 
 " Plug 'vim-syntastic/syntastic'                                  " 编程语法
-Plug 'dense-analysis/ale'										" 编程语法
+Plug 'dense-analysis/ale'                                       " 编程语法
 Plug 'preservim/nerdcommenter'                                  " 代码注释
 Plug 'preservim/tagbar'                                         " 标签
 " Plug 'skywind3000/asyncrun.vim'                                 " 异步运行
@@ -100,7 +100,7 @@ let g:airline_powerline_fonts = 1                               " 使用 unicode
 let g:airline_skip_empty_sections = 1                           " 跳过空的 section
 
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'    " 自动隐藏默认的编码格式
-let g:airline#extensions#ale#enabled = 0						" 关闭 ALE
+let g:airline#extensions#ale#enabled = 0                        " 关闭 ALE
 let g:airline#extensions#tabline#enabled = 1                    " 开启 tab 和 buffer
 let g:airline#extensions#tabline#left_sep = ' >'
 let g:airline#extensions#tabline#right_sep = '< '
@@ -109,8 +109,8 @@ let g:airline#extensions#bufferline#overwrite_variables = 1     " 允许 bufferl
 let g:airline#extensions#coc#enabled = 1                        " 集成 coc
 let airline#extensions#coc#error_symbol = ' '
 let airline#extensions#coc#warning_symbol = ' '
-let airline#extensions#coc#stl_format_err = '%C Errors'			" 配置 coc 状态栏格式
-let airline#extensions#coc#stl_format_warn = '%C Warns'			" 配置 coc 状态栏格式
+let airline#extensions#coc#stl_format_err = '%C Errors'         " 配置 coc 状态栏格式
+let airline#extensions#coc#stl_format_warn = '%C Warns'         " 配置 coc 状态栏格式
 let g:airline#extensions#tagbar#enabled = 1                     " 集成 tagbar
 let g:airline#extensions#tagbar#flags = 's'                     " 显示函数签名
 if !exists('g:airline_symbols')
@@ -215,15 +215,15 @@ let g:rainbow_active = 1                                        " 启用括号�
 " let g:syntastic_check_on_open = 1                               " 文件打开时检查语法
 " let g:syntastic_check_on_wq = 1                                 " 文件关闭时不检查语法
 " let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1								" 检测到错误时自动打开
-" let g:syntastic_auto_jump = 1									" 光标自动跳转到第一个 issue
+" let g:syntastic_auto_loc_list = 1                             " 检测到错误时自动打开
+" let g:syntastic_auto_jump = 1                                 " 光标自动跳转到第一个 issue
 " let g:syntastic_python_checkers = ['pylint']
 " let g:syntastic_python_pylint_args = "--disable=redefined-outer-name"
 " let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": ["python"] }
 " ======================================================================================================= ALE
-let g:ale_enabled = 0 											" 启用ALE插件
-let g:ale_sign_column_always = 1								" 总是显示错误的提示符号
-let g:ale_linters = {'python': ['flake8']}						" 设置Python代码检查器为 flake8
+let g:ale_enabled = 0                                           " 启用ALE插件
+let g:ale_sign_column_always = 1                                " 总是显示错误的提示符号
+let g:ale_linters = {'python': ['flake8']}                      " 设置Python代码检查器为 flake8
 
 " ======================================================================================================= NERDCommenter
 let g:NERDCompactSexyComs = 0                                   " 多行注释更好的风格
@@ -254,18 +254,18 @@ let g:asyncrun_save=1
 
 let g:coc_json_format_enable = 1
 let g:coc_global_extensions = ['coc-marketplace',
-	\ 'coc-diagnostic', 'coc-tabnine',
-	\ 'coc-git', 'coc-markdownlint',
-	\ 'coc-pydocstring'
-	\]
+    \ 'coc-diagnostic', 'coc-tabnine',
+    \ 'coc-git', 'coc-markdownlint',
+    \ 'coc-pydocstring'
+    \]
 let g:coc_user_config = {
-	\ 'diagnostic.errorSign': 'E>',
-	\ 'diagnostic.warningSign': 'W>',
-	\ 'diagnostic.infoSign': 'I>',
-	\ 'diagnostic.messageDelay': 100,
-	\ 'diagnostic.refreshOnInsertMode': "true",
-	\ 'diagnostic.format': "[%source] %message",
-	\ }
+    \ 'diagnostic.errorSign': 'E>',
+    \ 'diagnostic.warningSign': 'W>',
+    \ 'diagnostic.infoSign': 'I>',
+    \ 'diagnostic.messageDelay': 100,
+    \ 'diagnostic.refreshOnInsertMode': "true",
+    \ 'diagnostic.format': "[%source] %message",
+    \ }
 
 set statusline^=%{coc#status()}
 
@@ -318,7 +318,7 @@ noremap <silent><nowait> <F1> :NERDTreeToggle<CR>                               
 noremap <silent><nowait> <F2> :TagbarToggle<CR>                                  " Tagbar
 noremap <silent><nowait> <F5> :call F_auto_run()<CR>
 noremap <silent><nowait> <F6> :UndotreeToggle<CR>                                " UndoTree
-noremap <silent><nowait> <F7> :SyntasticCheck<CR>								 " 语法检查
+noremap <silent><nowait> <F7> :SyntasticCheck<CR>                                " 语法检查
 noremap <silent><nowait> <F9> :call F_auto_comment()<CR>
 noremap <silent><nowait> <F12> :call F_paste_toggle()<CR>
 
@@ -376,6 +376,9 @@ function! F_paste_toggle()
             :set paste
             :set nolist
             :set signcolumn=no
+            if &filetype == 'python'
+                :setlocal colorcolumn= 
+            endif
         endif
         let b:paste_toggle_on = 0
     else
@@ -388,6 +391,9 @@ function! F_paste_toggle()
             :set nopaste
             :set list
             :set signcolumn=yes
+            if &filetype == 'python'
+                :setlocal colorcolumn=120 
+            endif
         endif
         let b:paste_toggle_on = 1
     endif
@@ -466,9 +472,9 @@ endfunc
 " 设置主题颜色
 colorscheme koehler
 
-highlight VertSplit ctermfg=green ctermbg=None term=None					" 设置垂直分隔符
-highlight NonText ctermfg=239												" 设置特殊不可见字符样式
-highlight SpecialKey ctermfg=239											" 设置特殊不可见字符样式
+highlight VertSplit ctermfg=green ctermbg=None term=None                    " 设置垂直分隔符
+highlight NonText ctermfg=239                                               " 设置特殊不可见字符样式
+highlight SpecialKey ctermfg=239                                            " 设置特殊不可见字符样式
 
 
 "----------------------------------------------------------------------------------------------------------
@@ -476,9 +482,10 @@ highlight SpecialKey ctermfg=239											" 设置特殊不可见字符样式
 if has("autocmd")
     " Restore the location of the cursor when the file was last opened
     autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|exe("norm '\"")|endif
-    autocmd BufEnter *.hql exec ":set expandtab"
+    autocmd BufEnter *.hql exec "set expandtab"
     autocmd FileType python exec "setlocal expandtab | setlocal colorcolumn=120"
-	autocmd User CocStatusChange redrawstatus
+    autocmd User CocStatusChange redrawstatus
+    autocmd BufWritePre * retab!
 endif
 
 " add comment

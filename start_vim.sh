@@ -43,7 +43,7 @@ if [[ $(head -n1 /etc/issue) == Ubuntu* ]]; then
 	sudo rm -rf /etc/apt/sources.list.d/nodesource.list /etc/apt/keyrings/nodesource.gpg
 	# install LTS nodejs
     curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt install -y nodejs
-    yarn --version || sudo npm install -g yarn
+    which yarn || sudo npm install -g yarn
 else
 	echo "Unable to install nodejs"
 fi
